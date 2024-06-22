@@ -196,27 +196,27 @@
     </style>
   </head>
   <body>
-    <nav>
+  <nav>
       <ul>
-        <li class="link"><a href="home.html">Home</a></li>
-        <li class="link"><a href="information.html">Information</a></li>
+        <li class="link"><a href="home.php">Home</a></li>
+        <li class="link"><a href="information.php">Information</a></li>
         <li>
           Campaigns
           <ul>
             <li class="link">
-              <a href="popular-apps.html">Popular Apps</a>
+              <a href="popular-apps.php">Popular Apps</a>
             </li>
             <li class="link">
-              <a href="parents-help.html">Parents Help</a>
+              <a href="parents-help.php">Parents Help</a>
             </li>
             <li class="link">
-              <a href="livestreaming.html">Livestreaming</a>
+              <a href="livestreaming.php">Livestreaming</a>
             </li>
           </ul>
         </li>
 
-        <li class="link"><a href="contact.html">Contact</a></li>
-        <li class="link"><a href="legislation.html">Legislation</a></li>
+        <li class="link"><a href="contact.php">Contact</a></li>
+        <li class="link"><a href="legislation.php">Legislation</a></li>
       </ul>
       <form action="/search" method="get" class="search-input">
         <input type="text" id="search" name="search" placeholder="Search..." />
@@ -229,27 +229,33 @@
     </header>
 
     <main>
-      <section id="parents-help">
-        <h2>How Parents Can Help</h2>
+      <section id="livestreaming">
+        <h2>Livestreaming</h2>
         <p>
-          Discover top tips for parents to support healthy teen use of social
-          media.
+          Explore an overview of livestreaming and learn how it can be done in a
+          safe environment.
         </p>
-        <!-- Add content with tips for parents -->
+        <!-- Add content related to livestreaming and safety tips -->
+        <p>
+          Livestreaming is a popular way for individuals to share content in
+          real-time. Here are some tips to ensure a safe livestreaming
+          experience:
+        </p>
         <ul>
-          <li>Stay involved and communicate openly with your teenager.</li>
           <li>
-            Set boundaries and establish clear rules for social media use.
+            Be mindful of the content you share – avoid sharing personal
+            information.
           </li>
           <li>
-            Teach the importance of privacy settings and online etiquette.
+            Use privacy settings to control who can view your livestreams.
           </li>
           <li>
-            Monitor your teen's online activities without invading their
-            privacy.
+            Interact responsibly with viewers and be aware of potential risks.
           </li>
+          <li>Report and block any inappropriate comments or behavior.</li>
           <li>
-            Encourage a healthy balance between online and offline activities.
+            Educate yourself on the platform's guidelines and community
+            standards.
           </li>
         </ul>
         <!-- Add more tips or content as needed -->

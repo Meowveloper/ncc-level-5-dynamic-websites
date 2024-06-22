@@ -249,27 +249,27 @@
     </style>
   </head>
   <body>
-    <nav>
+  <nav>
       <ul>
-        <li class="link"><a href="home.html">Home</a></li>
-        <li class="link"><a href="information.html">Information</a></li>
+        <li class="link"><a href="home.php">Home</a></li>
+        <li class="link"><a href="information.php">Information</a></li>
         <li>
           Campaigns
           <ul>
             <li class="link">
-              <a href="popular-apps.html">Popular Apps</a>
+              <a href="popular-apps.php">Popular Apps</a>
             </li>
             <li class="link">
-              <a href="parents-help.html">Parents Help</a>
+              <a href="parents-help.php">Parents Help</a>
             </li>
             <li class="link">
-              <a href="livestreaming.html">Livestreaming</a>
+              <a href="livestreaming.php">Livestreaming</a>
             </li>
           </ul>
         </li>
 
-        <li class="link"><a href="contact.html">Contact</a></li>
-        <li class="link"><a href="legislation.html">Legislation</a></li>
+        <li class="link"><a href="contact.php">Contact</a></li>
+        <li class="link"><a href="legislation.php">Legislation</a></li>
       </ul>
       <form action="/search" method="get" class="search-input">
         <input type="text" id="search" name="search" placeholder="Search..." />

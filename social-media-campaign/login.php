@@ -249,78 +249,37 @@
     </style>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li class="link"><a href="home.html">Home</a></li>
-        <li class="link"><a href="information.html">Information</a></li>
-        <li>
-          Campaigns
-          <ul>
-            <li class="link">
-              <a href="popular-apps.html">Popular Apps</a>
-            </li>
-            <li class="link">
-              <a href="parents-help.html">Parents Help</a>
-            </li>
-            <li class="link">
-              <a href="livestreaming.html">Livestreaming</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="link"><a href="contact.html">Contact</a></li>
-        <li class="link"><a href="legislation.html">Legislation</a></li>
-      </ul>
-      <form action="/search" method="get" class="search-input">
-        <input type="text" id="search" name="search" placeholder="Search..." />
-        <button type="submit">Search</button>
-      </form>
-    </nav>
     <header>
       <h1>Online Safety Campaign</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->
     </header>
 
     <main>
-      <section class="legislation-content">
-        <h2>Legislation and Guidance</h2>
-
+      <section id="contact">
+        <h2>Login</h2>
         <p>
-          Stay informed about the legal aspects and best practices when it comes
-          to online social media use.
+          Feel free to reach out to us using the contact form below. We
+          appreciate your feedback and inquiries.
         </p>
 
-        <!-- Information about Legislation and Guidance -->
-        <h3>Relevant Legislation</h3>
-        <p>
-          Understanding the legal framework is crucial. Here are some key pieces
-          of legislation related to online safety:
-        </p>
-        <ul>
-          <li>The Online Safety Act</li>
-          <li>Data Protection Regulations</li>
-          <li>Child Online Privacy Act (COPA)</li>
-          <!-- Add more legislation items as needed -->
-        </ul>
+        <!-- Contact Form -->
+        <form action="/submit" method="post">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
 
-        <h3>Best Practice Guidance</h3>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required></input>
+
+          <button type="submit">Send Message</button>
+        </form>
         <p>
-          Follow these best practices to ensure a safe and responsible online
-          experience:
+          Not a member? Register <a href="./register.php">here</a>.
         </p>
-        <ul>
-          <li>Teach responsible social media use from a young age</li>
-          <li>
-            Encourage open communication with children about their online
-            activities
-          </li>
-          <li>
-            Use privacy settings to control the visibility of personal
-            information
-          </li>
-          <li>Report and block inappropriate content or users</li>
-          <!-- Add more best practice guidance items as needed -->
-        </ul>
+        <!-- Privacy Policy Link -->
+        <p>
+          Before sending a message, please review our
+          <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+        </p>
       </section>
     </main>
 
