@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Safety Campaign</title>
-    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
     <nav>
@@ -18,10 +18,6 @@
         <li class="link"><a href="./member-list.php">Member List</a></li>
         <li class="link"><a href="./logout.php">Logout</a></li>
       </ul>
-      <form action="/search" method="get" class="search-input">
-        <input type="text" id="search" name="search" placeholder="Search..." />
-        <button type="submit">Search</button>
-      </form>
     </nav>
     <header>
       <h1>Online Safety Campaign</h1>
