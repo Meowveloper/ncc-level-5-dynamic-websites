@@ -19,7 +19,7 @@ class Member
         return $members;
     }
 
-    public function store (bool $isScriber) 
+    public function store (bool $isScriber) : object
     {
         $subscription = $isScriber ? "1" : "0";
         $id = $this->generateSMCID();
