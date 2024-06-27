@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php require_once('./Model/Member.php'); use Model\Member; ?>
+<?php require_once('./Model/Member.php'); use Model\Member; session_start(); ?>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -40,11 +40,9 @@
 
 		<main>
 			<section id="home">
-
 				<?php 
-					$modelMember = new Member();
-					$students = $modelMember->index();
-					echo ($students[0]->name); 
+				session_start();
+				print_r($_SESSION['user']);
 				?>
 				<h2>Welcome to Our Campaign</h2>
 				<form action="/search" method="get">

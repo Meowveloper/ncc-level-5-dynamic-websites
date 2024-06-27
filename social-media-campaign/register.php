@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<?php 
-require_once("Controller/MemberController.php");
+<?php
+require_once ("Controller/MemberController.php");
 use Controllers\MemberController;
 ?>
 <html lang="en">
@@ -50,7 +50,11 @@ use Controllers\MemberController;
           Feel free to reach out to us using the contact form below. We
           appreciate your feedback and inquiries.
         </p>
-
+        <?php
+        if (isset($_GET['registerError'])):
+          echo "Register error. " . $_GET['message'];
+        endif
+        ?>
         <!-- Contact Form -->
         <form action="#" method="post">
           <label for="name">Name:</label>
@@ -71,11 +75,11 @@ use Controllers\MemberController;
           <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
         </p>
 
-        <?php 
-        if(isset($_POST['btnRegister'])) : 
-          $memberController = new MemberController();
-          $memberController->register(false);
-        endif
+        <?php
+          if (isset($_POST['btnRegister'])):
+            $memberController = new MemberController();
+            $memberController->register(false);
+          endif
         ?>
       </section>
     </main>
