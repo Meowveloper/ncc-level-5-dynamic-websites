@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+require_once("Controller/MemberController.php");
+use Controllers\MemberController;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -48,7 +52,7 @@
         </p>
 
         <!-- Contact Form -->
-        <form action="./controllers/member/store.php" method="post">
+        <form action="#" method="post">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required />
 
@@ -58,7 +62,7 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required></input>  
 
-          <button type="submit">Register</button>
+          <button type="submit" name="btnRegister">Register</button>
         </form>
 
         <!-- Privacy Policy Link -->
@@ -66,6 +70,13 @@
           Before sending a message, please review our
           <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
         </p>
+
+        <?php 
+        if(isset($_POST['btnRegister'])) : 
+          $memberController = new MemberController();
+          $memberController->register(false);
+        endif
+        ?>
       </section>
     </main>
 
