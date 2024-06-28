@@ -11,12 +11,25 @@ class Member
     {
         $this->db = DataBase::getInstance();
     }
-    public function index () : Array
+    protected function index (string $search = '') : Array
     {
-        $sql = "SELECT * FROM $this->table";
-        $statement = $this->db->pdo->query($sql);
+        $sql = "SELECT * FROM $this->table WHERE (name LIKE :condition OR email LIKE :condition) AND (name != '' OR email != '')";
+        $condition = $search ? "%$search%" : '%'. '' . '%';
+
+        $statement = $this->db->pdo->prepare($sql);
+        $statement->bindParam(":condition", $condition);
+        $statement->execute();
         $members = $statement->fetchAll(PDO::FETCH_OBJ);
         return $members;
+    }
+
+    protected function show (string $id) : object
+    {
+        $statement = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE id = :id");
+        $statement->bindParam(":id", $id);
+        $statement->execute();
+        $data = $statement->fetch(PDO::FETCH_OBJ);
+        return $data;
     }
 
     protected function store (bool $isScriber) : object
@@ -36,6 +49,33 @@ class Member
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_OBJ);
         return $result;
+    }
+
+    protected function update (string $id, bool $isScriber) : object
+    {   
+        $subscription = $isScriber ? "1" : "0";
+
+        $statement = $this->db->pdo->prepare("UPDATE $this->table SET name = :name, email = :email, password = :password, subscription = :subscription WHERE id = :id");
+        $statement->bindParam(":name", $_POST['name']);
+        $statement->bindParam(":email", $_POST['email']);
+        $statement->bindParam(":password" , $_POST['password']);
+        $statement->bindParam(":subscription", $subscription);
+        $statement->bindParam(":id", $id);
+        $statement->execute();
+
+        $stmt = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE id=$id");
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_OBJ);
+        return $data;
+
+    }
+
+    protected function destroy (string $id) : void 
+    {
+        if(!isset($id)) return;
+        $statement = $this->db->pdo->prepare("DELETE FROM $this->table WHERE id = :id");
+        $statement->bindParam(":id", $id);
+        $statement->execute();
     }
 
     private function generateSMCID() : string

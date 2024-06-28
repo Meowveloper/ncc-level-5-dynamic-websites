@@ -15,16 +15,26 @@ class Contact
         $this->db = DataBase::getInstance();
     }
 
-    public function index(): array
+    protected function index(string $search = ''): array
     {
-        $sql = "SELECT * FROM $this->table";
-        $statement = $this->db->pdo->query($sql);
+        $condition = $search ? "%$search%" : "%". ''. "%";
+        $sql = "SELECT * FROM $this->table WHERE (message LIKE :condition OR email LIKE :condition) AND (message != '' OR email != '')";
+        $statement = $this->db->pdo->prepare($sql);
+        $statement->bindParam(":condition", $condition);
+        $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_OBJ);
         return $data;
     }
 
+    protected function show (int $id) : object
+    {
+        $statement = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE id = $id");
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_OBJ);
+    }
 
-    public function store(): object
+
+    protected function store(): object
     {
         $statement = $this->db->pdo->prepare("INSERT INTO $this->table (message, email) VALUES (:message, :email)");
         $statement->bindParam(":message", $_POST['message']);
@@ -40,7 +50,7 @@ class Contact
     }
 
 
-    public function update(int $id): object
+    protected function update(int $id): object
     {
         $statement = $this->db->pdo->prepare("UPDATE `$this->table` SET `message` = :message WHERE `$this->table`.`id` = :id");
 
@@ -55,7 +65,7 @@ class Contact
         return $data;
     }
 
-    public function destroy(int $id): void
+    protected function destroy(int $id): void
     {
         if (isset($id) && $id > 0) {
             $statement = $this->db->pdo->prepare("DELETE FROM $this->table WHERE id = :id");

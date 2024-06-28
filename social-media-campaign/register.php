@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once ("Controller/MemberController.php");
-use Controllers\MemberController;
+use Controller\MemberController;
 ?>
 <html lang="en">
   <head>

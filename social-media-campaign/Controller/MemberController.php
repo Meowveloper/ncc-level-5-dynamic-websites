@@ -1,5 +1,5 @@
 <?php
-namespace Controllers;
+namespace Controller;
 
 require_once ('Model/Member.php');
 use Model\Member;
@@ -18,5 +18,16 @@ class MemberController extends Member
             $message = $err->getMessage();
             header("location:register.php?registerError=1&message=$message");
         }
+    }
+
+    public function searchOrGetAllMembers (string $search = '') : array
+    {
+        $data = $this->index($search);
+        return $data;
+    }
+
+    public function findOrFail (string $id) : object
+    {
+        return $this->show($id);
     }
 }
