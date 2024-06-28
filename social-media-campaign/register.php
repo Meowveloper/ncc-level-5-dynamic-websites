@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+require_once ("Controller/MemberController.php");
+use Controllers\MemberController;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -46,19 +50,23 @@
           Feel free to reach out to us using the contact form below. We
           appreciate your feedback and inquiries.
         </p>
-
+        <?php
+        if (isset($_GET['registerError'])):
+          echo "Register error. " . $_GET['message'];
+        endif
+        ?>
         <!-- Contact Form -->
-        <form action="/submit" method="post">
+        <form action="#" method="post">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required />
 
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" required />
 
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required></input>  
 
-          <button type="submit">Send Message</button>
+          <button type="submit" name="btnRegister">Register</button>
         </form>
 
         <!-- Privacy Policy Link -->
@@ -66,6 +74,13 @@
           Before sending a message, please review our
           <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
         </p>
+
+        <?php
+          if (isset($_POST['btnRegister'])):
+            $memberController = new MemberController();
+            $memberController->register(false);
+          endif
+        ?>
       </section>
     </main>
 

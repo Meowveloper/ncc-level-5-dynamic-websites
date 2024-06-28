@@ -21,14 +21,15 @@
         </p>
 
         <!-- Contact Form -->
-        <form action="/submit" method="post">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+        <form action="#" method="POST">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
 
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required></input>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required></input>
 
-          <button type="submit">Send Message</button>
+            <button type="submit">Register</button>
         </form>
         <p>
           Not a member? Register <a href="./register.php">here</a>.
