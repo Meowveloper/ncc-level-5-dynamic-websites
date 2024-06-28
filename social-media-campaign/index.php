@@ -2,12 +2,15 @@
 <?php
 require_once("Controller/MemberController.php");
 require_once("Controller/ContactController.php");
+require_once("Controller/ServiceController.php");
 
 use Controller\MemberController;
 use Controller\ContactController;
+use Controller\ServiceController;
 
 $memberController = new MemberController();
 $contactController = new ContactController();
+$serviceController = new ServiceController();
 
 ?>
 <html lang="en">
@@ -49,7 +52,7 @@ $contactController = new ContactController();
 		<section id="home">
 			<?php
 
-			$members = $memberController->searchOrGetAllMembers();
+			$members = $memberController->searchOrGetAllMembers("Zwe");
 
 			foreach ($members as $item) :
 				print_r($item->id);
@@ -64,6 +67,8 @@ $contactController = new ContactController();
 			print_r($contactController->findOrFail(1)->message);
 			echo "<br/>";
 			print_r($memberController->findOrFail('smc00001')->id);
+			echo "<br/>";
+			print_r($serviceController->searchOrGetAllServices('sad')[0]->id);
 
 			?>
 			<h2>Welcome to Our Campaign</h2>

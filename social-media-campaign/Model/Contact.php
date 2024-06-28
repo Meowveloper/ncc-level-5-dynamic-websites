@@ -5,11 +5,12 @@ namespace Model;
 use PDO;
 
 require_once('DataBase.php');
+use Model\DataBase;
 
 class Contact
 {
-    protected $db;
-    protected $table = "contacts";
+    private $db;
+    private $table = "contacts";
     public function __construct()
     {
         $this->db = DataBase::getInstance();

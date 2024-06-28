@@ -3,10 +3,11 @@
 namespace Model;
 use PDO;
 require_once('DataBase.php'); 
+use Model\DataBase;
 class Member 
 {
-    protected $db;
-    protected $table = "members";
+    private $db;
+    private $table = "members";
     public function __construct()
     {
         $this->db = DataBase::getInstance();
