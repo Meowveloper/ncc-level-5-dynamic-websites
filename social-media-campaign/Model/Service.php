@@ -3,7 +3,7 @@ namespace Model;
 require_once("DataBase.php");
 use PDO;
 use Model\DataBase;
-use ReturnTypeWillChange;
+
 
 class Service
 {

@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php 
+require_once("Controller/NewsLetterController.php");
+
+use Controller\NewsLetterController;
+
+$newsLetterController = new NewsLetterController();
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -26,24 +33,28 @@
 
     <main>
       <section id="contact">
-        <h2>Contact Us</h2>
+        <h2>News Letter Setup</h2>
         <p>
-          Feel free to reach out to us using the contact form below. We
-          appreciate your feedback and inquiries.
+          Create News Letter
         </p>
-
+        <?php 
+        if(isset($_POST['btnNewsLetterCreate'])) : 
+          $newsLetter = $newsLetterController->newsLetterSetupCreate();
+          print_r($newsLetter);
+        endif;
+        ?>
         <!-- Contact Form -->
-        <form action="/submit" method="post">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+        <form action="#" method="post" enctype="multipart/form-data">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <label for="content">Content:</label>
+          <input type="content" id="content" name="content" required />
 
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+          <label for="image">Image:</label>
+          <input type="file" name="image">
 
-          <button type="submit">Send Message</button>
+          <button type="submit" name="btnNewsLetterCreate">Create News Letter</button>
         </form>
 
         <!-- Privacy Policy Link -->
