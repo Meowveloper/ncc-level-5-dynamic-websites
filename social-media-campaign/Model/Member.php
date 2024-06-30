@@ -33,16 +33,19 @@ class Member
         return $data;
     }
 
-    protected function store (bool $isScriber) : object
+    protected function store (bool $isScriber, bool $isAdmin = false) : object
     {
-        $subscription = $isScriber ? "1" : "0";
+        $subscription = $isScriber ? 1 : 0;
+        $role = $isAdmin ? 1 : 0;
         $id = $this->generateSMCID();
-        $statement = $this->db->pdo->prepare("INSERT INTO $this->table (id, name, email, password, subscription) values (:id, :name, :email, :password, :subscription)");
+        $statement = $this->db->pdo->prepare("INSERT INTO $this->table (id, name, email, password, city, subscription, role) values (:id, :name, :email, :password, :city, :subscription, :role)");
         $statement->bindParam(":id", $id);
         $statement->bindParam(":name", $_POST['name']);
         $statement->bindParam(":email", $_POST['email']);
         $statement->bindParam(":password", $_POST['password']);
+        $statement->bindParam(":city", $_POST['city']);
         $statement->bindParam(":subscription", $subscription);
+        $statement->bindParam(":role", $role);
         $statement->execute();
 
         $statement = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE id = :id");
@@ -52,15 +55,18 @@ class Member
         return $result;
     }
 
-    protected function update (string $id, bool $isScriber) : object
+    protected function update (string $id, bool $isScriber, bool $isAdmin) : object
     {   
-        $subscription = $isScriber ? "1" : "0";
+        $subscription = $isScriber ? 1 : 0;
+        $role = $isAdmin ? 1 : 0;
 
-        $statement = $this->db->pdo->prepare("UPDATE $this->table SET name = :name, email = :email, password = :password, subscription = :subscription WHERE id = :id");
+        $statement = $this->db->pdo->prepare("UPDATE $this->table SET name = :name, email = :email, password = :password, city = :city, subscription = :subscription, role = :role WHERE id = :id");
         $statement->bindParam(":name", $_POST['name']);
         $statement->bindParam(":email", $_POST['email']);
         $statement->bindParam(":password" , $_POST['password']);
+        $statement->bindParam(":city", $_POST['city']);
         $statement->bindParam(":subscription", $subscription);
+        $statement->bindParam(":role", $role);
         $statement->bindParam(":id", $id);
         $statement->execute();
 

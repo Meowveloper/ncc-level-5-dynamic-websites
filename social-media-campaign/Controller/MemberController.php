@@ -7,11 +7,11 @@ use PDOException;
 
 class MemberController extends Member
 {
-    public function register(bool $isScriber): void
+    public function register(bool $isScriber = false, bool $isAdmin = false): void
     {
         try {
             session_start();
-            $member = $this->store($isScriber);
+            $member = $this->store($isScriber, $isAdmin);
             $_SESSION['user'] = $member;
             header("location:index.php");
         } catch(PDOException $err) {
