@@ -35,7 +35,7 @@ class SocialMediaApp
         return $stmt->fetchObject();
     }
 
-    protected function create() : object
+    protected function store() : object
     {
         if(
             isset($_FILES['logo']) and
