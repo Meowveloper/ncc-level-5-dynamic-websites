@@ -12,7 +12,7 @@ class DataBase
     public function __construct()
     {
         try {
-            $this->pdo=new PDO("mysql:dbname=socail_media_campaign;host=localhost","root","");
+            $this->pdo=new PDO("mysql:dbname=social_media_campaign;host=localhost","root","");
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $exception) {
             echo $exception->getMessage();
