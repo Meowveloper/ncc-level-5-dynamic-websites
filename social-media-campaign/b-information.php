@@ -7,31 +7,10 @@
     <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
-  <nav>
-      <ul>
-        <li class="link">
-          <a href="./index.php">Home</a>
-        </li>
-        <li class="link">
-          <a href="./b-information.php">Information</a>
-        </li>
-        <li class="link">
-          <a href="./b-legislation.php">Legislation</a>
-        </li>
-        <li class="link">
-          <a href="./login.php">Login</a>
-        </li>
-      </ul>
-      <form action="/search" method="get" class="search-input">
-        <input
-        type="text"
-        id="search"
-        name="search"
-        placeholder="Search..."
-        />
-        <button type="submit">Search</button>
-      </form>
-    </nav>
+    <?php 
+      $currentPage = "guest_information";
+      include_once('layouts/nav.php');
+    ?>
     <header>
       <h1>Online Safety Campaign</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->

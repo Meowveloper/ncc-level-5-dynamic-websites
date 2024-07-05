@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+$currentPage = "admin_home";
+$pageType = 1;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,18 +11,7 @@
     <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
-    <nav>
-      <ul>
-        <li class="link"><a href="./admin-home.php">Home</a></li>
-        <li class="link"><a href="./service-setup.php">Service</a></li>
-        <li class="link"><a href="./newsletter-setup.php">Newsletter</a></li>
-        <li class="link"><a href="./how-parent-help-setup.php">How Parents Help</a></li>
-        <li class="link"><a href="./social-media-app-setup.php">Social Media Apps</a></li>
-        <li class="link"><a href="./contact-list.php">Contact List</a></li>
-        <li class="link"><a href="./member-list.php">Member List</a></li>
-        <li class="link"><a href="./logout.php">Logout</a></li>
-      </ul>
-    </nav>
+    <?php include_once("layouts/nav.php"); ?>
     <header>
       <h1>Online Safety Campaign</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->

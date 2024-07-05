@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
 require_once("Controller/MemberController.php");
-
 use Controller\MemberController;
+
+$pageType = 0;
 ?>
 <html lang="en">
 
@@ -42,7 +43,7 @@ use Controller\MemberController;
         <label for="city">City:</label>
         <input type="text" id="city" name="city" required></input>
 
-        <button type="submit" name="btnRegister">Register</button>
+        <button type="submit" name="btnRegister" class="bgBlueButton">Register</button>
       </form>
 
       <!-- Privacy Policy Link -->

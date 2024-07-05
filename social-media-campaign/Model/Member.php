@@ -4,6 +4,8 @@ namespace Model;
 use PDO;
 require_once('DataBase.php'); 
 use Model\DataBase;
+use PDOException;
+
 class Member 
 {
     private $db;
@@ -12,7 +14,7 @@ class Member
     {
         $this->db = DataBase::getInstance();
     }
-    protected function index (string $search = '') : Array
+    protected function index (string $search = '') : Array | Object
     {
         $sql = "SELECT * FROM $this->table WHERE (name LIKE :condition OR email LIKE :condition) AND (name != '' OR email != '')";
         $condition = $search ? "%$search%" : '%'. '' . '%';
@@ -83,6 +85,22 @@ class Member
         $statement = $this->db->pdo->prepare("DELETE FROM $this->table WHERE id = :id");
         $statement->bindParam(":id", $id);
         $statement->execute();
+    }
+
+
+    protected function showWithEmail () : object
+    {
+        try {
+            $stmt = $this->db->pdo->prepare("
+                SELECT * FROM $this->table WHERE email = :email
+            ");
+            $stmt->bindParam(":email", $_POST['email']);
+            $stmt->execute();
+            if($stmt->rowCount() === 0) throw new PDOException("Invalid credentials");
+            return $stmt->fetchObject();
+        } catch (PDOException $err) {
+            throw new PDOException("Invalid credentials");
+        }
     }
 
     private function generateSMCID() : string

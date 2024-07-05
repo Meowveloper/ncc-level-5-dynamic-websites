@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <?php
-require_once("Controller/MemberController.php");
-require_once("Controller/ContactController.php");
-require_once("Controller/ServiceController.php");
-
-use Controller\MemberController;
-use Controller\ContactController;
-use Controller\ServiceController;
-
-$memberController = new MemberController();
-$contactController = new ContactController();
-$serviceController = new ServiceController();
+$currentPage = "guest_home";
+$pageType = 0;
+require_once("Controller/SocialMediaAppController.php");
+use Controller\SocialMediaAppController;
+$socialMediaAppController = new SocialMediaAppController();
+$socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
 ?>
 <html lang="en">
 
@@ -25,106 +20,77 @@ $serviceController = new ServiceController();
 	<?php include_once("layouts/nav.php"); ?>
 	<header>
 		<h1>Online Safety Campaign</h1>
-		<!-- Custom Cursors and 3D Illustrations can be added here -->
 	</header>
 
 	<main>
-		<section id="home">
-			<?php
-
-			$members = $memberController->searchOrGetAllMembers("Zwe");
-
-			foreach ($members as $item) :
-				print_r($item->id);
-			endforeach;
-
-			echo "<hr>";
-
-			foreach ($contactController->searchOrGetAllContacts() as $item) :
-				print_r($item->id);
-			endforeach;
-
-			print_r($contactController->findOrFail(1)->message);
-			echo "<br/>";
-			print_r($memberController->findOrFail('smc00001')->id);
-			echo "<br/>";
-			print_r($serviceController->searchOrGetAllServices('sad')[0]->id);
-
-			?>
-			<h2>Welcome to Our Campaign</h2>
-			<form action="/search" method="get">
-				<input type="text" id="search" name="search" placeholder="Search..." />
-				<button type="submit">Search</button>
-			</form>
-			<p>
-				Empowering teenagers to navigate the digital world safely.
-			</p>
-
-			<!-- Web Service 1 -->
-			<div class="web-service">
-				<h3>Online Safety Workshops</h3>
-				<p>
-					Join our interactive workshops to learn about online
-					safety and responsible social media use.
+		<section id="guest_home">
+			<div class="px-70px">
+				<h2>Welcome to Our Campaign</h2>
+				<form class="searchForm" action="#" method="get">
+					<input type="text" id="search" name="search" placeholder="Search..." />
+					<button type="submit" class="bgBlueButton">Search</button>
+				</form>
+				<p class="welcomeText">
+					Empowering teenagers to navigate the digital world safely.
 				</p>
-				<p><strong>Date:</strong> November 15, 2024</p>
-				<p><strong>Location:</strong> Virtual Event</p>
-				<a href="#">Register Now</a>
 			</div>
 
-			<!-- Web Service 2 -->
-			<div class="web-service">
-				<h3>Anonymous Helpline</h3>
-				<p>
-					Need assistance or advice? Connect with our anonymous
-					helpline for support regarding online challenges.
-				</p>
-				<p><strong>Helpline:</strong> 1-800-123-4567</p>
-				<p><strong>Email:</strong> help@onlinesafety.org</p>
-			</div>
+			<section class="webServiceContainer">
+				<!-- Web Service 1 -->
+				<div class="web-service">
+					<h3>Online Safety Workshops</h3>
+					<p>
+						Join our interactive workshops to learn about online
+						safety and responsible social media use.
+					</p>
+					<p><strong>Date:</strong> November 15, 2024</p>
+					<p><strong>Location:</strong> Virtual Event</p>
+					<a href="#">Register Now</a>
+				</div>
 
-			<!-- Most Popular Social Media Apps -->
-			<section class="popular-apps">
-				<h3>Most Popular Social Media Apps</h3>
-				<ul>
-					<li>Instagram</li>
-					<li>Facebook</li>
-					<li>Twitter</li>
-					<li>Snapchat</li>
-					<li>TikTok</li>
-					<li>WhatsApp</li>
-					<!-- Add more social media apps as needed -->
-				</ul>
+				<!-- Web Service 2 -->
+				<div class="web-service">
+					<h3>Anonymous Helpline</h3>
+					<p>
+						Need assistance or advice? Connect with our anonymous
+						helpline for support regarding online challenges.
+					</p>
+					<p><strong>Helpline:</strong> 1-800-123-4567</p>
+					<p><strong>Email:</strong> help@onlinesafety.org</p>
+				</div>
 			</section>
 
-			<!-- How to Stay Safe Online -->
-			<section class="stay-safe-online">
-				<h3>How to Stay Safe Online</h3>
-				<p>
-					Follow these tips to ensure a secure online experience:
-				</p>
-				<ul>
-					<li>Set strong, unique passwords</li>
-					<li>Enable two-factor authentication</li>
-					<li>Be cautious about sharing personal information</li>
-					<li>Regularly update privacy settings</li>
-					<li>Use antivirus software</li>
-					<li>Verify the authenticity of online information</li>
-				</ul>
+			<section class="webServiceContainer webServiceContainer2">
+				<!-- Most Popular Social Media Apps -->
+				<section class="popular-apps">
+					<h3>Most Popular Social Media Apps</h3>
+					<ul>
+						<?php foreach ($socialMediaApps as $item) : ?>
+							<li><?= $item->name ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</section>
+
+				<!-- How to Stay Safe Online -->
+				<section class="stay-safe-online">
+					<h3>How to Stay Safe Online</h3>
+					<p>
+						Follow these tips to ensure a secure online experience:
+					</p>
+					<ul>
+						<li>Set strong, unique passwords</li>
+						<li>Enable two-factor authentication</li>
+						<li>Be cautious about sharing personal information</li>
+						<li>Regularly update privacy settings</li>
+						<li>Use antivirus software</li>
+						<li>Verify the authenticity of online information</li>
+					</ul>
+				</section>
 			</section>
 		</section>
 	</main>
 
-	<footer>
-		<p>You are here: Home</p>
-		<div class="footer-content">
-			<p>&copy; 2024 Online Safety Campaign</p>
-			<!-- Add social media buttons with relevant links -->
-			<a href="#" style="color: white">Facebook</a>
-			<a href="#" style="color: white; margin-left: 10px">Twitter</a>
-			<a href="#" style="color: white; margin-left: 10px">Instagram</a>
-		</div>
-	</footer>
+	<?php include_once("layouts/footer.php"); ?>
 </body>
-
 </html>
+

@@ -18,7 +18,7 @@ class SocialMediaApp
     {   
         $condition = "%". $search ."%";
         $stmt = $this->db->pdo->prepare("
-            SELECT * FROM $this->table WHERE (link LIKE :condition) AND (link != '')
+            SELECT * FROM $this->table WHERE (link LIKE :condition OR name LIKE :condition) AND (link != '' AND name != '')
         ");
         $stmt->bindParam(":condition", $condition);
         $stmt->execute();
@@ -43,8 +43,9 @@ class SocialMediaApp
         ) $fileName = $this->uploadLogo();
         else $fileName = '';
         $stmt = $this->db->pdo->prepare("
-            INSERT INTO $this->table (logo, link, privacy_link) VALUES (:logo, :link , :privacy_link)
+            INSERT INTO $this->table (name, logo, link, privacy_link) VALUES (:name, :logo, :link , :privacy_link)
         ");
+        $stmt->bindParam(":name", $_POST['name']);
         $stmt->bindParam(":logo", $fileName);
         $stmt->bindParam(":link", $_POST['link']);
         $stmt->bindParam(":privacy_link", $_POST['privacy_link']);
@@ -66,8 +67,9 @@ class SocialMediaApp
         } else $fileName = '';
 
         $stmt = $this->db->pdo->prepare("
-            UPDATE $this->table SET logo = :logo, link = :link, privacy_link = :privacy_link WHERE id = :id
+            UPDATE $this->table SET name = :name logo = :logo, link = :link, privacy_link = :privacy_link WHERE id = :id
         ");
+        $stmt->bindParam(":name", $_POST['name']);
         $stmt->bindParam(":logo", $fileName);
         $stmt->bindParam(":link", $_POST['link']);
         $stmt->bindParam(":privacy_link", $_POST['privacy_link']);
@@ -90,7 +92,7 @@ class SocialMediaApp
 
     private function uploadLogo () : string
     {
-        $uniqueId = uniqid("meowveloper_", true);
+        $uniqueId = uniqid("social_media_apps_", true);
         $fileName = $uniqueId . '_' . $_FILES['logo']['name'];
         $tmp = $_FILES['logo']['tmp_name'];
         move_uploaded_file($tmp, "images/". $fileName);

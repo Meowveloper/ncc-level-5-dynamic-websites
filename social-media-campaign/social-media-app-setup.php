@@ -1,68 +1,80 @@
 <!DOCTYPE html>
+<?php
+$currentPage = "admin_social_media_app_setup";
+$pageType = 1;
+require_once("Controller/SocialMediaAppController.php");
+
+use Controller\SocialMediaAppController;
+
+$socialMediaAppController = new SocialMediaAppController();
+$apps = $socialMediaAppController->getAllSocialMediaApps();
+?>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Safety Campaign</title>
-    <link rel="stylesheet" href="./styles/style.css">
-  </head>
-  <body>
-  <nav>
-      <ul>
-        <li class="link"><a href="./admin-home.php">Home</a></li>
-        <li class="link"><a href="./service-setup.php">Service</a></li>
-        <li class="link"><a href="./newsletter-setup.php">Newsletter</a></li>
-        <li class="link"><a href="./how-parent-help-setup.php">How Parents Help</a></li>
-        <li class="link"><a href="./social-media-app-setup.php">Social Media Apps</a></li>
-        <li class="link"><a href="./contact-list.php">Contact List</a></li>
-        <li class="link"><a href="./member-list.php">Member List</a></li>
-        <li class="link"><a href="./logout.php">Logout</a></li>
-      </ul>
-    </nav>
-    <header>
-      <h1>Online Safety Campaign</h1>
-      <!-- Custom Cursors and 3D Illustrations can be added here -->
-    </header>
 
-    <main>
-      <section id="contact">
-        <h2>Contact Us</h2>
-        <p>
-          Feel free to reach out to us using the contact form below. We
-          appreciate your feedback and inquiries.
-        </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Safety Campaign</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
 
-        <!-- Contact Form -->
-        <form action="/submit" method="post">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+<body>
+  <?php include_once("layouts/nav.php"); ?>
+  <header>
+    <h1>Online Safety Campaign</h1>
+    <!-- Custom Cursors and 3D Illustrations can be added here -->
+  </header>
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+  <main>
+    <section id="contact">
+      <h2>Create a New Social Media App</h2>
+      <!-- Contact Form -->
+      <form action="#" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
 
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+        <label for="logo">Logo:</label>
+        <input type="file" id="logo" name="logo" required />
 
-          <button type="submit">Send Message</button>
-        </form>
+        <label for="link">Link:</label>
+        <input type="text" id="link" name="link" required />
 
-        <!-- Privacy Policy Link -->
-        <p>
-          Before sending a message, please review our
-          <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
-        </p>
-      </section>
-    </main>
+        <label for="privacy_link">Privacy Link:</label>
+        <input type="text" id="privacy_link" name="privacy_link" required />
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
-  </body>
+        <button type="submit" name="btnSocialMediaAppFormSubmit" class="bgBlueButton" style="font-size:16px;">Send Message</button>
+
+      </form>
+      <?php if(isset($_GET['isEdit'])) : ?>
+      <form action="#" method="POST">
+        <button type="submit" name="btnCancel" class="bgWhiteButton" style="font-size: 16px; margin-top: 10px;">Cancel Edit</button>
+      </form>
+      <?php endif; ?>
+      <!-- Privacy Policy Link -->
+      <p>
+        Before sending a message, please review our
+        <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+      </p>
+    </section>
+    <section>
+        <?php foreach ($apps as $item) : ?>
+        <div>
+          <img src="<?= "images/$item->logo" ?>" alt="">
+        </div>
+        <?php endforeach; ?>
+    </section>
+  </main>
+
+  <?php include_once("layouts/footer.php") ?>
+</body>
+
 </html>
+<?php
+if (isset($_POST['btnSocialMediaAppFormSubmit'])) :
+  $actionIsStore = isset($_GET['isEdit']) ? false : true;
+  $socialMediaAppController->socialMediaAppFormSubmit($actionIsStore);
+endif;
+
+if (isset($_POST['btnCancel'])) :
+  header("location:social-media-app-setup.php");
+endif;

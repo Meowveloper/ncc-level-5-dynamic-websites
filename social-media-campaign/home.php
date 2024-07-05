@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php 
+$currentPage = "user_home";
+$pageType = 2;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +14,6 @@
     <?php include_once("layouts/nav.php") ?>
     <header>
       <h1>Online Safety Campaign</h1>
-      <?php echo($_SESSION['user'])->role ?>
     </header>
 
     <main>
