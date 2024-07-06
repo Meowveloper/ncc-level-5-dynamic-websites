@@ -9,4 +9,27 @@ class ServiceController extends Service
     {
         return $this->index($search);
     }
+
+    public function getWithID ($id) : object 
+    {
+        return $this->show($id);
+    }
+
+    public function serviceFormSubmit (bool $actionIsStore) : void
+    {
+        if($actionIsStore) :
+            $this->store();
+        else :
+            $this->update($_POST['id'] * 1);
+        endif;
+        header("location:service-setup.php");
+        exit();
+    }
+
+    public function delete (int $id) : void
+    {
+        $this->destroy($id);
+        header("location:service-setup.php");
+        exit();
+    }
 }

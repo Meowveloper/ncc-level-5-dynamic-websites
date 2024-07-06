@@ -1,68 +1,166 @@
 <!DOCTYPE html>
+<?php
+ob_start();
+$currentPage = "admin_service_setup";
+$pageType = 1;
+require_once("Controller/ServiceController.php");
+
+use Controller\ServiceController;
+
+$serviceController = new ServiceController();
+
+
+if (isset($_GET['isEdit'])) :
+  $itemToEdit = $serviceController->getWithID($_GET['editId']);
+endif;
+
+if (isset($_GET['isDelete'])) :
+  $serviceController->delete($_GET['deleteId']);
+endif;
+
+if (isset($_POST['btnSearch'])) :
+  $services = $serviceController->searchOrGetAllServices($_POST['search']);
+else :
+  $services = $serviceController->searchOrGetAllServices();
+endif;
+
+if (isset($_POST['btnServiceFormSubmit'])) :
+  $actionIsStore = isset($_GET['isEdit']) ? false : true;
+  $serviceController->serviceFormSubmit($actionIsStore);
+endif;
+
+if (isset($_POST['btnCancel'])) :
+  header("location:service-setup.php");
+  exit();
+endif;
+?>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Safety Campaign</title>
-    <link rel="stylesheet" href="./styles/style.css">
-  </head>
-  <body>
-  <nav>
-      <ul>
-        <li class="link"><a href="./admin-home.php">Home</a></li>
-        <li class="link"><a href="./service-setup.php">Service</a></li>
-        <li class="link"><a href="./newsletter-setup.php">Newsletter</a></li>
-        <li class="link"><a href="./how-parent-help-setup.php">How Parents Help</a></li>
-        <li class="link"><a href="./social-media-app-setup.php">Social Media Apps</a></li>
-        <li class="link"><a href="./contact-list.php">Contact List</a></li>
-        <li class="link"><a href="./member-list.php">Member List</a></li>
-        <li class="link"><a href="./logout.php">Logout</a></li>
-      </ul>
-    </nav>
-    <header>
-      <h1>Online Safety Campaign</h1>
-      <!-- Custom Cursors and 3D Illustrations can be added here -->
-    </header>
 
-    <main>
-      <section id="contact">
-        <h2>Contact Us</h2>
-        <p>
-          Feel free to reach out to us using the contact form below. We
-          appreciate your feedback and inquiries.
-        </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Safety Campaign</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/service-setup.css">
+</head>
 
-        <!-- Contact Form -->
-        <form action="/submit" method="post">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+<body>
+  <?php include_once("layouts/nav.php"); ?>
+  <header class="flex justify-center items-center px-70px gap-5rem">
+    <h1>Online Safety Campaign</h1>
+    <div>
+      <form action="" method="POST">
+        <input type="text" name="search" placeholder="Search for the services" value="<?= isset($_POST['btnSearch']) ? $_POST['search'] : "" ?>">
+        <button type="submit" name="btnSearch" class="bgBlueButton">Search</button>
+        <button type="button" name="btnSearch" class="bgWhiteButton">
+          <a href="service-setup.php" class="text-decoration-none">Clear</a>
+        </button>
+      </form>
+    </div>
+  </header>
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+  <main id="admin_social_media_apps" class="px-70px">
+    <section class="formContainer">
+      <h2><?= isset($_GET['isEdit']) ? "Edit $itemToEdit->title" : "Create a New Service" ?></h2>
+      <!-- Contact Form -->
+      <form id="serviceForm" action="#" method="post">
+        <?php if (isset($_GET['isEdit'])) : ?>
+          <input type="hidden" name="id" value="<?= $itemToEdit->id ?>">
+        <?php endif; ?>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required value="<?= isset($itemToEdit) ? $itemToEdit->title : "" ?>" />
 
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required value="<?= isset($itemToEdit) ? $itemToEdit->description : "" ?>" />
 
-          <button type="submit">Send Message</button>
+        <label for="info">Info:</label>
+        <textarea type="text" id="info" name="info" required><?= isset($itemToEdit) ? $itemToEdit->info : "" ?></textarea>
+        <button type="submit" id="btnServiceFormSubmit" name="btnServiceFormSubmit" class="bgBlueButton" style="font-size:16px;">
+          <?= isset($_GET['isEdit']) ? "Save" : "Create" ?>
+        </button>
+
+      </form>
+      <?php if (isset($_GET['isEdit'])) : ?>
+        <form action="#" method="POST">
+          <button type="submit" name="btnCancel" class="bgWhiteButton" style="font-size: 16px; margin-top: 10px;">Cancel Edit</button>
         </form>
+      <?php endif; ?>
+    </section>
+    <section class="cardContainer">
+      <?php if (count($services) < 1) : ?>
+        <h2>
+          <?= (isset($_POST['btnSearch']) and $_POST['search'] != '') ? "Cannot find anything on " . $_POST['search'] . "." : "No services added. Will you do the honor?" ?>
+        </h2>
+        <?php
+      else :
+        foreach ($services as $item) : ?>
+          <div class="card shadow">
+            <div class="flex justify-start items-center gap-1rem">
+              <p style="font-size: 18px; text-transform: capitalize; font-weight: 700;">
+                <?= $item->title ?>
+              </p>
+            </div>
+            <div class="links">
+              <p><span>Description:</span> <?= "$item->description" ?></p><br>
+              <p><span>Info:</span> <?= "$item->info" ?></p>
+            </div>
+            <div class="buttons flex justify-start gap-1rem">
+              <button class="bgBlueButton">
+                <a class="text-decoration-none" href="service-setup.php?isEdit=1&editId=<?= $item->id ?>">Edit</a>
+              </button>
+              <button class="bgWhiteButton">
+                <a class="text-decoration-none" href="service-setup.php?isDelete=1&deleteId=<?= $item->id ?>">Delete</a>
+              </button>
 
-        <!-- Privacy Policy Link -->
-        <p>
-          Before sending a message, please review our
-          <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
-        </p>
-      </section>
-    </main>
+            </div>
+          </div>
+      <?php endforeach;
+      endif;
+      ?>
+    </section>
+  </main>
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
-  </body>
+  <?php include_once("layouts/footer.php") ?>
+</body>
+<script src="validators.js"></script>
+<script>
+  const serviceForm = document.getElementById("serviceForm");
+  const validators = useValidators();
+  const validations = getValidations();
+  window.onload = () => {
+    serviceForm.addEventListener("submit", (e) => {
+      if (validations.overAll()) {
+        socialMediaAppForm.submit();
+      } else {
+        alert("VALIDATION FAIL!!!\nThe title should have at least 3 words.\nDescription should have at least 5 words.\nInfo should have at least 10 words.\nAll data must be texts.");
+        e.preventDefault();
+        return;
+      }
+    });
+  };
+
+
+  function getValidations() {
+
+    const overAll = () => {
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const info = document.getElementById("info").value;
+      return (validators.isText(title) && 
+        validators.isText(description) && 
+        validators.isText(info) && 
+        validators.checkLength(title, 3) &&
+        validators.checkLength(description, 5) &&
+        validators.checkLength(info, 10)
+      );
+    }
+
+    return {
+      overAll
+    }
+  }
+</script>
+
 </html>
+<?php
+ob_end_flush();

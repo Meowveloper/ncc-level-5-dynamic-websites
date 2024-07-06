@@ -82,7 +82,7 @@ class NewsLetter
     private function deleteNewsLetterImage (int $id) : void
     {
         $stmt = $this->db->pdo->prepare("
-            SELECT FROM $this->table WHERE id = :id
+            SELECT * FROM $this->table WHERE id = :id
         ");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -100,9 +100,9 @@ class NewsLetter
 
     private function uploadNewsLetterImage () :string 
     {
-        $uniqueId = uniqid("meowveloper_", true);
+        $uniqueId = uniqid("newsletter_", true);
         if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-            $filename = $uniqueId. $_FILES['image']['name'];
+            $filename = $uniqueId. '_'. $_FILES['image']['name'];
             $filepatch = $_FILES['image']['tmp_name'];
             move_uploaded_file($filepatch, "images/" . $filename);
         } else {

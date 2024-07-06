@@ -28,7 +28,7 @@ class SocialMediaApp
     protected function show(int $id) : object
     {
         $stmt = $this->db->pdo->prepare("
-            SELECT FROM $this->table WHERE id = :id
+            SELECT * FROM $this->table WHERE id = :id
         ");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -52,7 +52,7 @@ class SocialMediaApp
         $stmt->execute();
 
         $stmt = $this->db->pdo->prepare("
-            SELECT FROM $this->table WHERE id = LAST_INSERT_ID()
+            SELECT * FROM $this->table WHERE id = LAST_INSERT_ID()
         ");
         $stmt->execute();
         return $stmt->fetchObject();
@@ -61,13 +61,13 @@ class SocialMediaApp
 
     protected function update (int $id) : object
     {
-        if(isset($_POST['logo']) and $_POST['logo']['error'] == 0) {
+        if(isset($_FILES['logo']) and $_FILES['logo']['error'] == 0) {
             $this->deleteOldLogo($id);
             $fileName = $this->uploadLogo();
         } else $fileName = '';
 
         $stmt = $this->db->pdo->prepare("
-            UPDATE $this->table SET name = :name logo = :logo, link = :link, privacy_link = :privacy_link WHERE id = :id
+            UPDATE $this->table SET name = :name, logo = :logo, link = :link, privacy_link = :privacy_link WHERE id = :id
         ");
         $stmt->bindParam(":name", $_POST['name']);
         $stmt->bindParam(":logo", $fileName);
@@ -83,6 +83,7 @@ class SocialMediaApp
     protected function destroy (int $id) : void
     {
         if(!isset($id) or $id < 1) return;
+        $this->deleteOldLogo($id);
         $stmt = $this->db->pdo->prepare("
             DELETE FROM $this->table WHERE id = :id
         ");
