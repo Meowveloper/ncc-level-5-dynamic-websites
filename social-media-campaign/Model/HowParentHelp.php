@@ -93,16 +93,16 @@ class HowParentHelp
 
     private function image_1Upload () : string
     {
-        $uniqueId = uniqid("meowveloper_", true);
-        $fileName = $uniqueId . $_FILES['image_1']['name'];
+        $uniqueId = uniqid("how_parent_help_", true);
+        $fileName = $uniqueId . '_' . $_FILES['image_1']['name'];
         $fileTmt = $_FILES['image_1']['tmp_name'];
         move_uploaded_file($fileTmt, "images/$fileName");
         return $fileName;
     }
     private function image_2Upload () : string
     {
-        $uniqueId = uniqid("meowveloper_", true);
-        $fileName = $uniqueId . $_FILES['image_2']['name'];
+        $uniqueId = uniqid("how_parent_help_", true);
+        $fileName = $uniqueId . '_' . $_FILES['image_2']['name'];
         $fileTmt = $_FILES['image_2']['tmp_name'];
         move_uploaded_file($fileTmt, "images/$fileName");
         return $fileName;

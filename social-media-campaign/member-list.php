@@ -1,72 +1,138 @@
 <!DOCTYPE html>
+<?php
+ob_start();
+$currentPage = "admin_member_list";
+$pageType = 1;
+require_once("Controller/MemberController.php");
+
+use Controller\MemberController;
+
+$memberController = new MemberController();
+
+if(isset($_GET['changeRole'])) : 
+  $memberController->changeRoleFromContactList($_GET['changeRoleId'], $_GET['roleToChange']);
+endif;
+
+if (isset($_GET['isDelete'])) :
+  $memberController->delete($_GET['deleteId']);
+endif;
+
+if (isset($_POST['btnSearch'])) :
+  $members = $memberController->searchOrGetAllMembers($_POST['search']);
+else :
+  $members = $memberController->searchOrGetAllMembers();
+endif;
+?>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Safety Campaign</title>
-    <link rel="stylesheet" href="./styles/style.css">
-  </head>
-  <body>
-  <nav>
-      <ul>
-        <li class="link"><a href="./admin-home.php">Home</a></li>
-        <li class="link"><a href="./service-setup.php">Service</a></li>
-        <li class="link"><a href="./newsletter-setup.php">Newsletter</a></li>
-        <li class="link"><a href="./how-parent-help-setup.php">How Parents Help</a></li>
-        <li class="link"><a href="./social-media-app-setup.php">Social Media Apps</a></li>
-        <li class="link"><a href="./contact-list.php">Contact List</a></li>
-        <li class="link"><a href="./member-list.php">Member List</a></li>
-        <li class="link"><a href="./logout.php">Logout</a></li>
-      </ul>
-      <form action="/search" method="get" class="search-input">
-        <input type="text" id="search" name="search" placeholder="Search..." />
-        <button type="submit">Search</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Safety Campaign</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/member-list.css">
+</head>
+
+<body>
+  <?php include_once("layouts/nav.php"); ?>
+  <header class="flex justify-center items-center px-70px gap-5rem">
+    <h1>Online Safety Campaign</h1>
+    <div>
+      <form action="" method="POST">
+        <input type="text" name="search" placeholder="Search for members" value="<?= isset($_POST['btnSearch']) ? $_POST['search'] : "" ?>">
+        <button type="submit" name="btnSearch" class="bgBlueButton">Search</button>
+        <button type="button" name="btnSearch" class="bgWhiteButton">
+          <a href="member-list.php" class="text-decoration-none">Clear</a>
+        </button>
       </form>
-    </nav>
-    <header>
-      <h1>Online Safety Campaign</h1>
-      <!-- Custom Cursors and 3D Illustrations can be added here -->
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <section id="contact">
-        <h2>Contact Us</h2>
-        <p>
-          Feel free to reach out to us using the contact form below. We
-          appreciate your feedback and inquiries.
-        </p>
+  <main id="admin_social_media_apps" class="px-70px">
+    <section class="cardContainer">
+      <?php if (count($members) < 1) : ?>
+        <h2>
+          <?= (isset($_POST['btnSearch']) and $_POST['search'] != '') ? "Cannot find anything on " . $_POST['search'] . "." : "No members has registered our website" ?>
+        </h2>
+        <?php
+      else :
+        foreach ($members as $item) : ?>
+          <div class="card shadow">
+            <div class="row justify-center items-center gap-1rem">
+              <?php if (isset($item->profile) and $item->profile != '') : ?>
+                <img src="<?= "images/$item->image_1" ?>" alt="" width="100%" height="200px">
+              <?php else : ?>
+                <img src="assets/default-profile.png" alt="" width="100%" height="200px">
+              <?php endif; ?>
+            </div>
+            <div class="links">
+              <p><span>Name: </span><?= $item->name ?> <?= ($_SESSION['user']->id === $item->id) ? '<span style="font-weight: bold;">(You)</span>' : '' ?></p>
+              <p><span>Email: </span><?= $item->email ?></p>
+              <p><span>City: </span><?= $item->city ?></p>
+              <p><span>Subscription: </span><?= !!$item->subscription ? "Yes" : "No" ?></p>
+              <p><span>Role: </span><?= !!$item->role ? "Admin" : "User" ?></p>
+              <p><span>Owner?? </span><?= !!$item->owner ? "Yes" : "No" ?></p>
+            </div>
+            <?php if ($_SESSION['user']->id !== $item->id and $item->owner !== 1) : ?>
+              <div class="buttons flex justify-start gap-1rem">
+                <?php if($item->role !== 1) : ?>
+                <button class="bgWhiteButton btnBanUser text-red" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
+                  Ban User
+                </button>
+                <?php endif; ?>
+                <?php if ($item->role === 1) : ?>
+                  <button class="bgWhiteButton font-bold btnRemoveFromAdmin" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
+                    Remove from Admins
+                  </button>
+                <?php else : ?>
+                  <button class="bgBlueButton btnPromoteToAdmin" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
+                    Promote to Admin
+                  </button>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+          </div>
+      <?php endforeach;
+      endif;
+      ?>
+    </section>
+  </main>
 
-        <!-- Contact Form -->
-        <form action="/submit" method="post">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+  <?php include_once("layouts/footer.php") ?>
+</body>
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+<script>
+  window.onload = () => {
+    const banUserButtons = document.querySelectorAll(".btnBanUser");
+    const promoteToAdminButtons = document.querySelectorAll(".btnPromoteToAdmin");
+    const removeFromAdminButtons = document.querySelectorAll(".btnRemoveFromAdmin");
 
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+    banUserButtons.forEach(item => {
+      item.addEventListener("click", () => {
+        if (window.confirm(`Are you sure you want to delete the user ${item.dataset.name} with the ID of ${item.dataset.id}??`)) {
+          window.location.href = `member-list.php?isDelete=1&deleteId=${item.dataset.id}`;
+        }
+      })
+    });
 
-          <button type="submit">Send Message</button>
-        </form>
+    promoteToAdminButtons.forEach(item => {
+      item.addEventListener("click", () => {
+        if (window.confirm(`Are you sure you want to promote the user ${item.dataset.name} with the ID of ${item.dataset.id} to an admin??`)) {
+          window.location.href = `member-list.php?changeRole=1&changeRoleId=${item.dataset.id}&roleToChange=1`;
+        }
+      });
+    });
 
-        <!-- Privacy Policy Link -->
-        <p>
-          Before sending a message, please review our
-          <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
-        </p>
-      </section>
-    </main>
+    removeFromAdminButtons.forEach(item => {
+      item.addEventListener("click", () => {
+        if (window.confirm(`Are you sure you want to change the role of the user ${item.dataset.name} with the ID of ${item.dataset.id} to a user??`)) {
+          window.location.href = `member-list.php?changeRole=1&changeRoleId=${item.dataset.id}&roleToChange=0`;
+        }
+      });
+    });
+  }
+</script>
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
-  </body>
 </html>
+<?php
+ob_end_flush();

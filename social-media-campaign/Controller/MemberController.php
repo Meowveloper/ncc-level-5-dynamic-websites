@@ -10,18 +10,6 @@ use PDOException;
 
 class MemberController extends Member
 {
-    public function register(bool $isScriber = false, bool $isAdmin = false): void
-    {
-        try {
-            $member = $this->store($isScriber, $isAdmin);
-            $member->password = '********';
-            $_SESSION['user'] = $member;
-            header("location:index.php");
-        } catch (PDOException $err) {
-            $message = $err->getMessage();
-            header("location:register.php?registerError=1&message=$message");
-        }
-    }
 
     public function searchOrGetAllMembers(string $search = ''): array
     {
@@ -32,6 +20,32 @@ class MemberController extends Member
     public function findOrFail(string $id): object
     {
         return $this->show($id);
+    }
+    public function register(bool $isScriber = false, bool $isAdmin = false, bool $isOwner = false): void
+    {
+        try {
+            $member = $this->store($isScriber, $isAdmin, $isOwner);
+            $member->password = '********';
+            $_SESSION['user'] = $member;
+            header("location:index.php");
+        } catch (PDOException $err) {
+            $message = $err->getMessage();
+            header("location:register.php?registerError=1&message=$message");
+        }
+    }
+
+    public function changeRoleFromContactList (string $id, bool $isAdmin) : void 
+    {
+        $this->changeRole($id, $isAdmin);
+        header("location:member-list.php");
+        exit();
+    }
+
+    public function delete (string $id) : void 
+    {
+        $this->destroy($id);
+        header("location:member-list.php");
+        exit();
     }
 
     public function login(): void
@@ -80,4 +94,6 @@ class MemberController extends Member
         else : return true;
         endif;
     }
+
+
 }

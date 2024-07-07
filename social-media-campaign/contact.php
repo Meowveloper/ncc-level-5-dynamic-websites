@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+ob_start();
+$currentPage = "user_contact";
+$pageType = 2;
+require_once("Controller/ContactController.php");
+use Controller\ContactController;
+$contactController = new ContactController();
+
+if(isset($_POST['btnContactFormSubmit'])) : 
+  $contactController->createContact();
+endif;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,36 +19,9 @@
     <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
-  <nav>
-      <ul>
-        <li class="link"><a href="home.php">Home</a></li>
-        <li class="link"><a href="information.php">Information</a></li>
-        <li>
-          Campaigns
-          <ul>
-            <li class="link">
-              <a href="popular-apps.php">Popular Apps</a>
-            </li>
-            <li class="link">
-              <a href="parents-help.php">Parents Help</a>
-            </li>
-            <li class="link">
-              <a href="livestreaming.php">Livestreaming</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="link"><a href="contact.php">Contact</a></li>
-        <li class="link"><a href="legislation.php">Legislation</a></li>
-      </ul>
-      <form action="/search" method="get" class="search-input">
-        <input type="text" id="search" name="search" placeholder="Search..." />
-        <button type="submit">Search</button>
-      </form>
-    </nav>
+    <?php include_once("layouts/nav.php"); ?>
     <header>
       <h1>Online Safety Campaign</h1>
-      <!-- Custom Cursors and 3D Illustrations can be added here -->
     </header>
 
     <main>
@@ -46,38 +31,24 @@
           Feel free to reach out to us using the contact form below. We
           appreciate your feedback and inquiries.
         </p>
-
-        <!-- Contact Form -->
-        <form action="/submit" method="post">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-
+        <form action="#" method="POST">
+          <input type="hidden" name="email" value="<?= $_SESSION['user']->email ?>">
           <label for="message">Message:</label>
           <textarea id="message" name="message" rows="4" required></textarea>
 
-          <button type="submit">Send Message</button>
+          <button class="bgBlueButton" type="submit" name="btnContactFormSubmit">Send Message</button>
         </form>
 
         <!-- Privacy Policy Link -->
-        <p>
+        <!-- <p>
           Before sending a message, please review our
           <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
-        </p>
+        </p> -->
       </section>
     </main>
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
+    <?php require_once("layouts/footer.php") ?>
   </body>
 </html>
+<?php
+ob_end_flush();

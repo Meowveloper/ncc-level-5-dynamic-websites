@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+$currentPage = "guest_home";
+$pageType = 0;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />

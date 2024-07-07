@@ -16,4 +16,12 @@ class ContactController extends Contact
     {
         return $this->show($id);
     }
+
+    public function createContact () : void 
+    {
+        echo $_POST['email'];
+        $this->store();
+        header("location:home.php");
+        exit();
+    }
 }

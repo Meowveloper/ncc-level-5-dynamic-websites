@@ -37,10 +37,10 @@ Auth::matchUserType($pageType);
             <li class="link"><a href="./admin-home.php" class="<?= $currentPage == 'admin_home' ? 'navBarActive' : '' ?>">Home</a></li>
             <li class="link"><a href="./service-setup.php" class="<?= $currentPage == 'admin_service_setup' ? 'navBarActive' : '' ?>">Service</a></li>
             <li class="link"><a href="./newsletter-setup.php" class="<?= $currentPage == 'admin_newsletter_setup' ? 'navBarActive' : '' ?>">Newsletter</a></li>
-            <li class="link"><a href="./how-parent-help-setup.php">How Parents Help</a></li>
+            <li class="link"><a href="./how-parent-help-setup.php" class="<?= $currentPage == 'admin_how_parent_help_setup' ? 'navBarActive' : '' ?>">How Parents Help</a></li>
             <li class="link"><a href="./social-media-app-setup.php" class="<?= $currentPage == 'admin_social_media_app_setup' ? 'navBarActive' : '' ?>">Social Media Apps</a></li>
-            <li class="link"><a href="./contact-list.php">Contact List</a></li>
-            <li class="link"><a href="./member-list.php">Member List</a></li>
+            <li class="link"><a href="./contact-list.php" class="<?= $currentPage == 'admin_contact_list' ? 'navBarActive' : '' ?>">Contact List</a></li>
+            <li class="link"><a href="./member-list.php" class="<?= $currentPage == 'admin_member_list' ? 'navBarActive' : '' ?>">Member List</a></li>
             <li class="link"><a href="./logout.php">Logout</a></li>
         </ul>
     </nav>
@@ -70,7 +70,7 @@ Auth::matchUserType($pageType);
                 </ul>
             </li>
 
-            <li class="link"><a href="contact.php">Contact</a></li>
+            <li class="link"><a href="contact.php" class="<?= $currentPage == 'user_contact' ? 'navBarActive' : ''?>">Contact</a></li>
             <li class="link"><a href="legislation.php">Legislation</a></li>
             <li class="link"><a href="./logout.php">Logout</a></li>
         </ul>

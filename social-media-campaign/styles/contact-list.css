@@ -46,6 +46,9 @@
 .formContainer a:hover {
     color: #555;
 }
+.btnBanUser {
+    border: 1px solid var(--primary-red) !important;
+}
 /* general ends */
 #admin_social_media_apps {
     display: flex;
@@ -75,9 +78,9 @@ header button {
     top: 10px;
 }
 .cardContainer {
-    width: 70%;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
 }
 .cardContainer h2 {
@@ -99,10 +102,10 @@ header button {
 .card .buttons {
     margin-top: 20px;
 }
-.card .bgBlueButton, 
+.card .bgBlueButton,
 .card .bgWhiteButton {
     width: 100px;
-    height: 30px;
+    height: 40px;
     cursor: pointer;
 }
 

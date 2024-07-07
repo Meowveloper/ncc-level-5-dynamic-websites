@@ -75,10 +75,10 @@ endif;
         <span id="logoErrorIndicator" class="text-red hidden">Please choose an image that ends in .jpg/.png/.jpeg</span>
 
         <label for="link">Link:</label>
-        <input type="text" id="link" name="link" required value="<?= isset($itemToEdit) ? $itemToEdit->link : "" ?>" />
+        <input type="url" id="link" name="link" required value="<?= isset($itemToEdit) ? $itemToEdit->link : "" ?>" />
 
         <label for="privacy_link">Privacy Link:</label>
-        <input type="text" id="privacy_link" name="privacy_link" required value="<?= isset($itemToEdit) ? $itemToEdit->privacy_link : "" ?>" />
+        <input type="url" id="privacy_link" name="privacy_link" required value="<?= isset($itemToEdit) ? $itemToEdit->privacy_link : "" ?>" />
         <!-- <input type="hidden" name="SocialMediaAppFormSubmit"> -->
         <button type="submit" id="btnSocialMediaAppFormSubmit" name="btnSocialMediaAppFormSubmit" class="bgBlueButton" style="font-size:16px;">
           <?= isset($_GET['isEdit']) ? "Save" : "Create" ?>

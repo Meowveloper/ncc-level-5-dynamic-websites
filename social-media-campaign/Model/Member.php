@@ -3,8 +3,9 @@
 namespace Model;
 use PDO;
 require_once('DataBase.php'); 
-use Model\DataBase;
+use Error;
 use PDOException;
+use Model\DataBase;
 
 class Member 
 {
@@ -35,53 +36,80 @@ class Member
         return $data;
     }
 
-    protected function store (bool $isScriber, bool $isAdmin = false) : object
+    protected function store (bool $isScriber = false, bool $isAdmin = false, $isOwner = false) : object
     {
         $subscription = $isScriber ? 1 : 0;
         $role = $isAdmin ? 1 : 0;
+        $owner = $isOwner ? 1 : 0;
+        $fileName = $this->uploadProfileImage();
         $id = $this->generateSMCID();
-        $statement = $this->db->pdo->prepare("INSERT INTO $this->table (id, name, email, password, city, subscription, role) values (:id, :name, :email, :password, :city, :subscription, :role)");
+        $statement = $this->db->pdo->prepare("INSERT INTO $this->table (id, name, profile, email, password, city, subscription, role, owner) values (:id, :name, :profile, :email, :password, :city, :subscription, :role, :owner)");
         $statement->bindParam(":id", $id);
         $statement->bindParam(":name", $_POST['name']);
+        $statement->bindParam(":profile", $fileName);
         $statement->bindParam(":email", $_POST['email']);
         $statement->bindParam(":password", $_POST['password']);
         $statement->bindParam(":city", $_POST['city']);
         $statement->bindParam(":subscription", $subscription);
         $statement->bindParam(":role", $role);
+        $statement->bindParam(":owner", $owner);
         $statement->execute();
-
-        $statement = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE id = :id");
-        $statement->bindParam(":id", $id);
-        $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_OBJ);
-        return $result;
+        return $this->show($id);
     }
 
-    protected function update (string $id, bool $isScriber, bool $isAdmin) : object
-    {   
+    protected function update (string $id, bool $isScriber = false, bool $isAdmin = false, bool $isOwner = false) : object
+    {   if(isset($_FILES['profile']) and $_FILES['profile']['error'] == 0 ) $this->deleteProfileImage($id);
+        $filename = $this->uploadProfileImage();
         $subscription = $isScriber ? 1 : 0;
         $role = $isAdmin ? 1 : 0;
-
-        $statement = $this->db->pdo->prepare("UPDATE $this->table SET name = :name, email = :email, password = :password, city = :city, subscription = :subscription, role = :role WHERE id = :id");
+        $owner = $isOwner ? 1 : 0;
+        $statement = $this->db->pdo->prepare("UPDATE $this->table SET name = :name, profile = :profile, email = :email, password = :password, city = :city, subscription = :subscription, role = :role, owner = :owner WHERE id = :id");
         $statement->bindParam(":name", $_POST['name']);
+        $statement->bindParam(":profile", $filename);
         $statement->bindParam(":email", $_POST['email']);
         $statement->bindParam(":password" , $_POST['password']);
         $statement->bindParam(":city", $_POST['city']);
         $statement->bindParam(":subscription", $subscription);
         $statement->bindParam(":role", $role);
+        $statement->bindParam(":owner", $owner);
         $statement->bindParam(":id", $id);
         $statement->execute();
 
-        $stmt = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE id=$id");
-        $stmt->execute();
-        $data = $stmt->fetch(PDO::FETCH_OBJ);
-        return $data;
+        
+        return $this->show($id);
 
+    }
+
+    protected function changeRole (string $id, bool $isAdmin = false) : object 
+    {
+        $role = $isAdmin ? 1 : 0;
+        $stmt = $this->db->pdo->prepare("
+            UPDATE $this->table SET role = :role WHERE id = :id 
+        ");
+        $stmt->bindParam(":role", $role);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        return $this->show($id);
+    }
+
+    protected function changeSubscription (string $id, bool $isScriber) : object 
+    {
+        $subscription = $isScriber ? 1 : 0;
+        $stmt = $this->db->pdo->prepare("
+            UPDATE $this->table SET subscription = :subscription WHERE id = :id
+        ");
+        $stmt->bindParam(":subscription", $subscription);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        return $this->show($id);
     }
 
     protected function destroy (string $id) : void 
     {
         if(!isset($id)) return;
+        $this->deleteProfileImage($id);
         $statement = $this->db->pdo->prepare("DELETE FROM $this->table WHERE id = :id");
         $statement->bindParam(":id", $id);
         $statement->execute();
@@ -123,4 +151,33 @@ class Member
 
         return $formattedID;
     }
+
+
+    private function uploadProfileImage () :string 
+    {
+        $uniqueId = uniqid("profile_", true);
+        if(isset($_FILES['profile']) && $_FILES['profile']['error'] == 0) {
+            $filename = $uniqueId. '_'. $_FILES['profile']['name'];
+            $filepatch = $_FILES['profile']['tmp_name'];
+            move_uploaded_file($filepatch, "images/" . $filename);
+        } else {
+            $filename = "";
+        }
+
+        return $filename;
+    }
+
+    private function deleteProfileImage (string $id) : void
+    {
+        $oldData = $this->show($id);
+        $oldImage = $oldData->profile;
+        if(isset($oldImage) and $oldImage != '' and $oldImage != null) {
+            $oldFilePath = "images/" . $oldImage;
+            try {
+                unlink($oldFilePath);
+            }catch (Error) {
+                throw new Error("Error deleting Image");
+            }
+        }
+    } 
 }
