@@ -1,0 +1,224 @@
+header {
+    text-align: center;
+    padding: 10px;
+}
+
+nav {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--primary-light-blue-25-opa50);
+}
+nav ul {
+    list-style: none;
+    padding: 16px;
+    margin: 0;
+    flex: 1;
+}
+nav li,
+nav li a {
+    transition: 200ms;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 700;
+}
+nav li a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: var(--gray-2);
+}
+nav li:hover a {
+    color: var(--text-primary-dark-blue);
+}
+.navBarActive {
+    color: var(--text-primary-dark-blue);
+}
+nav li {
+    padding-right: 36px;
+}
+nav li::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #ffa500;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+nav .link::before {
+    padding-right: 0;
+    display: none;
+}
+nav > ul {
+    display: flex;
+    height: var(--menu-height);
+    align-items: center;
+}
+nav > ul li {
+    position: relative;
+    margin: 0 8px;
+}
+nav > ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    padding: 0;
+    min-width: 160px;
+    position: absolute;
+    top: calc(var(--menu-height) + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 200ms;
+    transition-delay: 200ms;
+    z-index: 100;
+}
+nav > ul li ul li {
+    margin: 0;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30px;
+    padding-right: 40px;
+}
+nav > ul li ul li::before {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #ffa500;
+}
+nav > ul li ul li ul {
+    top: -2%;
+    left: 100%;
+    transform: translate(0);
+}
+nav > ul li ul li:hover {
+    background-color: #000000;
+}
+nav > ul li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0ms;
+}
+
+nav > .search-input {
+    padding-right: 10px;
+}
+
+nav > .search-input > input {
+    padding: 8px 16px;
+}
+
+nav > .search-input > button {
+    padding: 8px 16px;
+}
+
+main {
+    min-height: 56.8dvh;
+}
+
+.web-service {
+    padding: 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.web-service h3 {
+    margin: 0px;
+}
+
+.popular-apps,
+.stay-safe-online {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formCancelButton {
+    display: block !important;
+    padding: 2px;
+    text-align: center !important;
+}
+
+footer {
+    background-color: var(--primary-light-blue-25);
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    flex: 1;
+}
+.footer-content a {
+    color: var(--gray-2);
+}
+
+.bgBlueButton {
+    background-color: var(--primary-light-blue-75);
+    color: white;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+}
+
+.bgBlueButton * {
+    color: white;
+    font-size: 16px !important;
+}
+
+.bgBlueButton:hover {
+    background-color: var(--primary-light-blue);
+}
+
+.bgBlueButton:disabled {
+    background-color: var(--gray-1);
+    color: var(--gray-2);
+}
+
+.bgBlueButton:disabled * {
+    color: var(--gray-2);
+}
+
+.bgBlueButton:focus {
+    border: 1px solid var(--text-primary-dark-blue-50);
+}
+
+.bgWhiteButton {
+    border: 1px solid var(--primary-light-blue-75) !important;
+    color: var(--primary-light-blue-75);
+    border-radius: 2px;
+}
+
+.bgWhiteButton * {
+    color: var(--primary-light-blue-75);
+}
+
+.bgWhiteButton:hover {
+    border: 1px solid var(--primary-light-blue);
+    color: var(--primary-light-blue);
+}
+
+.bgWhiteButton:hover * {
+    color: var(--primary-light-blue);
+}
+
+.bgWhiteButton:disabled {
+    border: 1px solid var(--gray-1);
+    color: var(--gray-2);
+}
+
+.bgWhiteButton:disabled * {
+    color: var(--gray-2);
+}
+
+.bgWhiteButton:focus {
+    border: 1px solid var(--text-primary-dark-blue-50);
+}

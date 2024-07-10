@@ -1,0 +1,9 @@
+.rounded-full {
+    border-radius: 99999999px;
+}
+.rounded-20px {
+    border-radius: 20px;
+}
+.shadow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

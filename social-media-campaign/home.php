@@ -12,11 +12,16 @@ $pageType = 2;
   </head>
   <body>
     <?php include_once("layouts/nav.php") ?>
-    <header>
-      <h1>Online Safety Campaign</h1>
-    </header>
-
     <main>
+      <section class="grid grid-cols-12 px-70px w-full">
+        
+        <div class="col-span-5 col-start-2">
+          <h1>Online Safety Campaign</h1>
+        </div>
+        <div class="col-span-4 col-start-8">
+          <img src="assets/welcome_image_1.jpg" alt="" class="w-full" height="300px">
+        </div>
+      </section>
       <section id="home">
         <h2>Welcome to Our Campaign</h2>
         <form action="/search" method="get">

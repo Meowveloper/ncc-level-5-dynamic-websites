@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+$currentPage = "guest_information";
+$pageType = 0;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +12,6 @@
   </head>
   <body>
     <?php 
-      $currentPage = "guest_information";
       include_once('layouts/nav.php');
     ?>
     <header>

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+$currentPage = "guest_legislation";
+$pageType = 0;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,10 +12,7 @@
   </head>
   <body>
   
-    <?php 
-      $currentPage = "guest_legislation";
-      include_once("layouts/nav.php");
-    ?>
+    <?php include_once("layouts/nav.php"); ?>
     <header>
       <h1>Online Safety Campaign</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->
