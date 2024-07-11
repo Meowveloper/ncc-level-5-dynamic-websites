@@ -1,0 +1,12 @@
+.mt {
+    margin-top: var(--mt);
+}
+.mb {
+    margin-bottom: var(--mb);
+}
+.ms {
+    margin-left: var(--ms);
+}
+.me {
+    margin-right: var(--me);
+}

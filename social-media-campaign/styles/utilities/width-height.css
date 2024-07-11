@@ -4,3 +4,16 @@
 .h-full {
     height: 100%;
 }
+.w {
+    width: var(--w);
+}
+.h {
+    height: var(--h);
+}
+.min-w {
+    min-width: var(--min-w);
+}
+.min-h {
+    min-height: var(--min-h);
+}
+

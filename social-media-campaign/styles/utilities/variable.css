@@ -53,4 +53,17 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
+    overflow: auto;
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    overflow: auto;
+    scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+    display: none;
 }

@@ -12,7 +12,7 @@ $pageType = 0;
   </head>
   <body>
   
-    <?php include_once("layouts/nav.php"); ?>
+    <?php include_once "layouts/nav.php"; ?>
     <header>
       <h1>Online Safety Campaign</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->

@@ -41,6 +41,13 @@ class MemberController extends Member
         exit();
     }
 
+    public function changeSubscriptionFromNewsLetter (string $id, bool $isSubscriber) : void {
+        $this->changeSubscription($id, $isSubscriber);
+        $_SESSION['user']->subscription = $isSubscriber ? 1 : 0;
+        header("location:newsletter.php");
+        exit();
+    }
+
     public function delete (string $id) : void 
     {
         $this->destroy($id);

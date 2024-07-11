@@ -6,3 +6,20 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+.px {
+    padding-left: var(--px);
+    padding-right: var(--px);
+}
+.py {
+    padding-top: var(--py);
+    padding-bottom: var(--py);
+}
+.p {
+    padding: var(--p);
+}
+.pt {
+    padding-top: var(--pt);
+}
+.pb {
+    padding-bottom: var(--pb);
+}

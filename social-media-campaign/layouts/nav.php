@@ -1,9 +1,18 @@
 <?php
 session_start();
-require_once("Middleware/Auth.php");
+require_once "Middleware/Auth.php";
+
 use Middleware\Auth;
+
 Auth::matchUserType($pageType);
 ?>
+<?php if (isset($_GET['btnNavSearch'])) :
+    $keyWord = $_GET['search'];
+    $page = $_GET['page'];
+    header("location:" . $page . ".php?search=$keyWord");
+
+endif; ?>
+
 <?php if (!isset($_SESSION['user'])) : ?>
     <nav>
         <div>
@@ -47,7 +56,7 @@ Auth::matchUserType($pageType);
 <?php endif; ?>
 
 <?php if (isset($_SESSION['user']) and $_SESSION['user']->role == 0) : ?>
-    
+
     <nav>
         <div>
             <img src="assets/logo.jpg" alt="" width="80px" height="80px" class="rounded-full">
@@ -58,25 +67,32 @@ Auth::matchUserType($pageType);
             <li>
                 Campaigns
                 <ul>
-                    <li class="link">
-                        <a href="popular-apps.php">Popular Apps</a>
+                    <li class="link <?= $currentPage == 'user_parent_help' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
+                        <a class="text-gray-2" href="parents-help.php">Parents Help</a>
+                    </li>
+                    <li class="link <?= $currentPage == 'user_newsletter' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
+                        <a class="text-gray-2" href="newsletter.php">Newsletters</a>
                     </li>
                     <li class="link">
-                        <a href="parents-help.php">Parents Help</a>
-                    </li>
-                    <li class="link">
-                        <a href="livestreaming.php">Livestreaming</a>
+                        <a class="text-gray-2" href="livestreaming.php">Livestreaming</a>
                     </li>
                 </ul>
             </li>
 
-            <li class="link"><a href="contact.php" class="<?= $currentPage == 'user_contact' ? 'navBarActive' : ''?>">Contact</a></li>
+            <li class="link"><a href="contact.php" class="<?= $currentPage == 'user_contact' ? 'navBarActive' : '' ?>">Contact</a></li>
             <li class="link"><a href="legislation.php">Legislation</a></li>
             <li class="link"><a href="./logout.php">Logout</a></li>
         </ul>
-        <form action="/search" method="get" class="search-input">
-            <input type="text" id="search" name="search" placeholder="Search..." />
-            <button type="submit">Search</button>
+        <form action="#" method="GET" class="flex justify-center items-stretch">
+            <input class="outline-none" type="text" id="search" name="search" placeholder="Search..." required />
+            <select required name="page" class="h w" style="--h: 30px; --w: 150px;">
+                <option value="" disabled selected>Search In</option>
+                <option value="newsletter">Newsletter</option>
+                <option>Service</option>
+                <option value="home">Social Media Apps</option>
+                <option value="parents-help">How Parents Help</option>
+            </select>
+            <button name="btnNavSearch" class="bgBlueButton w h" style="--w: 100px; --h: 30px;" type="submit">Search</button>
         </form>
     </nav>
 <?php endif; ?>

@@ -1,7 +1,7 @@
 <?php 
 function getHere(string $currentPage) : string 
 {
-    if($currentPage == "guest_home") : return "Home";
+    if ($currentPage == "guest_home") : return "Home";
     elseif($currentPage == "login") : return "Login";
     elseif($currentPage == "admin_home") : return "Home";
     elseif($currentPage == "admin_service_setup") : return "Service Setup";
@@ -10,7 +10,10 @@ function getHere(string $currentPage) : string
     elseif($currentPage == "admin_how_parent_help_setup") : return "How Parent Help Setup";
     elseif($currentPage == "admin_member_list") : return "Member List";
     elseif($currentPage == "admin_contact_list") : return "Contact List";
+    elseif($currentPage == "user_home") : return "Home";
     elseif($currentPage == "user_contact") : return "Contact";
+    elseif($currentPage == "user_parent_help") : return "How Parents Can Help";
+    elseif($currentPage == "user_newsletter") : return "Newsletters";
     else : return "Page identifier error";
     endif;
 }

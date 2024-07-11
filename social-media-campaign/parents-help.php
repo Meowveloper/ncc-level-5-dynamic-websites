@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php 
+$currentPage = "user_parent_help";
+$pageType = 2;
+require_once "Controller/HowParentHelpController.php";
+use Controller\HowParentHelpController;
+$howParentHelpController = new HowParentHelpController();
+$howParentHelps = $howParentHelpController->getAllHowParentHelps();
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,75 +15,29 @@
     <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
-  <nav>
-      <ul>
-        <li class="link"><a href="home.php">Home</a></li>
-        <li class="link"><a href="information.php">Information</a></li>
-        <li>
-          Campaigns
-          <ul>
-            <li class="link">
-              <a href="popular-apps.php">Popular Apps</a>
-            </li>
-            <li class="link">
-              <a href="parents-help.php">Parents Help</a>
-            </li>
-            <li class="link">
-              <a href="livestreaming.php">Livestreaming</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="link"><a href="contact.php">Contact</a></li>
-        <li class="link"><a href="legislation.php">Legislation</a></li>
-      </ul>
-      <form action="/search" method="get" class="search-input">
-        <input type="text" id="search" name="search" placeholder="Search..." />
-        <button type="submit">Search</button>
-      </form>
-    </nav>
+    <?php require_once "layouts/nav.php"; ?>
     <header>
-      <h1>Online Safety Campaign</h1>
+      <h1>How Parents Can Help</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->
     </header>
 
-    <main>
-      <section id="parents-help">
-        <h2>How Parents Can Help</h2>
-        <p>
-          Discover top tips for parents to support healthy teen use of social
-          media.
-        </p>
-        <!-- Add content with tips for parents -->
-        <ul>
-          <li>Stay involved and communicate openly with your teenager.</li>
-          <li>
-            Set boundaries and establish clear rules for social media use.
-          </li>
-          <li>
-            Teach the importance of privacy settings and online etiquette.
-          </li>
-          <li>
-            Monitor your teen's online activities without invading their
-            privacy.
-          </li>
-          <li>
-            Encourage a healthy balance between online and offline activities.
-          </li>
-        </ul>
-        <!-- Add more tips or content as needed -->
+    <main id="user_parent_help">
+      <section class="px flex flex-wrap justify-center items-stretch gap" style="--px: 100px; --gap: 5rem;">
+        <?php foreach ($howParentHelps as $item) : ?>
+        <div class="w bg px py rounded shadow min-h" style="--w: 450px; --bg: var(--primary-light-blue-50-opa50); --px: 20px; --py: 15px; --rounded: 10px; --min-h: 586px">
+          <div class="flex justify-center items-center gap" style="--gap: 1rem;">
+            <img src="<?= "images/" . $item->image_1 ?>" alt="" class="w h" style="--w: 45%; --h: 200px;">
+            <img src="<?= "images/" . $item->image_1 ?>" alt="" class="w h" style="--w: 45%; --h: 200px;">
+          </div>
+          <div>
+            <p class="text-gray-2 text-justify px" style="--px: 10px;"><span class="text-primary-color">Description: </span><?= $item->description ?></p>
+          </div>
+        </div>
+        <?php endforeach; ?>
       </section>
+        
     </main>
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
+    <?php require_once "layouts/footer.php" ?>
   </body>
 </html>

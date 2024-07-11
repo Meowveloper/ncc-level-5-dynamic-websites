@@ -1,11 +1,14 @@
 .text-red {
     color: red !important;
 }
+.text-primary-red {
+    color: var(--primary-red);
+}
 .text-primary-color {
     color: var(--text-primary-dark-blue) !important;
 }
 .text-gray-2 {
-    color: var(--gray-2) !important;
+    color: var(--gray-2);
 }
 .fs-30px {
     font-size: 30px;
@@ -21,4 +24,27 @@
 }
 .text-decoration-none {
     text-decoration: none !important;
+}
+
+.text-justify {
+    text-align: justify;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.leading {
+    line-height: var(--leading);
+}
+
+.fs {
+    font-size: var(--fs);
+}
+.fw {
+    font-weight: var(--fw);
 }

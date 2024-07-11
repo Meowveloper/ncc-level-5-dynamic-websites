@@ -1,0 +1,19 @@
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+}
+
+.top {
+    top: var(--top);
+}
+.bottom {
+    bottom: var(--bottom);
+}
+.right {
+    right: var(--right);
+}
+.left {
+    left: var(--left);
+}

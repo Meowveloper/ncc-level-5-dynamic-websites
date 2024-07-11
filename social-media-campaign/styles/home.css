@@ -1,0 +1,16 @@
+.welcome {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.welcome div {
+    grid-column: span 2;
+}
+
+.welcome img {
+    grid-column: span 1;
+    grid-column-start: 4;
+    height: 300px;
+    background-color: red;
+    width: 100%;
+}

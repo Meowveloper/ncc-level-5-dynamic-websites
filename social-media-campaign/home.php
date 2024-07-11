@@ -2,6 +2,10 @@
 <?php 
 $currentPage = "user_home";
 $pageType = 2;
+require_once "Controller/SocialMediaAppController.php";
+use Controller\SocialMediaAppController;
+$socialMediaAppController = new SocialMediaAppController();
+$socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
 ?>
 <html lang="en">
   <head>
@@ -9,94 +13,84 @@ $pageType = 2;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Safety Campaign</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/home.css">
   </head>
   <body>
-    <?php include_once("layouts/nav.php") ?>
-    <main>
-      <section class="grid grid-cols-12 px-70px w-full">
-        
-        <div class="col-span-5 col-start-2">
-          <h1>Online Safety Campaign</h1>
+    <?php include_once "layouts/nav.php" ?>
+    <main id="home">
+      <div class="flex justify-center items-center flex-wrap px py gap" style="--px : 100px; --py: 40px; --gap: 20rem">
+        <div class="w" style="--w: 500px">
+          <h2>Welcome to Our Social Media Campaign</h2>
+          <p class="text-justify">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas tempora a libero hic veritatis incidunt, ipsa eveniet consequatur iste harum nihil dicta, delectus error excepturi deleniti, voluptatibus esse placeat aperiam odit eaque! Saepe laborum accusantium, beatae ipsum consequatur excepturi quod at officia, amet expedita suscipit voluptatum, illo minima? Ut unde asperiores fugiat cupiditate harum qui hic, aspernatur quis nisi non dolorem repellat maxime quia delectus, beatae blanditiis ad, magni eum obcaecati suscipit modi laudantium pariatur sed. Consequuntur quia ex ipsam tempora odit cupiditate tenetur repellat natus omnis nihil laudantium, ullam aliquam dolor. A enim pariatur, blanditiis impedit vel dolorem delectus.
+          </p>
+          <div>
+            <button class="bgBlueButton w h cursor-pointer" style="--w: 151px; --h: 44px;">
+              Lets Get Start
+            </button>
+          </div>
         </div>
-        <div class="col-span-4 col-start-8">
-          <img src="assets/welcome_image_1.jpg" alt="" class="w-full" height="300px">
-        </div>
-      </section>
-      <section id="home">
-        <h2>Welcome to Our Campaign</h2>
-        <form action="/search" method="get">
-          <input
-            type="text"
-            id="search"
-            name="search"
-            placeholder="Search..."
-          />
-          <button type="submit">Search</button>
-        </form>
-        <p>Empowering teenagers to navigate the digital world safely.</p>
+        <img src="assets/welcome_image_1.jpg" alt="" width="400px">
+      </div>
+      
+      <section class="px flex flex-wrap justify-center items-stretch gap mt bg pt pb" style="--px: 100px; --gap: 2rem; --mt: 40px; --bg: var(--primary-light-blue-25); --pb: 80px; --pt: 20px;">
+      <div class="fs fw w-full" style="--fs: 20px; --fw: 700;">Empowering teenagers to navigate the digital world safely.</div>
+        <div class="w bg p shadow rounded min-h" style="--min-h: 215px; --w: 400px; --bg: var(--background-color); --p: 20px; --rounded: 10px">
 
-        <!-- Web Service 1 -->
-        <div class="web-service">
-          <h3>Online Safety Workshops</h3>
+          <span class="m fs fw" style="--m: 0px; --fs: 18px; --fw: 700;">Online Safety Workshops</span>
           <p>
             Join our interactive workshops to learn about online safety and
             responsible social media use.
           </p>
           <p><strong>Date:</strong> November 15, 2024</p>
           <p><strong>Location:</strong> Virtual Event</p>
-          <a href="#">Register Now</a>
+          <button class="bgBlueButton w h" style="--w: 151px; --h: 44px">
+          <a href="#" class="text-decoration-none">Register Now</a>
+          </button>
         </div>
 
-        <!-- Web Service 2 -->
-        <div class="web-service">
-          <h3>Anonymous Helpline</h3>
-          <p>
-            Need assistance or advice? Connect with our anonymous helpline for
-            support regarding online challenges.
-          </p>
-          <p><strong>Helpline:</strong> 1-800-123-4567</p>
-          <p><strong>Email:</strong> help@onlinesafety.org</p>
+        <div class="w relative bg p shadow rounded min-h" style="--min-h: 215px; --w: 400px; --bg: var(--background-color); --p: 20px; --rounded: 10px">
+          <span class="mb fs fw block" style="--mb: 10px; --fs: 18px; --fw: 700;">How Parents Help</span>
+          <span>As, a parent, you can also see how parents can help in your child's online safety.</span>
+          <div class="absolute bottom left" style="--bottom: 20px; --left: 20px">
+            <button class="cursor-pointer bgBlueButton w h" style="--w: 151px; --h: 44px;">
+              <a href="" class="text-decoration-none">See Details</a>
+            </button>
+          </div>
         </div>
 
-        <!-- Most Popular Social Media Apps -->
-        <section class="popular-apps">
-          <h3>Most Popular Social Media Apps</h3>
-          <ul>
-            <li>Instagram</li>
-            <li>Facebook</li>
-            <li>Twitter</li>
-            <li>Snapchat</li>
-            <li>TikTok</li>
-            <li>WhatsApp</li>
-            <!-- Add more social media apps as needed -->
-          </ul>
-        </section>
+        <div class="w relative bg p shadow rounded min-h" style="--min-h: 215px; --w: 400px; --bg: var(--background-color); --p: 20px; --rounded: 10px">
+          <span class="mb fs fw block" style="--mb: 10px; --fs: 18px; --fw: 700;">Services</span>
+          <span>You can also checkout our services.</span>
+          <div class="absolute bottom left" style="--bottom: 20px; --left: 20px">
+            <button class="cursor-pointer bgBlueButton w h" style="--w: 151px; --h: 44px;">
+              <a href="" class="text-decoration-none">See Details</a>
+            </button>
+          </div>
+        </div>
+      </section>
 
-        <!-- How to Stay Safe Online -->
-        <section class="stay-safe-online">
-          <h3>How to Stay Safe Online</h3>
-          <p>Follow these tips to ensure a secure online experience:</p>
-          <ul>
-            <li>Set strong, unique passwords</li>
-            <li>Enable two-factor authentication</li>
-            <li>Be cautious about sharing personal information</li>
-            <li>Regularly update privacy settings</li>
-            <li>Use antivirus software</li>
-            <li>Verify the authenticity of online information</li>
-          </ul>
-        </section>
+      <section class="px flex flex-wrap justify-center items-stretch gap mt bg pb" style="--px: 100px; --gap: 2rem; --mt: 40px; --bg: var(--background-color); --pb: 50px;">
+        <h1 class="w-full">Popular Social Media Apps</h1>
+        <?php foreach($socialMediaApps as $item) : ?>
+        <div class="w relative bg p shadow rounded min-h" style="--min-h: 250px; --w: 400px; --bg: var(--primary-light-blue-25); --p: 20px; --rounded: 10px">
+          <div class="flex justify-start items-center gap" style="--gap: 1rem">
+            <img src="<?= "images/" . $item->logo ?>" alt="" width="80px" height="80px" class="rounded-full">
+            <p class="fs fw" style="--fs: 20px; --fw: 800;"><?= $item->name ?></p>
+          </div>
+          <div class="mt" style="--mt: 20px;">
+            <button class="bgBlueButton h w-full mb" style="--h: 40px; --mb: 20px;">
+              <a href="" class="text-decoration-none">Go to <?= $item->name ?></a>
+            </button>
+            <button class="bgBlueButton h w-full" style="--h: 40px;">
+              <a href="" class="text-decoration-none"><?= $item->name ?>'s' Privacy Link</a>
+            </button>
+          </div>
+        </div>
+        <?php endforeach; ?>
       </section>
     </main>
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
+    <?php include_once "layouts/footer.php" ?>
   </body>
 </html>

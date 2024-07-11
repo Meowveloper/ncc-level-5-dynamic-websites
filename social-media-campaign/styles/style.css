@@ -8,7 +8,8 @@
 @import url("utilities/display.css");
 @import url("utilities/flex.css");
 @import url("utilities/gap.css");
-
+@import url("utilities/margin.css");
+@import url("utilities/position.css");
 #contact {
     max-width: 600px;
     margin: 0 auto;

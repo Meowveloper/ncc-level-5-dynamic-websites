@@ -36,7 +36,7 @@ nav li:hover a {
     color: var(--text-primary-dark-blue);
 }
 .navBarActive {
-    color: var(--text-primary-dark-blue);
+    color: var(--text-primary-dark-blue) !important;
 }
 nav li {
     padding-right: 36px;
@@ -65,6 +65,7 @@ nav > ul {
 nav > ul li {
     position: relative;
     margin: 0 8px;
+    cursor: pointer;
 }
 nav > ul li ul {
     visibility: hidden;
@@ -72,12 +73,13 @@ nav > ul li ul {
     padding: 0;
     min-width: 160px;
     position: absolute;
-    top: calc(var(--menu-height) + 5px);
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     transition: 200ms;
-    transition-delay: 200ms;
+    /* transition-delay: 200ms; */
     z-index: 100;
+    background-color: var(--primary-light-blue-25-opa50);
 }
 nav > ul li ul li {
     margin: 0;
@@ -95,13 +97,13 @@ nav > ul li ul li::before {
     border-bottom: 5px solid transparent;
     border-left: 5px solid #ffa500;
 }
-nav > ul li ul li ul {
+/* nav > ul li ul li ul {
     top: -2%;
     left: 100%;
     transform: translate(0);
-}
+} */
 nav > ul li ul li:hover {
-    background-color: #000000;
+    background-color: var(--primary-light-blue-25);
 }
 nav > ul li:hover > ul {
     opacity: 1;
@@ -221,4 +223,12 @@ footer {
 
 .bgWhiteButton:focus {
     border: 1px solid var(--text-primary-dark-blue-50);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.bg {
+    background-color: var(--bg);
 }
