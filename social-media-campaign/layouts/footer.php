@@ -19,6 +19,7 @@ function getHere(string $currentPage) : string
     elseif($currentPage == "user_service") : return "Services";
     elseif($currentPage == "user_legislation") : return "Legislation";
     elseif($currentPage == "user_information") : return "Information";
+    elseif($currentPage == "user_livestreaming") : return "Livestreaming";
     elseif($currentPage == "user_profile") : return "Your Profile";
     else : return "Page identifier error";
     endif;

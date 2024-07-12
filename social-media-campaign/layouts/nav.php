@@ -76,7 +76,7 @@ endif; ?>
                     <li class="link <?= $currentPage == 'user_service' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
                         <a class="text-gray-2" href="service.php">Service</a>
                     </li>
-                    <li class="link">
+                    <li class="link <?= $currentPage == 'user_livestreaming' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
                         <a class="text-gray-2" href="livestreaming.php">Livestreaming</a>
                     </li>
                 </ul>
