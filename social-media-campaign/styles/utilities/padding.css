@@ -10,6 +10,10 @@
     padding-left: var(--px);
     padding-right: var(--px);
 }
+.px-100px {
+    padding-left: 100px;
+    padding-right: 100px;
+}
 .py {
     padding-top: var(--py);
     padding-bottom: var(--py);

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 
-require_once("Controller/MemberController.php");
+require_once "Controller/MemberController.php";
 
 use Controller\MemberController;
 
@@ -21,16 +21,15 @@ $currentPage = "login";
 
 <body>
   <?php
-  include_once("layouts/nav.php");
+    include_once "layouts/nav.php";
   ?>
   <header>
     <h1>Online Safety Campaign</h1>
-    <!-- Custom Cursors and 3D Illustrations can be added here -->
   </header>
   <main>
     <section id="contact">
       <h2>Login</h2>
-      <!-- Contact Form -->
+      
       <form action="#" method="POST" id="loginForm">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />

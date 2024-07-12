@@ -90,7 +90,7 @@ class MemberController extends Member
                 unset($_SESSION['login_attempt_time_expires']);
                 return true;
             } else {
-                if($_SESSION['login_attempt_time'] >= 5) {
+                if($_SESSION['login_attempt_time'] >= 3) {
                     return false;
                 } else {
                     return true;

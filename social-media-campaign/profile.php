@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-$currentPage = "user_newsletter";
+$currentPage = "user_profile";
 $pageType = 2;
 require_once "Controller/NewsLetterController.php";
 require_once "Controller/MemberController.php";
@@ -25,38 +25,26 @@ $newsletters = $newsLetterController->getAllNewsletters();
     endif;
     ?>
     <header>
-      <h1>Our Newsletters</h1>
+      <h1>Your Profile</h1>
       
     </header>
 
     <main id="user_parent_help">
-        <?php if($_SESSION['user']->subscription == 0) : ?>
-        <section class="px" style="--px: 100px;">
-            <p class="text-primary-red text-center fs fw" style="--fs: 20px; --fw: bold;">
-                You need subscribe to see our newsletters collection.
-            </p>
-            <div class="text-center">
-                <p>Do you want to scribe?</p>
-                <button class="bgBlueButton w h" style="--w: 151px; --h: 44px;">
-                    <a href="newsletter.php?subscribe=1" class="text-decoration-none fs" style="--fs: 18px;">Subscribe</a>
-                </button>
-            </div>
+        
+        <section class="px-100px">
+            <form action="">
+                <img src="assets/default-profile.png" alt="" width="200px" height="200px">
+                <div>
+                    <label for="">Upload a New Profile Image</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <div>
+                    <label for="">Name</label>
+                    <input type="text">
+                </div>
+            </form>            
         </section>
-        <?php else : ?>
-        <section class="px flex flex-wrap justify-center items-stretch gap" style="--px: 100px; --gap: 5rem;">
-            <?php foreach ($newsletters as $item) : ?>
-            <div class="w bg px py rounded shadow min-h" style="--w: 450px; --bg: var(--primary-light-blue-50-opa50); --px: 20px; --py: 15px; --rounded: 10px; --min-h: 586px">
-            <div class="flex justify-center items-center gap" style="--gap: 1rem;">
-                <img src="<?= "images/" . $item->image ?>" alt="" class="w h" style="--w: 100%; --h: 200px;">
-            </div>
-            <div class="px" style="--px: 10px;">
-                <p class="fs fw" style="--fs: 20px; --fw: bold;"><?= $item->title ?></p>
-                <p class="text-justify text-gray-2"><span>Content: </span><?= $item->content ?></p>
-            </div>
-            </div>
-            <?php endforeach; ?>
-        </section>
-        <?php endif; ?>
+
         
     </main>
 

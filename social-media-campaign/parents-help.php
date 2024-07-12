@@ -27,6 +27,7 @@ endif;
 
     <main id="user_parent_help">
       <?php if(count($howParentHelps) < 1) : ?>
+          <div class="flex justify-center items-center gap-2rem">
           <p class="fs-18px font-bold text-center">
               <?= isset($_GET['search']) ? "Nothing found on " . $_GET['search'] : "There is no how parents can help yet." ?>
           </p>
@@ -37,11 +38,12 @@ endif;
               </button>
               </div>
           <?php endif; ?>
+          </div>
       <?php endif; ?>
 
       <?php if( count($howParentHelps) > 0 ) : ?>
         <section class="px flex flex-wrap justify-center items-stretch gap" style="--px: 100px; --gap: 2rem;">
-          <div class="fs fw text-center w-full" style="--fs: 18px; --fw: bold;">
+          <div class="fs fw text-center w-full flex justify-center items-center gap-2rem" style="--fs: 18px; --fw: bold;">
               <?= isset($_GET['search']) ? "Search result on: " . $_GET['search'] : "" ?>
               <?php if(isset($_GET['search'])) : ?>
                   <button class="bgBlueButton w-151px h-44px ms-2rem">

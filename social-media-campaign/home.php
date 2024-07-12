@@ -33,8 +33,8 @@ endif;
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas tempora a libero hic veritatis incidunt, ipsa eveniet consequatur iste harum nihil dicta, delectus error excepturi deleniti, voluptatibus esse placeat aperiam odit eaque! Saepe laborum accusantium, beatae ipsum consequatur excepturi quod at officia, amet expedita suscipit voluptatum, illo minima? Ut unde asperiores fugiat cupiditate harum qui hic, aspernatur quis nisi non dolorem repellat maxime quia delectus, beatae blanditiis ad, magni eum obcaecati suscipit modi laudantium pariatur sed. Consequuntur quia ex ipsam tempora odit cupiditate tenetur repellat natus omnis nihil laudantium, ullam aliquam dolor. A enim pariatur, blanditiis impedit vel dolorem delectus.
         </p>
         <div>
-          <button class="bgBlueButton w h cursor-pointer" style="--w: 151px; --h: 44px;">
-            Lets Get Start
+          <button class="bgBlueButton w-151px h-44px cursor-pointer">
+            <a class="text-decoration-none" href="profile.php">Go To Your Profile</a>
           </button>
         </div>
       </div>

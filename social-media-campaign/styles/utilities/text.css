@@ -10,9 +10,6 @@
 .text-gray-2 {
     color: var(--gray-2);
 }
-.fs-30px {
-    font-size: 30px;
-}
 .fs-16px {
     font-size: 16px;
 }
@@ -21,6 +18,9 @@
 }
 .fs-20px {
     font-size: 20px;
+}
+.fs-30px {
+    font-size: 30px;
 }
 .font-bold {
     font-weight: bold;
