@@ -96,7 +96,7 @@ endif;
         <?php
       else :
         foreach ($newsletters as $item) : ?>
-          <div class="card shadow w" style="--w: 300px;">
+          <div class="card shadow">
             <div class="column justify-start items-center gap-1rem">
               <img src="<?= "images/$item->image" ?>" alt="" width="100%" height="200px" class="rounded-20px">
               <p style="font-size: 18px; text-transform: capitalize; font-weight: 700;">

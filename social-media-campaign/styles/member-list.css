@@ -110,6 +110,46 @@ header button {
 }
 
 
+@media only screen and (max-width: 1134px) {
+    nav > ul {
+        flex-direction: column;
+    }
+    nav > ul > li {
+        padding: 10px;
+    }
+    nav {
+        flex-direction: column;
+    }
+    .cardContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media only screen and (max-width: 1011px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    header.gap-5rem {
+        gap: 10px;
+    }
+}
+@media only screen and (max-width: 854px) {
+    .cardContainer {
+        grid-template-columns: 1fr;
+        padding-inline: 50px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    header form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+    }
+}
+
+
 
 
 

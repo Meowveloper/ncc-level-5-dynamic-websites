@@ -106,6 +106,58 @@ header button {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 1134px) {
+    nav > ul {
+        flex-direction: column;
+    }
+    nav > ul > li {
+        padding: 10px;
+    }
+    nav {
+        flex-direction: column;
+    }
+    .cardContainer {
+        grid-template-columns: 1fr;
+        width: 50%;
+    }
+    .formContainer {
+        width: 45%;
+    }
+    
+}
+@media only screen and (max-width: 1005px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    header.gap-5rem {
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 801px) {
+    #admin_social_media_apps {
+        flex-direction: column;
+    }
+    .cardContainer {
+        width: 100%;
+    }
+    .formContainer {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    header form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+    }
+}
+
 
 
 

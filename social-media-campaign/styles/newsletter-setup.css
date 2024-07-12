@@ -77,7 +77,7 @@ header button {
 .cardContainer {
     width: 70%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
 .cardContainer h2 {
@@ -104,6 +104,65 @@ header button {
     width: 100px;
     height: 30px;
     cursor: pointer;
+}
+@media only screen and (max-width: 1479px) {
+    .cardContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1134px) {
+    nav > ul {
+        flex-direction: column;
+    }
+    nav > ul > li {
+        padding: 10px;
+    }
+    nav {
+        flex-direction: column;
+    }
+    .cardContainer {
+        width: 50%;
+        grid-template-columns: 1fr;
+    }
+    .formContainer {
+        width: 45%;
+    }
+    
+}
+@media only screen and (max-width: 1005px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    header.gap-5rem {
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    #admin_social_media_apps {
+        flex-direction: column;
+    }
+    .cardContainer {
+        width: 100%;
+        grid-template-columns: 1fr;
+        padding-inline: 50px;
+    }
+    .formContainer {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    header form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+    }
 }
 
 
