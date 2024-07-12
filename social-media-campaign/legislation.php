@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+$currentPage = "user_legislation";
+$pageType = 2;
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +11,7 @@
     <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
-    <?php include_once("layouts/nav.php"); ?>
+    <?php include_once "layouts/nav.php"; ?>
     <header>
       <h1>Online Safety Campaign</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->
@@ -56,15 +60,6 @@
       </section>
     </main>
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
+    <?php require_once "layouts/footer.php"; ?>
   </body>
 </html>

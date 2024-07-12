@@ -16,4 +16,14 @@
 .min-h {
     min-height: var(--min-h);
 }
+.min-h-300px {
+    min-height: 300px;
+}
+
+.w-151px {
+    width: 151px;
+}
+.h-44px {
+    height: 44px;
+}
 

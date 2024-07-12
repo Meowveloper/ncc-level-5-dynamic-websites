@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <?php 
-$currentPage = "user_parent_help";
+$currentPage = "user_service";
 $pageType = 2;
-require_once "Controller/HowParentHelpController.php";
-use Controller\HowParentHelpController;
-$howParentHelpController = new HowParentHelpController();
+require_once "Controller/ServiceController.php";
+use Controller\ServiceController;
+$serviceController = new ServiceController();
 
 if(isset($_GET['search'])) : 
-  $howParentHelps = $howParentHelpController->getAllHowParentHelps($_GET['search']);
+  $services = $serviceController->searchOrGetAllServices($_GET['search']);
 else : 
-  $howParentHelps = $howParentHelpController->getAllHowParentHelps();
+  $services = $serviceController->searchOrGetAllServices();
 endif;
 ?>
 <html lang="en">
@@ -22,24 +22,24 @@ endif;
   <body>
     <?php require_once "layouts/nav.php"; ?>
     <header>
-      <h1>How Parents Can Help</h1>
+      <h1>Our Services</h1>
     </header>
 
     <main id="user_parent_help">
-      <?php if(count($howParentHelps) < 1) : ?>
-          <p class="fs-18px font-bold text-center">
-              <?= isset($_GET['search']) ? "Nothing found on " . $_GET['search'] : "There is no how parents can help yet." ?>
+      <?php if(count($services) < 1) : ?>
+          <p class="fs-18px font-bold text-center" style="--fs: 18px; --fw: bold;">
+              <?= isset($_GET['search']) ? "Nothing found on " . $_GET['search'] : "There is services yet." ?>
           </p>
           <?php if(isset($_GET['search'])) : ?>
               <div class="text-center">
               <button class="bgBlueButton w-151px h-44px ms-2rem">
-                  <a href="parents-help.php" class="text-decoration-none">Clear Search</a>
+                  <a href="service.php" class="text-decoration-none">Clear Search</a>
               </button>
               </div>
           <?php endif; ?>
       <?php endif; ?>
 
-      <?php if( count($howParentHelps) > 0 ) : ?>
+      <?php if( count($services) > 0 ) : ?>
         <section class="px flex flex-wrap justify-center items-stretch gap" style="--px: 100px; --gap: 2rem;">
           <div class="fs fw text-center w-full" style="--fs: 18px; --fw: bold;">
               <?= isset($_GET['search']) ? "Search result on: " . $_GET['search'] : "" ?>
@@ -49,14 +49,16 @@ endif;
                   </button>
               <?php endif; ?>
           </div>
-          <?php foreach ($howParentHelps as $item) : ?>
-          <div class="w bg px py rounded shadow min-h" style="--w: 450px; --bg: var(--primary-light-blue-50-opa50); --px: 20px; --py: 15px; --rounded: 10px; --min-h: 586px">
-            <div class="flex justify-center items-center gap" style="--gap: 1rem;">
-              <img src="<?= "images/" . $item->image_1 ?>" alt="" class="w h" style="--w: 45%; --h: 200px;">
-              <img src="<?= "images/" . $item->image_1 ?>" alt="" class="w h" style="--w: 45%; --h: 200px;">
-            </div>
+          <?php foreach ($services as $item) : ?>
+          <div class="w bg px py rounded shadow min-h-300px" style="--w: 450px; --bg: var(--primary-light-blue-50-opa50); --px: 20px; --py: 15px; --rounded: 10px;">
             <div>
-              <p class="text-gray-2 text-justify px" style="--px: 10px;"><span class="text-primary-color">Description: </span><?= $item->description ?></p>
+              <p class="text-20px font-bold"><?= $item->title ?></p>
+              <p class="text-gray-2">
+                <span class="text-primary-color">Description: </span><?= $item->description ?>
+              </p>
+              <p class="text-gray-2">
+                <span class="text-primary-color">Info: </span><?= $item->info ?>
+              </p>
             </div>
           </div>
           <?php endforeach; ?>

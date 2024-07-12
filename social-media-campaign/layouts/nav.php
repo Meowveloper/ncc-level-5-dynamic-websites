@@ -63,7 +63,7 @@ endif; ?>
         </div>
         <ul>
             <li class="link"><a href="home.php" class="<?= $currentPage == 'user_home' ? 'navBarActive' : '' ?>">Home</a></li>
-            <li class="link"><a href="information.php">Information</a></li>
+            <li class="link"><a href="information.php" class="<?= $currentPage == 'user_information' ? 'navBarActive' : '' ?>">Information</a></li>
             <li>
                 Campaigns
                 <ul>
@@ -73,6 +73,9 @@ endif; ?>
                     <li class="link <?= $currentPage == 'user_newsletter' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
                         <a class="text-gray-2" href="newsletter.php">Newsletters</a>
                     </li>
+                    <li class="link <?= $currentPage == 'user_service' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
+                        <a class="text-gray-2" href="service.php">Service</a>
+                    </li>
                     <li class="link">
                         <a class="text-gray-2" href="livestreaming.php">Livestreaming</a>
                     </li>
@@ -80,7 +83,7 @@ endif; ?>
             </li>
 
             <li class="link"><a href="contact.php" class="<?= $currentPage == 'user_contact' ? 'navBarActive' : '' ?>">Contact</a></li>
-            <li class="link"><a href="legislation.php">Legislation</a></li>
+            <li class="link"><a href="legislation.php" class="<?= $currentPage == 'user_legislation' ? 'navBarActive' : '' ?>">Legislation</a></li>
             <li class="link"><a href="./logout.php">Logout</a></li>
         </ul>
         <form action="#" method="GET" class="flex justify-center items-stretch">
@@ -88,7 +91,7 @@ endif; ?>
             <select required name="page" class="h w" style="--h: 30px; --w: 150px;">
                 <option value="" disabled selected>Search In</option>
                 <option value="newsletter">Newsletter</option>
-                <option>Service</option>
+                <option value="service">Service</option>
                 <option value="home">Social Media Apps</option>
                 <option value="parents-help">How Parents Help</option>
             </select>

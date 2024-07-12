@@ -14,6 +14,9 @@ function getHere(string $currentPage) : string
     elseif($currentPage == "user_contact") : return "Contact";
     elseif($currentPage == "user_parent_help") : return "How Parents Can Help";
     elseif($currentPage == "user_newsletter") : return "Newsletters";
+    elseif($currentPage == "user_service") : return "Services";
+    elseif($currentPage == "user_legislation") : return "Legislation";
+    elseif($currentPage == "user_information") : return "Information";
     else : return "Page identifier error";
     endif;
 }

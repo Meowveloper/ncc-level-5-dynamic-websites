@@ -10,3 +10,21 @@
 .me {
     margin-right: var(--me);
 }
+.ms-1rem {
+    margin-left: 1rem ;
+}
+.ms-2rem {
+    margin-left: 2rem ;
+}
+.ms-3rem {
+    margin-left: 3rem ;
+}
+.mb-1rem {
+    margin-bottom: 1rem;
+}
+.mb-2rem {
+    margin-bottom: 2rem;
+}
+.mb-3rem {
+    margin-bottom: 3rem;
+}
