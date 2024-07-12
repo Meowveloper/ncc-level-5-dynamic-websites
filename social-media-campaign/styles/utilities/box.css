@@ -1,6 +1,9 @@
 .rounded-full {
     border-radius: 99999999px;
 }
+.rounded-10px {
+    border-radius: 10px;
+}
 .rounded-20px {
     border-radius: 20px;
 }
@@ -13,4 +16,10 @@
 }
 .outline-none {
     outline: none;
+}
+.border-none {
+    border: none;
+}
+.border-gray-1 {
+    border: 1px solid var(--gray-1);
 }

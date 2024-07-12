@@ -20,7 +20,7 @@ $pageType = 0;
     </header>
 
     <main>
-      <section id="information">
+      <section id="information" class="px-100px">
         <h2>Information</h2>
         <p>
           Welcome to the Information page of the Online Safety Campaign. Here,
@@ -44,15 +44,6 @@ $pageType = 0;
       </section>
     </main>
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
+    <?php include_once "layouts/footer.php"; ?>
   </body>
 </html>

@@ -18,7 +18,7 @@ $pageType = 2;
     </header>
 
     <main>
-      <section id="information">
+      <section id="information" class="px-100px">
         <h2>Information</h2>
         <p>
           Welcome to the Information page of the Online Safety Campaign. Here,

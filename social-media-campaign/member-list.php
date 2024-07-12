@@ -60,7 +60,7 @@ endif;
           <div class="card shadow">
             <div class="row justify-center items-center gap-1rem">
               <?php if (isset($item->profile) and $item->profile != '') : ?>
-                <img src="<?= "images/$item->image_1" ?>" alt="" width="100%" height="200px">
+                <img src="<?= "images/$item->profile" ?>" alt="" width="100%" height="200px">
               <?php else : ?>
                 <img src="assets/default-profile.png" alt="" width="100%" height="200px">
               <?php endif; ?>

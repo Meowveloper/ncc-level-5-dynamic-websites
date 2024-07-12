@@ -17,3 +17,33 @@
 .left {
     left: var(--left);
 }
+
+.top-10px {
+    top: 10px;
+}
+.left-10px {
+    left: 10px;
+}
+.top-m-10px {
+    top: -10px;
+}
+
+.left-m-10px {
+    left: -10px;
+}
+
+.right-10px {
+    right: 10px;
+}
+.right-20px {
+    right: 20px;
+}
+.right-30px {
+    right: 30px;
+}
+.right-40px {
+    right: 40px;
+}
+.right-m-10px {
+    right: -10px;
+}

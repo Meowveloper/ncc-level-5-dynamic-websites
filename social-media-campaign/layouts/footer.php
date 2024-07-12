@@ -2,6 +2,8 @@
 function getHere(string $currentPage) : string 
 {
     if ($currentPage == "guest_home") : return "Home";
+    elseif ($currentPage == "guest_information") : return "Information";
+    elseif ($currentPage == "guest_legislation") : return "Legislation";
     elseif($currentPage == "login") : return "Login";
     elseif($currentPage == "admin_home") : return "Home";
     elseif($currentPage == "admin_service_setup") : return "Service Setup";
@@ -17,6 +19,7 @@ function getHere(string $currentPage) : string
     elseif($currentPage == "user_service") : return "Services";
     elseif($currentPage == "user_legislation") : return "Legislation";
     elseif($currentPage == "user_information") : return "Information";
+    elseif($currentPage == "user_profile") : return "Your Profile";
     else : return "Page identifier error";
     endif;
 }

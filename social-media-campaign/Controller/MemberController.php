@@ -34,6 +34,17 @@ class MemberController extends Member
         }
     }
 
+    public function updateProfileFromProfilePage (string $id, bool $isSubscriber) : void 
+    {   
+        $oldData = $this->show($id);
+        $_POST['password'] = $oldData->password;
+        $member = $this->update($id, $isSubscriber);
+        $member->password = "********";
+        $_SESSION['user'] = $member;
+        header("location:profile.php");
+        exit();
+    }
+
     public function changeRoleFromContactList (string $id, bool $isAdmin) : void 
     {
         $this->changeRole($id, $isAdmin);
@@ -72,13 +83,13 @@ class MemberController extends Member
                 $message = "Wrong Password";
                 header("location:login.php?error=1&errorMessage=$message");
                 $_SESSION['login_attempt_time'] = $loginAttemptTime + 1;
-                $_SESSION['login_attempt_time_expires'] = time() + (60 * 5);
+                $_SESSION['login_attempt_time_expires'] = time() + (60 * 1);
             }
         } catch (PDOException $err) {
             $message = $err->getMessage();
             header("location:login.php?error=1&errorMessage=$message");
             $_SESSION['login_attempt_time'] = $loginAttemptTime + 1;
-            $_SESSION['login_attempt_time_expires'] = time() + (60 * 5);
+            $_SESSION['login_attempt_time_expires'] = time() + (60 * 1);
         }
     }
 

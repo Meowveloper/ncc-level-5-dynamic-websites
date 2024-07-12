@@ -2,9 +2,28 @@
     padding-left: 70px;
     padding-right: 70px;
 }
+.px-2rem {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
 .py-2rem {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.px-20px {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.px-10px {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.py-10px {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.p-20px {
+    padding: 20px;
 }
 .px {
     padding-left: var(--px);

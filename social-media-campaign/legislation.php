@@ -18,7 +18,7 @@ $pageType = 2;
     </header>
 
     <main>
-      <section class="legislation-content">
+      <section class="legislation-content px-100px">
         <h2>Legislation and Guidance</h2>
 
         <p>

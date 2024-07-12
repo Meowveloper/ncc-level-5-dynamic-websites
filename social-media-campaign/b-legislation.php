@@ -19,7 +19,7 @@ $pageType = 0;
     </header>
 
     <main>
-      <section class="legislation-content">
+      <section class="legislation-content px-100px">
         <h2>Legislation and Guidance</h2>
 
         <p>
@@ -61,15 +61,6 @@ $pageType = 0;
       </section>
     </main>
 
-    <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
+    <?php include_once "layouts/footer.php"; ?>
   </body>
 </html>

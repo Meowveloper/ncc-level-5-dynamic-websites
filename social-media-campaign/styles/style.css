@@ -10,6 +10,7 @@
 @import url("utilities/gap.css");
 @import url("utilities/margin.css");
 @import url("utilities/position.css");
+@import url("utilities/bg.css");
 #contact {
     max-width: 600px;
     margin: 0 auto;

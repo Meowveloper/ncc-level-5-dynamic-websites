@@ -59,7 +59,7 @@ class Member
 
     protected function update (string $id, bool $isScriber = false, bool $isAdmin = false, bool $isOwner = false) : object
     {   if(isset($_FILES['profile']) and $_FILES['profile']['error'] == 0 ) $this->deleteProfileImage($id);
-        $filename = $this->uploadProfileImage();
+        $filename = $this->updateProfileImage($id);
         $subscription = $isScriber ? 1 : 0;
         $role = $isAdmin ? 1 : 0;
         $owner = $isOwner ? 1 : 0;
@@ -162,6 +162,20 @@ class Member
             move_uploaded_file($filepatch, "images/" . $filename);
         } else {
             $filename = "";
+        }
+
+        return $filename;
+    }
+    private function updateProfileImage (string $id) : string 
+    {
+        $uniqueId = uniqid("profile_", true);
+        if(isset($_FILES['profile']) && $_FILES['profile']['error'] == 0) {
+            $filename = $uniqueId. '_'. $_FILES['profile']['name'];
+            $filepatch = $_FILES['profile']['tmp_name'];
+            move_uploaded_file($filepatch, "images/" . $filename);
+        } else {
+            $oldData = $this->show($id);
+            $filename = $oldData->profile;
         }
 
         return $filename;

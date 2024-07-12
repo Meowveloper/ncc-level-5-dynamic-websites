@@ -10,6 +10,9 @@
 .me {
     margin-right: var(--me);
 }
+.mx-auto {
+    margin-inline: auto;
+}
 .ms-1rem {
     margin-left: 1rem ;
 }
@@ -21,6 +24,12 @@
 }
 .mb-1rem {
     margin-bottom: 1rem;
+}
+.mb-5px {
+    margin-bottom: 5px;
+}
+.mb-2px {
+    margin-bottom: 2px;
 }
 .mb-2rem {
     margin-bottom: 2rem;
