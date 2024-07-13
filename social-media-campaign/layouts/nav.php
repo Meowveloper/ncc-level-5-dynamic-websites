@@ -37,7 +37,7 @@ endif; ?>
 <?php endif; ?>
 
 
-<?php if (isset($_SESSION['user']) and $_SESSION['user']->role == 1) : ?>
+<?php if (isset($_SESSION['user']) and $_SESSION['user']->role == 1) : ?>   
     <nav>
         <div>
             <img src="assets/logo.jpg" alt="" width="80px" height="80px" class="rounded-full">
