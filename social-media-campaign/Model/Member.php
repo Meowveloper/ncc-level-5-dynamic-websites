@@ -74,8 +74,6 @@ class Member
         $statement->bindParam(":owner", $owner);
         $statement->bindParam(":id", $id);
         $statement->execute();
-
-        
         return $this->show($id);
 
     }
@@ -135,7 +133,6 @@ class Member
     {
         $sql = "SELECT MAX(id) as id FROM $this->table";
         $stmt = $this->db->pdo->query($sql);
-        // $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $lastSMCID = $result['id'];
@@ -143,10 +140,10 @@ class Member
         if (empty($lastSMCID)) {
             $formattedID = 'smc00001';
         } else {
-            $lastSMCINum = intval(substr($lastSMCID, 3)); // Extract numeric part
-            $lastSMCINum++; // Increment the number
+            $lastSMCINum = intval(substr($lastSMCID, 3)); 
+            $lastSMCINum++; 
 
-            $formattedID = 'smc' . str_pad($lastSMCINum, 5, '0', STR_PAD_LEFT); // Pad with zeros
+            $formattedID = 'smc' . str_pad($lastSMCINum, 5, '0', STR_PAD_LEFT); 
         }
 
         return $formattedID;
