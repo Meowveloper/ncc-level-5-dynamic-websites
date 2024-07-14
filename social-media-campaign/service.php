@@ -18,6 +18,7 @@ endif;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Safety Campaign</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/user/service.css">
   </head>
   <body>
     <?php require_once "layouts/nav.php"; ?>
@@ -27,7 +28,7 @@ endif;
 
     <main id="user_parent_help">
       <?php if(count($services) < 1) : ?>
-          <p class="fs-18px font-bold text-center" style="--fs: 18px; --fw: bold;">
+          <p class="fs-18px fw-bold text-center">
               <?= isset($_GET['search']) ? "Nothing found on " . $_GET['search'] : "There is services yet." ?>
           </p>
           <?php if(isset($_GET['search'])) : ?>
@@ -40,8 +41,8 @@ endif;
       <?php endif; ?>
 
       <?php if( count($services) > 0 ) : ?>
-        <section class="px flex flex-wrap justify-center items-stretch gap" style="--px: 100px; --gap: 2rem;">
-          <div class="fs fw text-center w-full" style="--fs: 18px; --fw: bold;">
+        <section class="px-100px flex flex-wrap justify-center items-stretch gap-2rem">
+          <div class="fs-18px fw-bold text-center w-full">
               <?= isset($_GET['search']) ? "Search result on: " . $_GET['search'] : "" ?>
               <?php if(isset($_GET['search'])) : ?>
                   <button class="bgBlueButton w-151px h-44px ms-2rem">
@@ -50,7 +51,7 @@ endif;
               <?php endif; ?>
           </div>
           <?php foreach ($services as $item) : ?>
-          <div class="w bg px py rounded shadow min-h-300px" style="--w: 450px; --bg: var(--primary-light-blue-50-opa50); --px: 20px; --py: 15px; --rounded: 10px;">
+          <div class="w-450px bg-primary-light-blue-50-opa50 px-20px py-15px rounded-10px shadow min-h-300px">
             <div>
               <p class="text-20px font-bold"><?= $item->title ?></p>
               <p class="text-gray-2">

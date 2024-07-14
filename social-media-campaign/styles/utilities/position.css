@@ -5,45 +5,60 @@
     position: absolute;
 }
 
+/* top */
 .top {
     top: var(--top);
 }
-.bottom {
-    bottom: var(--bottom);
-}
-.right {
-    right: var(--right);
-}
-.left {
-    left: var(--left);
-}
-
 .top-10px {
     top: 10px;
-}
-.left-10px {
-    left: 10px;
 }
 .top-m-10px {
     top: -10px;
 }
+/* top end */
 
+/* bottom */
+.bottom {
+    bottom: var(--bottom);
+}
+.bottom-20px {
+    bottom: 20px;
+}
+/* bottom end */
+
+/* left */
+.left {
+    left: var(--left);
+}
+.left-20px {
+    left: 20px;
+}
+.left-10px {
+    left: 10px;
+}
 .left-m-10px {
     left: -10px;
 }
+/* left end */
 
-.right-10px {
-    right: 10px;
-}
-.right-20px {
-    right: 20px;
-}
-.right-30px {
-    right: 30px;
+
+/* right */
+.right {
+    right: var(--right);
 }
 .right-40px {
     right: 40px;
 }
+.right-30px {
+    right: 30px;
+}
+.right-20px {
+    right: 20px;
+}
+.right-10px {
+    right: 10px;
+}
 .right-m-10px {
     right: -10px;
 }
+/* right end */

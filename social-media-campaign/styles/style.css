@@ -107,9 +107,15 @@
 @media only screen and (max-width: 600px) {
     nav > ul {
         flex-direction: column;
+        width: 100%;
     }
     nav > ul > li {
         padding: 10px;
+        width: fit-content !important;
+        text-align: center !important;
+    }
+    nav li::before {
+        right: -7px;
     }
     nav {
         flex-direction: column;

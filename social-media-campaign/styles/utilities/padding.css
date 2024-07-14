@@ -1,3 +1,12 @@
+/* px */
+.px {
+    padding-left: var(--px);
+    padding-right: var(--px);
+}
+.px-100px {
+    padding-left: 100px;
+    padding-right: 100px;
+}
 .px-70px {
     padding-left: 70px;
     padding-right: 70px;
@@ -5,10 +14,6 @@
 .px-2rem {
     padding-left: 2rem;
     padding-right: 2rem;
-}
-.py-2rem {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
 }
 .px-20px {
     padding-left: 20px;
@@ -18,31 +23,54 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-.py-10px {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.p-20px {
-    padding: 20px;
-}
-.px {
-    padding-left: var(--px);
-    padding-right: var(--px);
-}
-.px-100px {
-    padding-left: 100px;
-    padding-right: 100px;
-}
+/* px end */
+
+/* py */
 .py {
     padding-top: var(--py);
     padding-bottom: var(--py);
 }
+.py-2rem {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.py-40px {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.py-15px {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.py-10px {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/* py end */
+
+/* p */
 .p {
     padding: var(--p);
 }
+.p-20px {
+    padding: 20px;
+}
+/* p end */
+
+/* pt */
 .pt {
     padding-top: var(--pt);
 }
+.pt-20px {
+    padding-top: 20px;
+}
+/* pt end */
+
+/* pb */
 .pb {
     padding-bottom: var(--pb);
 }
+.pb-80px {
+    padding-bottom: 80px;
+}
+/* pb end */

@@ -1,7 +1,21 @@
+/* primary-light-blue-50 */
 .bg-primary-light-blue-50-opa50 {
     background-color: var(--primary-light-blue-50-opa50);
 }
+/* primary-light-blue-50 end */
 
+/* primary light blue 25 */
+.bg-primary-light-blue-25 {
+    background-color: var(--primary-light-blue-25);
+
+}
 .bg-primary-light-blue-25-opa30 {
     background-color: var(--primary-light-blue-25-opa30);
 }
+/* primary light blue 25 end */
+
+/* background color */
+.bg-background-color {
+    background-color: var(--background-color);
+}
+/* background color end */

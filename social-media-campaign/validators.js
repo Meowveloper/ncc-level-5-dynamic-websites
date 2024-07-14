@@ -12,7 +12,7 @@ function useValidators() {
     };
 
     const isLink = (text) => {
-        const urlRegex = /^(http|https):\/\/[^\s]+/g; // Regular expression for URLs
+        const urlRegex = /^(http|https):\/\/[^\s]+/g;
         return urlRegex.test(text);
     };
 

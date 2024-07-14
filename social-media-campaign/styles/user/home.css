@@ -1,0 +1,47 @@
+.welcome {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.welcome div {
+    grid-column: span 2;
+}
+
+.welcome img {
+    grid-column: span 1;
+    grid-column-start: 4;
+    height: 300px;
+    background-color: red;
+    width: 100%;
+}
+
+@media screen and (max-width: 1286px) {
+    nav form {
+        flex-direction: column;
+    }
+    nav form * {
+        width: 100% !important;
+        margin-bottom: 3px;
+    }
+}
+@media screen and (max-width: 986px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav > ul {
+        flex: 1;
+    }
+    nav form {
+        flex-direction: row;
+        margin-top: 3px;
+    }
+}
+
+@media screen and (max-width: 703px) {
+    
+    nav > ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

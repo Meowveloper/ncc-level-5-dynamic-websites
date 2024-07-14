@@ -1,0 +1,30 @@
+@media screen and (max-width: 1286px) {
+    nav form {
+        flex-direction: column;
+    }
+    nav form * {
+        width: 100% !important;
+        margin-bottom: 3px;
+    }
+}
+@media screen and (max-width: 986px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav > ul {
+        flex: 1;
+    }
+    nav form {
+        flex-direction: row;
+        margin-top: 3px;
+    }
+}
+
+@media screen and (max-width: 703px) {
+    
+    nav > ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
