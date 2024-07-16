@@ -21,6 +21,7 @@ function getHere(string $currentPage) : string
     elseif($currentPage == "user_information") : return "Information";
     elseif($currentPage == "user_livestreaming") : return "Livestreaming";
     elseif($currentPage == "user_profile") : return "Your Profile";
+    elseif($currentPage == "user_social_media_app") : return "Popular Social Media Applications";
     else : return "Page identifier error";
     endif;
 }

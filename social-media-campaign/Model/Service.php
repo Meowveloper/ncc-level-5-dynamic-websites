@@ -14,10 +14,16 @@ class Service
         $this->db = DataBase::getInstance();
     }
 
-    protected function index(string $search) : array
+    protected function index(string $search, int | null $limit = null) : array
     {
         $condition = $search ? "%$search%" : "%" . '' . "%";
-        $statement = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE (title LIKE :condition OR description LIKE :condition OR info LIKE :condition) AND (title != '')");
+        if(!!$limit) {
+            $statement = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE (title LIKE :condition OR description LIKE :condition OR info LIKE :condition) AND (title != '') LIMIT :limit");
+            $statement->bindParam(":limit", $limit, PDO::PARAM_INT);
+        } else {
+            $statement = $this->db->pdo->prepare("SELECT * FROM $this->table WHERE (title LIKE :condition OR description LIKE :condition OR info LIKE :condition) AND (title != '')");
+        }
+        
         $statement->bindParam(":condition", $condition);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);

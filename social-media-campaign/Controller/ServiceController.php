@@ -5,9 +5,9 @@ use Model\Service;
 
 class ServiceController extends Service
 {
-    public function searchOrGetAllServices(string $search = '') : array
+    public function searchOrGetAllServices(string $search = '', int | null $limit = null) : array
     {
-        return $this->index($search);
+        return $this->index($search, $limit);
     }
 
     public function getWithID ($id) : object 

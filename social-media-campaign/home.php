@@ -2,16 +2,18 @@
 <?php
 $currentPage = "user_home";
 $pageType = 2;
-require_once "Controller/SocialMediaAppController.php";
+require_once "Helper/Text.php";
+require_once "Controller/HowParentHelpController.php";
+require_once "Controller/ServiceController.php";
+require_once "Controller/NewsLetterController.php";
+use Helper\Text;
+use Controller\HowParentHelpController;
+use Controller\ServiceController;
+use Controller\NewsLetterController;
 
-use Controller\SocialMediaAppController;
-
-$socialMediaAppController = new SocialMediaAppController();
-if (isset($_GET['search'])) :
-  $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps($_GET['search']);
-else :
-  $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
-endif;
+$howParentHelpController = new HowParentHelpController();
+$serviceController = new ServiceController();
+$newsLetterController = new NewsLetterController();
 ?>
 <html lang="en">
 
@@ -78,64 +80,109 @@ endif;
       </div>
     </section>
 
-    <section id="toScroll" class="px flex flex-wrap justify-center items-stretch gap mt bg pb" style="--px: 100px; --gap: 2rem; --mt: 40px; --bg: var(--background-color); --pb: 50px;">
-      <h1 class="w-full">Popular Social Media Apps</h1>
-      <?php if (count($socialMediaApps) < 1) : ?>
-        <p class="fs fw text-center" style="--fs: 18px; --fw: bold;">
-          <?= isset($_GET['search']) ? "Nothing found on " . $_GET['search'] : "Admins haven't add any social media apps to the database." ?>
-        </p>
-        <?php if (isset($_GET['search'])) : ?>
-          <div class="text-center">
-            <button class="bgBlueButton w-151px h-44px ms-2rem">
-              <a href="home.php" class="text-decoration-none">Clear Search</a>
-            </button>
-          </div>
-        <?php endif; ?>
-      <?php endif; ?>
-      <?php if (count($socialMediaApps) > 0) : ?>
-        <?php if (isset($_GET['search'])) : ?>
-          <div class="text-center w-full flex justify-center items-center">
-            <div class="text-18px font-bold">Search Result On <?= $_GET['search'] ?></div>
-            <button class="bgBlueButton w-151px h-44px ms-2rem">
-                <a href="home.php" class="text-decoration-none">Clear Search</a>
-            </button>
-          </div>
-        <?php endif; ?>
-        <?php foreach ($socialMediaApps as $item) : ?>
-          <div class="w-400px relative bg-primary-light-blue-25 p-20px shadow rounded-10px min-h-250px">
-            <div class="flex justify-start items-center gap-1rem">
-              <img src="<?= "images/" . $item->logo ?>" alt="" width="80px" height="80px" class="rounded-full">
-              <p class="fs-20px fw-800"><?= $item->name ?></p>
+    <!-- how parents help -->
+    <?php 
+      $howParentHelps_x_3 = $howParentHelpController->getAllHowParentHelps('', 3);
+      if(!(count($howParentHelps_x_3) < 1)) : 
+    ?>
+      <section class="px-100px mt-40px py-2rem">
+        <p class="fs-20px fw-bold">A Introduction of How Parents Can Help In This Campaign</p>
+        <?php foreach($howParentHelps_x_3 as $item) : ?>
+          <div class="flex justify-start items-center gap-2rem mb-1rem flex-wrap bg-primary-light-blue-25 py-15px px-20px rounded-10px shadow">
+            <div>
+              <img src="<?= "images/" . $item->image_1 ?>" alt="" class="w-100px h-100px rounded-10px">
+              <img src="<?= "images/" . $item->image_2 ?>" alt="" class="w-100px h-100px rounded-10px">
             </div>
-            <div class="mt-20px">
-              <button class="bgBlueButton h-40px w-full mb-20px">
-                <a href="" class="text-decoration-none">Go to <?= $item->name ?></a>
-              </button>
-              <button class="bgBlueButton h-40px w-full">
-                <a href="" class="text-decoration-none"><?= $item->name ?>'s' Privacy Link</a>
-              </button>
+            <div class="w-half">
+              <p class="pSeeMore text-gray-2 text-justify" data-show-less="1" data-text="<?= $item->description ?>" data-short-text="<?= Text::truncate($item->description, 10); ?>"><?= Text::truncate($item->description, 10); ?></p>
             </div>
+            <button class="cursor-pointer bgBlueButton btnSee">See More</button>
           </div>
         <?php endforeach; ?>
-      <?php endif; ?>
+        <div class="w-full text-center">
+          <button class="cursor-pointer bgWhiteButton bg-none px-20px py-10px">
+            <a href="parents-help.php" class="text-decoration-none">See All Details of How Parents Can Help</a>
+          </button>
+        </div>
+      </section>
+    <?php endif; ?>
+    <!-- how parents help end -->
 
-    </section>
+    <!-- services -->
+    <?php 
+      $services_x_3 = $serviceController->searchOrGetAllServices('', 3);
+      if(!(count($services_x_3) < 1)) : 
+    ?>
+      <section class="px-100px mt-40px py-2rem bg-primary-light-blue-25">
+        <p class="fs-20px fw-bold">A Introduction of Our Services</p>
+        <?php foreach($services_x_3 as $item) : ?>
+          <div class="flex justify-start items-center gap-2rem bg-background-color mb-1rem flex-wrap py-15px px-20px rounded-10px shadow">
+            <div class="w-20-percent">
+              <p class="fs-18px fw-bold"><?= $item->title ?></p>
+            </div>
+            <div class="w-half">
+              <p class="pSeeMore text-gray-2 text-justify" data-show-less="1" data-text="<?= $item->description ?>" data-short-text="<?= Text::truncate($item->description, 10); ?>"><?= Text::truncate($item->description, 10); ?></p>
+            </div>
+            <button class="cursor-pointer bgBlueButton btnSee">See More</button>
+          </div>
+        <?php endforeach; ?>
+        <div class="w-full text-center">
+          <button class="cursor-pointer bgBlueButton px-20px py-10px">
+            <a href="service.php" class="text-decoration-none">See All Details of Our Services</a>
+          </button>
+        </div>
+      </section>
+    <?php endif; ?>
+    <!-- services end -->
+
+    <!-- newsletter -->
+    <?php 
+      $newsletters_x_3 = $newsLetterController->getAllNewsletters('', 3);
+      if(!(count($newsletters_x_3) < 1)) : 
+    ?>
+      <section class="px-100px mt-40px py-2rem">
+        <p class="fs-20px fw-bold">A Introduction of Our Newsletters</p>
+        <?php foreach($newsletters_x_3 as $item) : ?>
+          <div class="flex justify-start items-center gap-2rem mb-1rem flex-wrap bg-primary-light-blue-25 py-15px px-20px rounded-10px shadow">
+            <div class="w-20-percent">
+              <img src="<?= "images/" . $item->image ?>" alt="" class="w-100px h-100px rounded-10px">
+              <p class="fw-bold"><?= $item->title ?></p>
+            </div>
+            <div class="w-half">
+              <p class="pSeeMore text-gray-2 text-justify" data-show-less="1" data-text="<?= $item->content ?>" data-short-text="<?= Text::truncate($item->content, 10); ?>"><?= Text::truncate($item->content, 10); ?></p>
+            </div>
+            <button class="cursor-pointer bgBlueButton btnSee">See More</button>
+          </div>
+        <?php endforeach; ?>
+        <div class="w-full text-center">
+          <button class="cursor-pointer bgWhiteButton bg-none px-20px py-10px">
+            <a href="newsletter.php" class="text-decoration-none">See All Details of Our Newsletters</a>
+          </button>
+        </div>
+      </section>
+    <?php endif; ?>
+    <!-- newsletter end -->
   </main>
 
   <?php include_once "layouts/footer.php" ?>
 </body>
 <script>
+  const pSeeMore = document.querySelectorAll(".pSeeMore");
+  const btnSee = document.querySelectorAll(".btnSee");
   window.onload = () => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const search = urlParams.get('search');
-    const paramToScroll = urlParams.get('toScroll');
-    const toScroll = document.getElementById("toScroll");
-    if (search || paramToScroll) {
-      toScroll.scrollIntoView({
-        behavior: 'smooth'
+    btnSee.forEach((item, i) => {
+      item.addEventListener("click", () => {
+        if(!!Number(pSeeMore[i].dataset.showLess)) {
+          pSeeMore[i].innerHTML = pSeeMore[i].dataset.text;
+          pSeeMore[i].dataset.showLess = 0;
+          item.innerHTML = 'See Less';
+        } else {
+          pSeeMore[i].innerHTML = pSeeMore[i].dataset.shortText;
+          pSeeMore[i].dataset.showLess = 1;
+          item.innerHTML = 'See More';
+        }
       });
-    }
+    })
   }
 </script>
 

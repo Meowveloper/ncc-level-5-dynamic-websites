@@ -15,12 +15,19 @@ class NewsLetter
         $this->db = DataBase::getInstance();
     }
 
-    protected function index (string $search) : array
+    protected function index (string $search, int | null $limit = null) : array
     {
         $condition = $search ? "%$search%" : "%" . '' . "%";
-        $stmt = $this->db->pdo->prepare("
-            SELECT * FROM $this->table WHERE (title LIKE :condition OR content LIKE :condition) AND (title != '' OR content != '')
-        ");
+        if(!!$limit) {
+            $stmt = $this->db->pdo->prepare("
+                SELECT * FROM $this->table WHERE (title LIKE :condition OR content LIKE :condition) AND (title != '' OR content != '') LIMIT :limit
+            ");
+            $stmt->bindParam(":limit", $limit, PDO::PARAM_INT);
+        } else {
+            $stmt = $this->db->pdo->prepare("
+                SELECT * FROM $this->table WHERE (title LIKE :condition OR content LIKE :condition) AND (title != '' OR content != '')
+            ");
+        }
         $stmt->bindParam(":condition", $condition);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);

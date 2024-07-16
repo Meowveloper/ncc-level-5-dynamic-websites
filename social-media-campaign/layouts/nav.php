@@ -67,17 +67,20 @@ endif; ?>
             <li>
                 Campaigns
                 <ul>
-                    <li class="link <?= $currentPage == 'user_parent_help' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
+                    <li class="link <?= $currentPage == 'user_parent_help' ? 'bg-primary-light-blue-25' : '' ?>">
                         <a class="text-gray-2" href="parents-help.php">Parents Help</a>
                     </li>
-                    <li class="link <?= $currentPage == 'user_newsletter' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
+                    <li class="link <?= $currentPage == 'user_newsletter' ? 'bg-primary-light-blue-25' : '' ?>">
                         <a class="text-gray-2" href="newsletter.php">Newsletters</a>
                     </li>
-                    <li class="link <?= $currentPage == 'user_service' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
+                    <li class="link <?= $currentPage == 'user_service' ? 'bg-primary-light-blue-25' : '' ?>">
                         <a class="text-gray-2" href="service.php">Service</a>
                     </li>
-                    <li class="link <?= $currentPage == 'user_livestreaming' ? 'bg' : '' ?>" style="--bg: var(--primary-light-blue-25)">
+                    <li class="link <?= $currentPage == 'user_livestreaming' ? 'bg-primary-light-blue-25' : '' ?>">
                         <a class="text-gray-2" href="livestreaming.php">Livestreaming</a>
+                    </li>
+                    <li class="link <?= $currentPage == 'user_social_media_app' ? 'bg-primary-light-blue-25' : '' ?>">
+                        <a class="text-gray-2" href="social-media-app.php">Popular Social Media Apps</a>
                     </li>
                 </ul>
             </li>
@@ -92,7 +95,7 @@ endif; ?>
                 <option value="" disabled selected>Search In</option>
                 <option value="newsletter">Newsletter</option>
                 <option value="service">Service</option>
-                <option value="home">Social Media Apps</option>
+                <option value="social-media-app">Social Media Apps</option>
                 <option value="parents-help">How Parents Help</option>
             </select>
             <button name="btnNavSearch" class="bgBlueButton w h" style="--w: 100px; --h: 30px;" type="submit">Search</button>

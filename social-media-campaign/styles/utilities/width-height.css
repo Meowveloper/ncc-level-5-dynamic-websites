@@ -5,8 +5,14 @@
 .w-full {
     width: 100%;
 }
+.w-half {
+    width: 50%;
+}
 .w-45-percent {
     width: 45%;
+}
+.w-20-percent {
+    width: 20%;
 }
 .w-500px {
     width: 500px;
@@ -22,6 +28,9 @@
 }
 .w-151px {
     width: 151px;
+}
+.w-100px {
+    width: 100px;
 }
 /* w end */
 
@@ -43,6 +52,9 @@
 }
 .h-200px {
     height: 200px;
+}
+.h-100px {
+    height: 100px;
 }
 .h-44px {
     height: 44px;

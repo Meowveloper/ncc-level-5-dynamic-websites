@@ -5,9 +5,9 @@ use Model\NewsLetter;
 
 class NewsLetterController extends NewsLetter
 {
-    public function getAllNewsletters (string $search = '') : array 
+    public function getAllNewsletters (string $search = '', int | null $limit = null) : array 
     {
-        return $this->index($search);
+        return $this->index($search, $limit);
     }
     public function newsLetterFormSubmit (bool $actionIsStore) : void
     {

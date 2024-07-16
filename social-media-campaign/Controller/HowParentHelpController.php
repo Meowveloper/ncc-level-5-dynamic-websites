@@ -6,9 +6,9 @@ use Model\HowParentHelp;
 class HowParentHelpController extends HowParentHelp
 {
 
-    public function getAllHowParentHelps (string $search = '') : array
+    public function getAllHowParentHelps (string $search = '', int | null $limit = null) : array
     {
-        return $this->index($search);
+        return $this->index($search, $limit);
     }
 
     public function getWithID (int $id) : object 
