@@ -71,7 +71,7 @@ endif;
         <input type="text" id="name" name="name" required value="<?= isset($itemToEdit) ? $itemToEdit->name : "" ?>" />
 
         <label for="logo">Logo:</label>
-        <input type="file" id="logo" name="logo" required />
+        <input type="file" id="logo" name="logo" <?= isset($_GET['isEdit']) ? '' : 'required' ?> />
         <span id="logoErrorIndicator" class="text-red hidden">Please choose an image that ends in .jpg/.png/.jpeg</span>
 
         <label for="link">Link:</label>
@@ -169,7 +169,7 @@ endif;
       const name = document.getElementById("name").value;
       const link = document.getElementById("link").value;
       const privacyLink = document.getElementById("privacy_link").value;
-      return validators.isText(name) && validators.isLink(link) && validators.isLink(privacyLink) && logoIsImage
+      return validators.isText(name) && validators.isLink(link) && validators.isLink(privacyLink)
     }
 
     return {

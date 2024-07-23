@@ -64,7 +64,7 @@ class SocialMediaApp
         if(isset($_FILES['logo']) and $_FILES['logo']['error'] == 0) {
             $this->deleteOldLogo($id);
             $fileName = $this->uploadLogo();
-        } else $fileName = '';
+        } else $fileName = $this->show($id)->logo;
 
         $stmt = $this->db->pdo->prepare("
             UPDATE $this->table SET name = :name, logo = :logo, link = :link, privacy_link = :privacy_link WHERE id = :id

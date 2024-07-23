@@ -29,8 +29,9 @@ class MemberController extends Member
             $_SESSION['user'] = $member;
             header("location:index.php");
         } catch (PDOException $err) {
+            $errorCode = $err->getCode();
             $message = $err->getMessage();
-            header("location:register.php?registerError=1&message=$message");
+            header("location:register.php?registerError=1&message=$message&errorCode=$errorCode");
         }
     }
 
