@@ -74,7 +74,7 @@ endif;
         <textarea type="text" id="content" name="content" required><?= isset($itemToEdit) ? $itemToEdit->content : "" ?></textarea>
 
         <label for="image">Image:</label>
-        <input type="file" id="image" name="image" required />
+        <input type="file" id="image" name="image" <?= isset($_GET['isEdit']) ? '' : 'required' ?> accept="image/*" />
         <span id="imageErrorIndicator" class="text-red hidden">Please choose an image that ends in .jpg/.png/.jpeg</span>
 
         <button type="submit" id="btnNewsletterFormSubmit" name="btnNewsletterFormSubmit" class="bgBlueButton" style="font-size:16px;">
@@ -167,7 +167,6 @@ endif;
         validators.isText(content) && 
         validators.checkLength(title, 3) &&
         validators.checkLength(content, 10)
-        && imageIsImage
       );
     }
 

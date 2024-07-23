@@ -61,8 +61,12 @@ class NewsLetter
 
     protected function update (int $id) : object
     {
-        if(isset($_FILES['image']) and $_FILES['image']['error'] == 0 ) $this->deleteNewsLetterImage($id);
-        $filename = $this->uploadNewsLetterImage();
+        if(isset($_FILES['image']) and $_FILES['image']['error'] == 0 ) {
+            $this->deleteNewsLetterImage($id);
+            $filename = $this->uploadNewsLetterImage();
+        } else {
+            $filename = $this->show($id)->image;
+        }
 
         $stmt = $this->db->pdo->prepare("
             UPDATE $this->table SET title = :title, content = :content, image = :image WHERE id = :id
