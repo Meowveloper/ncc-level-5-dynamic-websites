@@ -64,13 +64,13 @@ class HowParentHelp
             $this->image1Delete($id);
             $image1Name = $this->image_1Upload();
         } else {
-            $image1Name = '';
+            $image1Name = $this->show($id)->image_1;
         }
         if(isset($_FILES['image_2']) and $_FILES['image_2']['error'] == 0) {
             $this->image2Delete($id);
             $image2Name = $this->image_2Upload();
         } else {
-            $image2Name = '';
+            $image2Name = $this->show($id)->image_2;
         }
 
         $stmt = $this->db->pdo->prepare("

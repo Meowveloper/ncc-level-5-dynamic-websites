@@ -28,11 +28,6 @@ if (isset($_POST['btnHowParentHelpFormSubmit'])) :
   $actionIsStore = isset($_GET['isEdit']) ? false : true;
   $howParentHelpController->howParentHelpFormSubmit($actionIsStore);
 endif;
-
-// if (isset($_POST['btnCancel'])) :
-//   header("location:newsletter-setup.php");
-//   exit();
-// endif;
 ?>
 <html lang="en">
 
@@ -61,7 +56,7 @@ endif;
 
   <main id="admin_social_media_apps" class="px-70px">
     <section class="formContainer">
-      <h2><?= isset($_GET['isEdit']) ? "Edit $itemToEdit->description" : "Create a New How a Parent Can Help" ?></h2>
+      <h2><?= isset($_GET['isEdit']) ? "Edit" : "Create a New How a Parent Can Help" ?></h2>
 
       <form id="howParentHelpForm" action="#" method="POST" enctype="multipart/form-data">
         <?php if (isset($_GET['isEdit'])) : ?>
@@ -71,11 +66,11 @@ endif;
         <textarea type="text" id="description" name="description" required><?= isset($itemToEdit) ? $itemToEdit->description : "" ?></textarea>
 
         <label for="image_1">Image 1:</label>
-        <input type="file" id="image_1" name="image_1" required />
+        <input type="file" id="image_1" name="image_1" accept="image/*" <?= isset($_GET['isEdit']) ? '' : 'required' ?> />
         <span id="image1ErrorIndicator" class="text-red hidden">Please choose an image that ends in .jpg/.png/.jpeg</span>
 
         <label for="image_2">Image 2:</label>
-        <input type="file" id="image_2" name="image_2" required />
+        <input type="file" id="image_2" name="image_2" accept="image/*" <?= isset($_GET['isEdit']) ? '' : 'required' ?> />
         <span id="image2ErrorIndicator" class="text-red hidden">Please choose an image that ends in .jpg/.png/.jpeg</span>
 
         <button type="submit" id="btnHowParentHelpFormSubmit" name="btnHowParentHelpFormSubmit" class="bgBlueButton" style="font-size:16px;">
@@ -176,8 +171,7 @@ endif;
       console.log(image1IsImage, image2IsImage);
       return (
         validators.isText(description) &&
-        validators.checkLength(description, 5) &&
-        image1IsImage && image2IsImage
+        validators.checkLength(description, 5)
       );
     }
 
