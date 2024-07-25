@@ -39,10 +39,20 @@ class MemberController extends Member
     {   
         $oldData = $this->show($id);
         $_POST['password'] = $oldData->password;
-        $member = $this->update($id, $isSubscriber);
+        $member = $this->update($id, $isSubscriber, !!$oldData->role, !!$oldData->owner);
         $member->password = "********";
         $_SESSION['user'] = $member;
         header("location:profile.php");
+        exit();
+    }
+    public function updateProfileFromAdminProfilePage (string $id, bool $isSubscriber) : void 
+    {   
+        $oldData = $this->show($id);
+        $_POST['password'] = $oldData->password;
+        $member = $this->update($id, $isSubscriber, !!$oldData->role, !!$oldData->owner);
+        $member->password = "********";
+        $_SESSION['user'] = $member;
+        header("location:admin-profile.php");
         exit();
     }
 
@@ -57,6 +67,12 @@ class MemberController extends Member
         $this->changeSubscription($id, $isSubscriber);
         $_SESSION['user']->subscription = $isSubscriber ? 1 : 0;
         header("location:newsletter.php");
+        exit();
+    }
+    public function changeSubscriptionFromUserHome (string $id, bool $isSubscriber) : void {
+        $this->changeSubscription($id, $isSubscriber);
+        $_SESSION['user']->subscription = $isSubscriber ? 1 : 0;
+        header("location:home.php");
         exit();
     }
 
@@ -76,8 +92,7 @@ class MemberController extends Member
         }
         try {
             $member = $this->showWithEmail();
-            if ($member->password == $_POST['password']) {
-                $member->password = '********';
+            if (password_verify(trim($_POST['password']), $member->password)) {
                 $_SESSION['user'] = $member;
                 header("location:home.php");
             } else {

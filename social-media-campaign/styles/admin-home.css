@@ -51,12 +51,12 @@
     border: 1px solid var(--primary-red) !important;
 }
 /* general ends */
-#admin_social_media_apps {
+/* #admin_social_media_apps {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 5%;
-}
+} */
 header input {
     padding: 8px;
     border: 1px solid #ccc;

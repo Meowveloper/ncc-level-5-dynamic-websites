@@ -48,21 +48,22 @@ $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
 
 <body>
   <?php include_once("layouts/nav.php"); ?>
-  <header class="flex justify-center items-center px-70px gap-5rem">
-    <h1>Online Safety Campaign</h1>
-    <!-- <div>
-      <form action="" method="POST">
-        <input type="text" name="search" placeholder="Search for members" value="<?= isset($_POST['btnSearch']) ? $_POST['search'] : "" ?>">
-        <button type="submit" name="btnSearch" class="bgBlueButton">Search</button>
-        <button type="button" name="btnSearch" class="bgWhiteButton">
-          <a href="contact-list.php" class="text-decoration-none">Clear</a>
-        </button>
-      </form>
-    </div> -->
-  </header>
 
-  <main id="admin_social_media_apps" class="px-70px">
-    <section class="cardContainer">
+  <main id="admin_social_media_apps" class="mt-40px">
+    <h1 class="w-full mb-2rem text-center">Online Safety Campaign</h1>
+    <section class="w-full flex justify-even items-center flex-wrap mb-3rem bg-primary-light-blue-25-opa30 py-2rem gap-2rem">
+      
+      <div class="w-400px text-justify text-gray-2">
+      <span class="fs-30px fw-bold text-primary-color">Ohh..cool admin</span>, You stand at the precipice of the digital cosmos, a celestial steward shaping the minds of tomorrow's navigators. This domain is your dominion, a sanctuary where knowledge and wisdom converge to shield young souls from the cosmic storms of the digital realm. With each word and image, you sow the seeds of digital citizenship, nurturing a generation of enlightened explorers. Your work is not merely administration; it is a cosmic responsibility.
+      <div>
+        <button class="bgBlueButton w-151px h-44px cursor-pointer mt-20px">
+          <a href="admin-profile.php">Go To Profile</a>
+        </button>
+      </div>
+      </div>
+      <img src="assets/admin-home.jpg" class="w-400px rounded-10px shadow" alt="">
+    </section>
+    <section class="cardContainer px-70px">
 
       <div class="card shadow">
         <div class="flex justify-start items-center gap-1rem">

@@ -29,7 +29,6 @@ $currentPage = "login";
   <main>
     <section id="contact">
       <h2>Login</h2>
-      
       <form action="#" method="POST" id="loginForm">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />

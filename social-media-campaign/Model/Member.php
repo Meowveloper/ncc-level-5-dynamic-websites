@@ -42,18 +42,20 @@ class Member
         $role = $isAdmin ? 1 : 0;
         $owner = $isOwner ? 1 : 0;
         $fileName = $this->uploadProfileImage();
+        $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
         $id = $this->generateSMCID();
         $statement = $this->db->pdo->prepare("INSERT INTO $this->table (id, name, profile, email, password, city, subscription, role, owner) values (:id, :name, :profile, :email, :password, :city, :subscription, :role, :owner)");
         $statement->bindParam(":id", $id);
         $statement->bindParam(":name", $_POST['name']);
         $statement->bindParam(":profile", $fileName);
         $statement->bindParam(":email", $_POST['email']);
-        $statement->bindParam(":password", $_POST['password']);
+        $statement->bindParam(":password", $password);
         $statement->bindParam(":city", $_POST['city']);
         $statement->bindParam(":subscription", $subscription);
         $statement->bindParam(":role", $role);
         $statement->bindParam(":owner", $owner);
         $statement->execute();
+        error_log("Stored password hash: " . $password);
         return $this->show($id);
     }
 

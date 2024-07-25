@@ -12,6 +12,7 @@ function getHere(string $currentPage) : string
     elseif($currentPage == "admin_how_parent_help_setup") : return "How Parent Help Setup";
     elseif($currentPage == "admin_member_list") : return "Member List";
     elseif($currentPage == "admin_contact_list") : return "Contact List";
+    elseif($currentPage == "admin_profile") : return "Profile";
     elseif($currentPage == "user_home") : return "Home";
     elseif($currentPage == "user_contact") : return "Contact";
     elseif($currentPage == "user_parent_help") : return "How Parents Can Help";

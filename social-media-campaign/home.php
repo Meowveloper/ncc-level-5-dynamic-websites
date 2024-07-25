@@ -6,14 +6,18 @@ require_once "Helper/Text.php";
 require_once "Controller/HowParentHelpController.php";
 require_once "Controller/ServiceController.php";
 require_once "Controller/NewsLetterController.php";
+require_once "Controller/MemberController.php";
+
 use Helper\Text;
 use Controller\HowParentHelpController;
 use Controller\ServiceController;
 use Controller\NewsLetterController;
+use Controller\MemberController;
 
 $howParentHelpController = new HowParentHelpController();
 $serviceController = new ServiceController();
 $newsLetterController = new NewsLetterController();
+$memberController = new MemberController();
 ?>
 <html lang="en">
 
@@ -26,7 +30,12 @@ $newsLetterController = new NewsLetterController();
 </head>
 
 <body>
-  <?php include_once "layouts/nav.php" ?>
+  <?php
+  include_once "layouts/nav.php";
+  if (isset($_GET['subscribe']) and $_GET['subscribe'] == '1') :
+    $memberController->changeSubscriptionFromUserHome($_SESSION['user']->id, true);
+  endif;
+  ?>
   <main id="home">
     <div class="flex justify-center items-center flex-wrap px-100px py-40px gap-20rem">
       <div class="w-500px">
@@ -81,13 +90,13 @@ $newsLetterController = new NewsLetterController();
     </section>
 
     <!-- how parents help -->
-    <?php 
-      $howParentHelps_x_3 = $howParentHelpController->getAllHowParentHelps('', 3);
-      if(!(count($howParentHelps_x_3) < 1)) : 
+    <?php
+    $howParentHelps_x_3 = $howParentHelpController->getAllHowParentHelps('', 3);
+    if (!(count($howParentHelps_x_3) < 1)) :
     ?>
       <section class="px-100px mt-40px py-2rem">
         <p class="fs-20px fw-bold">A Introduction of How Parents Can Help In This Campaign</p>
-        <?php foreach($howParentHelps_x_3 as $item) : ?>
+        <?php foreach ($howParentHelps_x_3 as $item) : ?>
           <div class="flex justify-start items-center gap-2rem mb-1rem flex-wrap bg-primary-light-blue-25 py-15px px-20px rounded-10px shadow">
             <div>
               <img src="<?= "images/" . $item->image_1 ?>" alt="" class="w-100px h-100px rounded-10px">
@@ -109,13 +118,13 @@ $newsLetterController = new NewsLetterController();
     <!-- how parents help end -->
 
     <!-- services -->
-    <?php 
-      $services_x_3 = $serviceController->searchOrGetAllServices('', 3);
-      if(!(count($services_x_3) < 1)) : 
+    <?php
+    $services_x_3 = $serviceController->searchOrGetAllServices('', 3);
+    if (!(count($services_x_3) < 1)) :
     ?>
       <section class="px-100px mt-40px py-2rem bg-primary-light-blue-25">
         <p class="fs-20px fw-bold">A Introduction of Our Services</p>
-        <?php foreach($services_x_3 as $item) : ?>
+        <?php foreach ($services_x_3 as $item) : ?>
           <div class="flex justify-start items-center gap-2rem bg-background-color mb-1rem flex-wrap py-15px px-20px rounded-10px shadow">
             <div class="w-20-percent">
               <p class="fs-18px fw-bold"><?= $item->title ?></p>
@@ -136,43 +145,57 @@ $newsLetterController = new NewsLetterController();
     <!-- services end -->
 
     <!-- newsletter -->
-    <?php 
-      $newsletters_x_3 = $newsLetterController->getAllNewsletters('', 3);
-      if(!(count($newsletters_x_3) < 1)) : 
-    ?>
+    <?php if ($_SESSION['user']->subscription == 0) : ?>
       <section class="px-100px mt-40px py-2rem">
         <p class="fs-20px fw-bold">A Introduction of Our Newsletters</p>
-        <?php foreach($newsletters_x_3 as $item) : ?>
-          <div class="flex justify-start items-center gap-2rem mb-1rem flex-wrap bg-primary-light-blue-25 py-15px px-20px rounded-10px shadow">
-            <div class="w-20-percent">
-              <img src="<?= "images/" . $item->image ?>" alt="" class="w-100px h-100px rounded-10px">
-              <p class="fw-bold"><?= $item->title ?></p>
-            </div>
-            <div class="w-half">
-              <p class="pSeeMore text-gray-2 text-justify" data-show-less="1" data-text="<?= $item->content ?>" data-short-text="<?= Text::truncate($item->content, 10); ?>"><?= Text::truncate($item->content, 10); ?></p>
-            </div>
-            <button class="cursor-pointer bgBlueButton btnSee">See More</button>
-          </div>
-        <?php endforeach; ?>
-        <div class="w-full text-center">
-          <button class="cursor-pointer bgWhiteButton bg-none px-20px py-10px">
-            <a href="newsletter.php" class="text-decoration-none">See All Details of Our Newsletters</a>
-          </button>
+        <div class="text-primary-red fw-bold">You will need to subscribe to see our newsletters.</div>
+        <div>
+          <button class="bgBlueButton w-151px h-44px mt-20px cursor-pointer" id="btnSubscribe">Subscribe</button>
         </div>
       </section>
     <?php endif; ?>
+
+    <?php if ($_SESSION['user']->subscription == 1) : ?>
+      <?php
+      $newsletters_x_3 = $newsLetterController->getAllNewsletters('', 3);
+      if (!(count($newsletters_x_3) < 1)) :
+      ?>
+        <section class="px-100px mt-40px py-2rem">
+          <p class="fs-20px fw-bold">A Introduction of Our Newsletters</p>
+          <?php foreach ($newsletters_x_3 as $item) : ?>
+            <div class="flex justify-start items-center gap-2rem mb-1rem flex-wrap bg-primary-light-blue-25 py-15px px-20px rounded-10px shadow">
+              <div class="w-20-percent">
+                <img src="<?= "images/" . $item->image ?>" alt="" class="w-100px h-100px rounded-10px">
+                <p class="fw-bold"><?= $item->title ?></p>
+              </div>
+              <div class="w-half">
+                <p class="pSeeMore text-gray-2 text-justify" data-show-less="1" data-text="<?= $item->content ?>" data-short-text="<?= Text::truncate($item->content, 10); ?>"><?= Text::truncate($item->content, 10); ?></p>
+              </div>
+              <button class="cursor-pointer bgBlueButton btnSee">See More</button>
+            </div>
+          <?php endforeach; ?>
+          <div class="w-full text-center">
+            <button class="cursor-pointer bgWhiteButton bg-none px-20px py-10px">
+              <a href="newsletter.php" class="text-decoration-none">See All Details of Our Newsletters</a>
+            </button>
+          </div>
+        </section>
+      <?php endif; ?>
+    <?php endif; ?>
+
     <!-- newsletter end -->
   </main>
 
   <?php include_once "layouts/footer.php" ?>
 </body>
 <script>
+  const btnSubscribe = document.getElementById("btnSubscribe");
   const pSeeMore = document.querySelectorAll(".pSeeMore");
   const btnSee = document.querySelectorAll(".btnSee");
   window.onload = () => {
     btnSee.forEach((item, i) => {
       item.addEventListener("click", () => {
-        if(!!Number(pSeeMore[i].dataset.showLess)) {
+        if (!!Number(pSeeMore[i].dataset.showLess)) {
           pSeeMore[i].innerHTML = pSeeMore[i].dataset.text;
           pSeeMore[i].dataset.showLess = 0;
           item.innerHTML = 'See Less';
@@ -182,6 +205,12 @@ $newsLetterController = new NewsLetterController();
           item.innerHTML = 'See More';
         }
       });
+    });
+
+    btnSubscribe.addEventListener("click", (e) => {
+      if (window.confirm("Are you sure you want to subscribe??")) {
+        window.location.href = "home.php?subscribe=1";
+      } else return;
     })
   }
 </script>
