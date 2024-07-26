@@ -32,7 +32,7 @@ $pageType = 2;
     <section id="" class="px-100px flex flex-wrap justify-center items-center gap-2rem">
       <div class="w-500px h-500px relative rounded-10px overflow-hidden shadow">
         <img src="assets/information-welcome.jpg" alt="" class="w-full h-full">
-        <div class="absolute bg-background-color bottom-0px left-0px bg-semi-transparent px-2rem py-2rem">
+        <div class="absolute bg-background-color bottom-0px left-0px bg-semi-transparent px-2rem py-2rem h-half">
           <h2 class="text-white">Information</h2>
           <p class="text-white">
             Welcome to the Information page of the Online Safety Campaign. Here,
@@ -43,7 +43,7 @@ $pageType = 2;
       </div>
       <div class="w-500px h-500px relative rounded-10px overflow-hidden shadow">
         <img src="assets/information-campaigns.jpg" alt="" class="w-full h-full">
-        <div class="absolute bg-background-color bottom-0px left-0px bg-semi-transparent px-2rem py-2rem">
+        <div class="absolute bg-background-color bottom-0px left-0px bg-semi-transparent px-2rem py-2rem h-half">
           <h3 class="text-white">Social Media Campaigns</h3>
           <p class="text-white">
             Our campaigns focus on empowering teenagers to navigate the digital
@@ -54,7 +54,7 @@ $pageType = 2;
       </div>
       <div class="w-500px h-500px relative rounded-10px overflow-hidden shadow">
         <img src="assets/information-aim-vision.jpg" alt="" class="w-full h-full">
-        <div class="absolute bg-background-color bottom-0px left-0px bg-semi-transparent px-2rem py-2rem">
+        <div class="absolute bg-background-color bottom-0px left-0px bg-semi-transparent px-2rem py-2rem h-half">
           <h3 class="text-white">Aims and Vision</h3>
           <p class="text-white">
             Our primary aim is to foster a secure online environment for

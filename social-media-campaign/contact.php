@@ -32,7 +32,7 @@ endif;
           Feel free to reach out to us using the contact form below. We
           appreciate your feedback and inquiries.
         </p>
-        <form action="#" method="POST">
+        <form action="#" method="POST" class="mb-1rem">
           <input type="hidden" name="email" value="<?= $_SESSION['user']->email ?>">
           <label for="message">Message:</label>
           <textarea id="message" name="message" rows="4" required></textarea>
@@ -40,11 +40,11 @@ endif;
           <button class="bgBlueButton" type="submit" name="btnContactFormSubmit">Send Message</button>
         </form>
 
-        <!-- Privacy Policy Link -->
-        <!-- <p>
+        Privacy Policy Link
+        <p>
           Before sending a message, please review our
           <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
-        </p> -->
+        </p>
       </section>
     </main>
 

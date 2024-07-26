@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<?php 
+<?php
 $currentPage = "user_livestreaming";
 $pageType = 2;
 ?>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Safety Campaign</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/user/livestreaming.css">
-  </head>
-  <body>
-    <?php include_once "layouts/nav.php" ?>
-    <header>
-      <h1>Online Safety Campaign</h1>
-      <!-- Custom Cursors and 3D Illustrations can be added here -->
-    </header>
 
-    <main>
-      <section id="livestreaming" class="px-100px">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Safety Campaign</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/user/livestreaming.css">
+</head>
+
+<body>
+  <?php include_once "layouts/nav.php" ?>
+  <header>
+    <h1>Online Safety Campaign</h1>
+    <!-- Custom Cursors and 3D Illustrations can be added here -->
+  </header>
+
+  <main>
+    <section id="" class="px-100px flex justify-between items-center flex-wrap gap-2rem">
+      <img src="assets/livestreaming.jpg" class="w-400px" alt="">
+      <div class="flex-1-1-auto">
         <h2>Livestreaming</h2>
         <p>
           Explore an overview of livestreaming and learn how it can be done in a
@@ -48,10 +52,12 @@ $pageType = 2;
             standards.
           </li>
         </ul>
-        <!-- Add more tips or content as needed -->
-      </section>
-    </main>
+      </div>
 
-    <?php include_once "layouts/footer.php"; ?>
-  </body>
+    </section>
+  </main>
+
+  <?php include_once "layouts/footer.php"; ?>
+</body>
+
 </html>
