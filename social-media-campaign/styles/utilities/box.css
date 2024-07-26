@@ -33,3 +33,10 @@
     outline: none;
 }
 /* outline end */
+
+
+/* overflow */
+.overflow-hidden {
+    overflow: hidden;
+}
+/* overflow end */

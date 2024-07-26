@@ -2,6 +2,9 @@
 .w {
     width: var(--w);
 }
+.w-fit {
+    width: fit-content;
+}
 .w-full {
     width: 100%;
 }
@@ -14,6 +17,9 @@
 .w-20-percent {
     width: 20%;
 }
+.w-600px {
+    width: 600px;
+}
 .w-500px {
     width: 500px;
 }
@@ -22,6 +28,12 @@
 }
 .w-400px {
     width: 400px;
+}
+.w-350px {
+    width: 350px;
+}
+.w-300px {
+    width: 300px;
 }
 .w-200px {
     width: 200px;
@@ -47,8 +59,20 @@
 .h-full {
     height: 100%;
 }
+.h-half {
+    height: 50%;
+}
+.h-500px {
+    height: 500px;
+}
+.h-450px {
+    height: 450px;
+}
 .h-350px {
     height: 350px;
+}
+.h-250px {
+    height: 250px;
 }
 .h-200px {
     height: 200px;

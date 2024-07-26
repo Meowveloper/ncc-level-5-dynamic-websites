@@ -1,0 +1,77 @@
+
+.socialMediaAppsAnimation {
+    width: 50px;
+    aspect-ratio: 1;
+    color: #398eb6;
+    position: relative;
+    animation: l40 0.5s infinite alternate;
+    margin: 0px auto;
+}
+.socialMediaAppsAnimation:before,
+.socialMediaAppsAnimation:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: 25px 25px;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+}
+.socialMediaAppsAnimation:before {
+    background-image: radial-gradient(farthest-side at top left, currentColor 96%, #0000), radial-gradient(farthest-side at top right, currentColor 96%, #0000),
+        radial-gradient(farthest-side at bottom right, currentColor 96%, #0000), radial-gradient(farthest-side at bottom left, currentColor 96%, #0000);
+    animation: l40-1 1s infinite;
+}
+.socialMediaAppsAnimation:after {
+    background-image: radial-gradient(farthest-side at top left, #0000 94%, currentColor 96%), radial-gradient(farthest-side at top right, #0000 94%, currentColor 96%),
+        radial-gradient(farthest-side at bottom right, #0000 94%, currentColor 96%), radial-gradient(farthest-side at bottom left, #0000 94%, currentColor 96%);
+    animation: l40-2 1s infinite;
+}
+@keyframes l40-1 {
+    0%,
+    10%,
+    90%,
+    100% {
+        inset: 0;
+    }
+    40%,
+    60% {
+        inset: -10px;
+    }
+}
+@keyframes l40-2 {
+    0%,
+    40% {
+        transform: rotate(0);
+    }
+    60%,
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+
+.howToStaySafeOnlineAnimation {
+    width: 50px;
+    aspect-ratio: 1;
+    color:#dc1818;
+    background:
+     radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+     radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+     linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,
+     linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0px auto;
+  }
+  .howToStaySafeOnlineAnimation:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.4;
+    animation: l3 1s infinite;
+  }
+  @keyframes l3 {
+    to {transform:scale(1.8);opacity:0}
+  }
