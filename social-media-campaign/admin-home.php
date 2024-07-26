@@ -57,7 +57,7 @@ $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
       <span class="fs-30px fw-bold text-primary-color">Ohh..cool admin</span>, You stand at the precipice of the digital cosmos, a celestial steward shaping the minds of tomorrow's navigators. This domain is your dominion, a sanctuary where knowledge and wisdom converge to shield young souls from the cosmic storms of the digital realm. With each word and image, you sow the seeds of digital citizenship, nurturing a generation of enlightened explorers. Your work is not merely administration; it is a cosmic responsibility.
       <div>
         <button class="bgBlueButton w-151px h-44px cursor-pointer mt-20px">
-          <a href="admin-profile.php">Go To Profile</a>
+          <a href="admin-profile.php" class="cursor-pointer text-decoration-none">Go To Profile</a>
         </button>
       </div>
       </div>

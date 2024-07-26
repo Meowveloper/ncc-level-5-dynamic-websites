@@ -169,6 +169,7 @@ footer {
     border-radius: 2px;
     outline: none;
     border: none;
+    
 }
 
 .bgBlueButton * {
@@ -178,6 +179,7 @@ footer {
 
 .bgBlueButton:hover {
     background-color: var(--primary-light-blue);
+    
 }
 
 .bgBlueButton:disabled {
@@ -226,9 +228,10 @@ footer {
 }
 
 .cursor-pointer {
-    cursor: pointer;
+    cursor: url(../../assets/pointer.png), pointer !important;
+}
+.cursor-pointer:hover {
+    cursor: url(../../assets/pointer.png), pointer !important;
 }
 
-.bg {
-    background-color: var(--bg);
-}
+

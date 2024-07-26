@@ -40,9 +40,9 @@ endif;
     <div>
       <form action="" method="POST">
         <input type="text" name="search" placeholder="Search for members" value="<?= isset($_POST['btnSearch']) ? $_POST['search'] : "" ?>">
-        <button type="submit" name="btnSearch" class="bgBlueButton">Search</button>
-        <button type="button" name="btnSearch" class="bgWhiteButton">
-          <a href="member-list.php" class="text-decoration-none">Clear</a>
+        <button type="submit" name="btnSearch" class="bgBlueButton cursor-pointer">Search</button>
+        <button type="button" name="btnSearch" class="bgWhiteButton cursor-pointer">
+          <a href="member-list.php" class="text-decoration-none cursor-pointer">Clear</a>
         </button>
       </form>
     </div>
@@ -76,16 +76,16 @@ endif;
             <?php if ($_SESSION['user']->id !== $item->id and $item->owner !== 1) : ?>
               <div class="buttons flex justify-start gap-1rem">
                 <?php if($item->role !== 1) : ?>
-                <button class="bgWhiteButton btnBanUser text-red" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
+                <button class="bgWhiteButton cursor-pointer btnBanUser text-red" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
                   Ban User
                 </button>
                 <?php endif; ?>
                 <?php if ($item->role === 1) : ?>
-                  <button class="bgWhiteButton font-bold btnRemoveFromAdmin" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
+                  <button class="bgWhiteButton cursor-pointer font-bold btnRemoveFromAdmin" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
                     Remove from Admins
                   </button>
                 <?php else : ?>
-                  <button class="bgBlueButton btnPromoteToAdmin" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
+                  <button class="bgBlueButton cursor-pointer btnPromoteToAdmin" data-id="<?= $item->id ?>" data-name="<?= $item->name ?>">
                     Promote to Admin
                   </button>
                 <?php endif; ?>

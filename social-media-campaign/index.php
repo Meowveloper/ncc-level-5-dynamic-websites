@@ -34,7 +34,7 @@ $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
 				</p>
 				<div>
 					<button class="bgBlueButton w-151px h-44px cursor-pointer">
-						<a class="text-decoration-none" href="login.php">Let's Get Started</a>
+						<a class="text-decoration-none cursor-pointer" href="login.php">Let's Get Started</a>
 					</button>
 				</div>
 			</div>

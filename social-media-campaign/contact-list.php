@@ -33,9 +33,9 @@ endif;
     <div>
       <form action="" method="POST">
         <input type="text" name="search" placeholder="Search for members" value="<?= isset($_POST['btnSearch']) ? $_POST['search'] : "" ?>">
-        <button type="submit" name="btnSearch" class="bgBlueButton">Search</button>
-        <button type="button" name="btnSearch" class="bgWhiteButton">
-          <a href="contact-list.php" class="text-decoration-none">Clear</a>
+        <button type="submit" name="btnSearch" class="bgBlueButton cursor-pointer">Search</button>
+        <button type="button" name="btnSearch" class="bgWhiteButton cursor-pointer">
+          <a href="contact-list.php" class="text-decoration-none cursor-pointer">Clear</a>
         </button>
       </form>
     </div>

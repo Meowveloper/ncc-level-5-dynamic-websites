@@ -51,9 +51,9 @@ endif;
     <div>
       <form action="" method="POST">
         <input type="text" name="search" placeholder="Search for the services" value="<?= isset($_POST['btnSearch']) ? $_POST['search'] : "" ?>">
-        <button type="submit" name="btnSearch" class="bgBlueButton">Search</button>
-        <button type="button" name="btnSearch" class="bgWhiteButton">
-          <a href="service-setup.php" class="text-decoration-none">Clear</a>
+        <button type="submit" name="btnSearch" class="bgBlueButton cursor-pointer">Search</button>
+        <button type="button" name="btnSearch" class="bgWhiteButton cursor-pointer">
+          <a href="service-setup.php" class="text-decoration-none cursor-pointer">Clear</a>
         </button>
       </form>
     </div>
@@ -75,14 +75,14 @@ endif;
 
         <label for="info">Info:</label>
         <textarea type="text" id="info" name="info" required><?= isset($itemToEdit) ? $itemToEdit->info : "" ?></textarea>
-        <button type="submit" id="btnServiceFormSubmit" name="btnServiceFormSubmit" class="bgBlueButton" style="font-size:16px;">
+        <button type="submit" id="btnServiceFormSubmit" name="btnServiceFormSubmit" class="bgBlueButton cursor-pointer fs-16px">
           <?= isset($_GET['isEdit']) ? "Save" : "Create" ?>
         </button>
 
       </form>
       <?php if (isset($_GET['isEdit'])) : ?>
         <form action="#" method="POST">
-          <button type="submit" name="btnCancel" class="bgWhiteButton" style="font-size: 16px; margin-top: 10px;">Cancel Edit</button>
+          <button type="submit" name="btnCancel" class="bgWhiteButton cursor-pointer fs-16px mt-10px">Cancel Edit</button>
         </form>
       <?php endif; ?>
     </section>
@@ -105,11 +105,11 @@ endif;
               <p><span>Info:</span> <?= "$item->info" ?></p>
             </div>
             <div class="buttons flex justify-start gap-1rem">
-              <button class="bgBlueButton">
-                <a class="text-decoration-none" href="service-setup.php?isEdit=1&editId=<?= $item->id ?>">Edit</a>
+              <button class="bgBlueButton cursor-pointer">
+                <a class="text-decoration-none cursor-pointer" href="service-setup.php?isEdit=1&editId=<?= $item->id ?>">Edit</a>
               </button>
-              <button class="bgWhiteButton">
-                <a class="text-decoration-none" href="service-setup.php?isDelete=1&deleteId=<?= $item->id ?>">Delete</a>
+              <button class="bgWhiteButton cursor-pointer">
+                <a class="text-decoration-none cursor-pointer" href="service-setup.php?isDelete=1&deleteId=<?= $item->id ?>">Delete</a>
               </button>
 
             </div>

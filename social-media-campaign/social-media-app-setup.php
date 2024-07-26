@@ -51,9 +51,9 @@ endif;
     <div>
       <form action="" method="POST">
         <input type="text" name="search" placeholder="Search for the social media apps" value="<?= isset($_POST['btnSearch']) ? $_POST['search'] : "" ?>">
-        <button type="submit" name="btnSearch" class="bgBlueButton">Search</button>
-        <button type="button" name="btnSearch" class="bgWhiteButton">
-          <a href="social-media-app-setup.php" class="text-decoration-none">Clear</a>
+        <button type="submit" name="btnSearch" class="bgBlueButton cursor-pointer">Search</button>
+        <button type="button" name="btnSearch" class="bgWhiteButton cursor-pointer">
+          <a href="social-media-app-setup.php" class="text-decoration-none cursor-pointer">Clear</a>
         </button>
       </form>
     </div>
@@ -80,14 +80,14 @@ endif;
         <label for="privacy_link">Privacy Link:</label>
         <input type="url" id="privacy_link" name="privacy_link" required value="<?= isset($itemToEdit) ? $itemToEdit->privacy_link : "" ?>" />
         <!-- <input type="hidden" name="SocialMediaAppFormSubmit"> -->
-        <button type="submit" id="btnSocialMediaAppFormSubmit" name="btnSocialMediaAppFormSubmit" class="bgBlueButton" style="font-size:16px;">
+        <button type="submit" id="btnSocialMediaAppFormSubmit" name="btnSocialMediaAppFormSubmit" class="bgBlueButton cursor-pointer fs-16px">
           <?= isset($_GET['isEdit']) ? "Save" : "Create" ?>
         </button>
 
       </form>
       <?php if (isset($_GET['isEdit'])) : ?>
         <form action="#" method="POST">
-          <button type="submit" name="btnCancel" class="bgWhiteButton" style="font-size: 16px; margin-top: 10px;">Cancel Edit</button>
+          <button type="submit" name="btnCancel" class="bgWhiteButton cursor-pointer fs-16px mt-10px">Cancel Edit</button>
         </form>
       <?php endif; ?>
     </section>
@@ -107,15 +107,15 @@ endif;
               </p>
             </div>
             <div class="links">
-              <a href="<?= $item->link ?>"><?= "Go to $item->name" ?></a><br>
-              <a href="<?= $item->privacy_link ?>"><?= "$item->name's privacy settings" ?></a>
+              <a class="cursor-pointer" href="<?= $item->link ?>"><?= "Go to $item->name" ?></a><br>
+              <a class="cursor-pointer" href="<?= $item->privacy_link ?>"><?= "$item->name's privacy settings" ?></a>
             </div>
             <div class="buttons flex justify-start gap-1rem">
-              <button class="bgBlueButton">
-                <a class="text-decoration-none" href="social-media-app-setup.php?isEdit=1&editId=<?= $item->id ?>">Edit</a>
+              <button class="bgBlueButton cursor-pointer">
+                <a class="text-decoration-none cursor-pointer" href="social-media-app-setup.php?isEdit=1&editId=<?= $item->id ?>">Edit</a>
               </button>
-              <button class="bgWhiteButton">
-                <a class="text-decoration-none" href="social-media-app-setup.php?isDelete=1&deleteId=<?= $item->id ?>">Delete</a>
+              <button class="bgWhiteButton cursor-pointer">
+                <a class="text-decoration-none cursor-pointer" href="social-media-app-setup.php?isDelete=1&deleteId=<?= $item->id ?>">Delete</a>
               </button>
 
             </div>
