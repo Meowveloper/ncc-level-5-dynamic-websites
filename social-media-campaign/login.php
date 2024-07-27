@@ -43,15 +43,10 @@ $currentPage = "login";
           <span style="color: var(--primary-red)">You can try again in 5 mins...</span>
         <?php endif; ?>
 
-        <button class="bgBlueButton" <?php if (!$memberController->checkLogInAttemptTimes()) echo "disabled"; ?>  type="submit" name="btnLogin">Login</button>
+        <button class="bgBlueButton cursor-pointer" <?php if (!$memberController->checkLogInAttemptTimes()) echo "disabled"; ?>  type="submit" name="btnLogin">Login</button>
       </form>
       <p>
-        Not a member? Register <a href="./register.php">here</a>.
-      </p>
-      <!-- Privacy Policy Link -->
-      <p>
-        Before sending a message, please review our
-        <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+        Not a member? Register <a class="cursor-pointer" href="./register.php">here</a>.
       </p>
     </section>
   </main>

@@ -42,8 +42,7 @@
 * {
     /* cursor: url(https://cdn.custom-cursor.com/db/9387/32/among-us-minion-pointer.png),
     auto; */
-    cursor: url(../../assets/cursor.png),
-    auto;
+    cursor: url(../../assets/cursor.png), auto;
     color: var(--text-primary-dark-blue);
     font-family: Poppins;
     box-sizing: border-box;

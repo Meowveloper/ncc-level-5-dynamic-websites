@@ -25,6 +25,9 @@ endif;
     <header>
       <h1>How Parents Can Help</h1>
     </header>
+    <div class="w-fit mx-auto">
+      <div class="parentHelpAnimation"></div>
+    </div>
 
     <main id="user_parent_help">
       <?php if(count($howParentHelps) < 1) : ?>

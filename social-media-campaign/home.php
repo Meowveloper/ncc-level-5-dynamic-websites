@@ -45,7 +45,7 @@ $memberController = new MemberController();
         </p>
         <div>
           <button class="bgBlueButton w-151px h-44px cursor-pointer">
-            <a class="text-decoration-none" href="profile.php">Go To Your Profile</a>
+            <a class="text-decoration-none cursor-pointer" href="profile.php">Go To Your Profile</a>
           </button>
         </div>
       </div>
@@ -63,8 +63,8 @@ $memberController = new MemberController();
         </p>
         <p><strong>Date:</strong> November 15, 2024</p>
         <p><strong>Location:</strong> Virtual Event</p>
-        <button class="bgBlueButton w-151px h-44px">
-          <a href="#" class="text-decoration-none">Register Now</a>
+        <button class="bgBlueButton cursor-pointer w-151px h-44px">
+          <a href="#" class="text-decoration-none cursor-pointer">Register Now</a>
         </button>
       </div>
 
@@ -73,17 +73,17 @@ $memberController = new MemberController();
         <span>As, a parent, you can also see how parents can help in your child's online safety.</span>
         <div class="absolute bottom-20px left-20px">
           <button class="cursor-pointer bgBlueButton w-151px h-44px">
-            <a href="parents-help.php" class="text-decoration-none">See Details</a>
+            <a href="parents-help.php" class="text-decoration-none cursor-pointer">See Details</a>
           </button>
         </div>
       </div>
 
-      <div class="w relative bg p shadow rounded min-h" style="--min-h: 215px; --w: 400px; --bg: var(--background-color); --p: 20px; --rounded: 10px">
+      <div class="relative shadow w-400px min-h-215px bg-background-color p-20px rounded-10px">
         <span class="mb-10px fs-18px fw-700 block">Services</span>
         <span>You can also checkout our services.</span>
         <div class="absolute bottom-20px left-20px">
           <button class="cursor-pointer bgBlueButton w-151px h-44px">
-            <a href="service.php" class="text-decoration-none">See Details</a>
+            <a href="service.php" class="text-decoration-none cursor-pointer">See Details</a>
           </button>
         </div>
       </div>
@@ -110,7 +110,7 @@ $memberController = new MemberController();
         <?php endforeach; ?>
         <div class="w-full text-center">
           <button class="cursor-pointer bgWhiteButton bg-none px-20px py-10px">
-            <a href="parents-help.php" class="text-decoration-none">See All Details of How Parents Can Help</a>
+            <a href="parents-help.php" class="text-decoration-none cursor-pointer">See All Details of How Parents Can Help</a>
           </button>
         </div>
       </section>
@@ -137,7 +137,7 @@ $memberController = new MemberController();
         <?php endforeach; ?>
         <div class="w-full text-center">
           <button class="cursor-pointer bgBlueButton px-20px py-10px">
-            <a href="service.php" class="text-decoration-none">See All Details of Our Services</a>
+            <a href="service.php" class="text-decoration-none cursor-pointer">See All Details of Our Services</a>
           </button>
         </div>
       </section>
@@ -176,7 +176,7 @@ $memberController = new MemberController();
           <?php endforeach; ?>
           <div class="w-full text-center">
             <button class="cursor-pointer bgWhiteButton bg-none px-20px py-10px">
-              <a href="newsletter.php" class="text-decoration-none">See All Details of Our Newsletters</a>
+              <a href="newsletter.php" class="text-decoration-none cursor-pointer">See All Details of Our Newsletters</a>
             </button>
           </div>
         </section>

@@ -39,6 +39,9 @@ endif;
         <h1>Our Newsletters</h1>
 
     </header>
+    <div class="w-fit mx-auto bg-semi-transparent rounded-10px">
+        <div class="newsletterAnimation"></div>
+    </div>
 
     <main id="user_parent_help">
         <?php if ($_SESSION['user']->subscription == 0) : ?>

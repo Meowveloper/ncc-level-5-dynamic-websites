@@ -37,13 +37,13 @@ endif;
           <label for="message">Message:</label>
           <textarea id="message" name="message" rows="4" required></textarea>
 
-          <button class="bgBlueButton" type="submit" name="btnContactFormSubmit">Send Message</button>
+          <button class="bgBlueButton cursor-pointer" type="submit" name="btnContactFormSubmit">Send Message</button>
         </form>
 
         Privacy Policy Link
         <p>
           Before sending a message, please review our
-          <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+          <a href="" class="cursor-pointer" target="_blank">Privacy Policy</a>
         </p>
       </section>
     </main>
