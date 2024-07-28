@@ -17,6 +17,7 @@ endif;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Safety Campaign</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/user/parents-help.css">
   </head>
@@ -59,7 +60,7 @@ endif;
           <div class="w-450px bg-primary-light-blue-50-opa50 px-20px py-15px rounded-10px shadow min-h-586px">
             <div class="flex justify-center items-center gap" style="--gap: 1rem;">
               <img src="<?= "images/" . $item->image_1 ?>" alt="" class="w-45-percent h-200px">
-              <img src="<?= "images/" . $item->image_1 ?>" alt="" class="w-45-percent h-200px">
+              <img src="<?= "images/" . $item->image_2 ?>" alt="" class="w-45-percent h-200px">
             </div>
             <div>
               <p class="text-gray-2 text-justify px-10px"><span class="text-primary-color">Description: </span><?= $item->description ?></p>

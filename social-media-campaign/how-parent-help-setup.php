@@ -40,6 +40,7 @@ endif;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Online Safety Campaign</title>
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/how-parent-help-setup.css">
 </head>
@@ -97,19 +98,19 @@ endif;
         <?php
       else :
         foreach ($howParentHelps as $item) : ?>
-          <div class="card shadow">
-            <div class="row justify-center items-center gap-1rem">
-              <img src="<?= "images/$item->image_1" ?>" alt="" width="45%" height="200px">
-              <img src="<?= "images/$item->image_2" ?>" alt="" width="45%" height="200px">
+          <div class="p-20px rounded-20px bg-primary-light-blue-25-opa30 relative shadow">
+            <div class="row justify-between items-center">
+              <img src="<?= "images/$item->image_1" ?>" alt="" width="49%" height="200px">
+              <img src="<?= "images/$item->image_2" ?>" alt="" width="49%" height="200px">
             </div>
-            <div class="links">
-              <p><span>Description: </span><?= $item->description ?></p>
+            <div class="mb-65px">
+              <p class="text-gray-2 text-justify"><span>Description: </span><?= $item->description ?></p>
             </div>
-            <div class="buttons flex justify-start gap-1rem">
-              <button class="bgBlueButton cursor-pointer">
+            <div class="buttons absolute left-20px bottom-15px flex justify-start gap-1rem">
+              <button class="bgBlueButton w-151px h-44px cursor-pointer">
                 <a class="text-decoration-none cursor-pointer" href="how-parent-help-setup.php?isEdit=1&editId=<?= $item->id ?>">Edit</a>
               </button>
-              <button class="bgWhiteButton cursor-pointer">
+              <button class="bgWhiteButton w-151px h-44px cursor-pointer">
                 <a class="text-decoration-none cursor-pointer" href="how-parent-help-setup.php?isDelete=1&deleteId=<?= $item->id ?>">Delete</a>
               </button>
 

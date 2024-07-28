@@ -44,6 +44,7 @@ $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
   <title>Online Safety Campaign</title>
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/admin-home.css">
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -91,7 +92,7 @@ $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
       <div class="card shadow">
         <div class="flex justify-start items-center gap-1rem">
           <img src="assets/service.svg" alt="" width="70px" height="70px">
-          <span class="fs-30px font-bolder"><?= count($services) ?> <span class="fs-16px">type<?= count($services) > 1 ? "s" : '' ?></span></span>
+          <span class="fs-30px font-bolder"><?= count($services) ?> <span class="fs-16px">type<?= count($services) > 1 ? "s" : '' ?> of services</span></span>
         </div>
         <p class="text-gray-2"><?= count($services) > 1 ? "have " : "has " ?>been offering.</p>
       </div>

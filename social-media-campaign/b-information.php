@@ -11,6 +11,7 @@ $pageType = 0;
   <title>Online Safety Campaign</title>
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/information.css">
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

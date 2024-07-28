@@ -40,6 +40,7 @@ endif;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Online Safety Campaign</title>
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/newsletter-setup.css">
 </head>
@@ -96,17 +97,17 @@ endif;
         <?php
       else :
         foreach ($newsletters as $item) : ?>
-          <div class="card shadow">
+          <div class="p-20px bg-primary-light-blue-25-opa30 rounded-20px relative shadow">
             <div class="column justify-start items-center gap-1rem">
-              <img src="<?= "images/$item->image" ?>" alt="" width="100%" height="200px" class="rounded-20px">
+              <img src="<?= "images/$item->image" ?>" alt="" width="100%" height="350px" class="rounded-20px">
               <p style="font-size: 18px; text-transform: capitalize; font-weight: 700;">
                 <?= $item->title ?>
               </p>
             </div>
-            <div class="links">
-              <p class="w-full text-justify"><span>Content: </span><?= $item->content ?></p>
+            <div class="links mb-50px">
+              <p class="w-full text-justify text-gray-2"><span class="text-primary-color">Content: </span><?= $item->content ?></p>
             </div>
-            <div class="buttons flex justify-start gap-1rem">
+            <div class="buttons flex justify-start gap-1rem absolute left-20px bottom-10px">
               <button class="bgBlueButton w-151px h-44px cursor-pointer">
                 <a class="text-decoration-none cursor-pointer" href="newsletter-setup.php?isEdit=1&editId=<?= $item->id ?>">Edit</a>
               </button>

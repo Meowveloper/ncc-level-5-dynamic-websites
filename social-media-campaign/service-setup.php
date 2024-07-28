@@ -40,6 +40,7 @@ endif;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Online Safety Campaign</title>
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/service-setup.css">
 </head>
@@ -94,24 +95,23 @@ endif;
         <?php
       else :
         foreach ($services as $item) : ?>
-          <div class="card shadow">
+          <div class="p-20px rounded-10px bg-primary-light-blue-25-opa30 shadow relative">
             <div class="flex justify-start items-center gap-1rem">
               <p style="font-size: 18px; text-transform: capitalize; font-weight: 700;">
                 <?= $item->title ?>
               </p>
             </div>
-            <div class="links">
+            <div class="links mb-50px">
               <p><span>Description:</span> <?= "$item->description" ?></p><br>
               <p><span>Info:</span> <?= "$item->info" ?></p>
             </div>
-            <div class="buttons flex justify-start gap-1rem">
-              <button class="bgBlueButton cursor-pointer">
+            <div class="buttons flex justify-start gap-1rem absolute left-20px bottom-10px">
+              <button class="bgBlueButton w-151px h-40px cursor-pointer">
                 <a class="text-decoration-none cursor-pointer" href="service-setup.php?isEdit=1&editId=<?= $item->id ?>">Edit</a>
               </button>
-              <button class="bgWhiteButton cursor-pointer">
+              <button class="bgWhiteButton w-151px h-40px cursor-pointer">
                 <a class="text-decoration-none cursor-pointer" href="service-setup.php?isDelete=1&deleteId=<?= $item->id ?>">Delete</a>
               </button>
-
             </div>
           </div>
       <?php endforeach;
