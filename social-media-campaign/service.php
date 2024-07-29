@@ -26,6 +26,9 @@ endif;
     <header>
       <h1>Our Services</h1>
     </header>
+    <div class="w-fit mx-auto">
+      <div class="serviceAnimation"></div>
+    </div>
 
     <main id="user_parent_help">
       <?php if(count($services) < 1) : ?>

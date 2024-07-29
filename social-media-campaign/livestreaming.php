@@ -20,6 +20,9 @@ $pageType = 2;
     <h1>Online Safety Campaign</h1>
     <!-- Custom Cursors and 3D Illustrations can be added here -->
   </header>
+  <div class="w-fit mx-auto mb-3rem">
+    <div class="liveStreamAnimation"></div>
+  </div>
 
   <main>
     <section id="" class="px-100px flex justify-between items-center flex-wrap gap-2rem">

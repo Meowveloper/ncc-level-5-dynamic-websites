@@ -33,7 +33,9 @@ endif;
         <h1>Popular Social Media Applications</h1>
     </header>
 
-    
+    <div class="w-fit mx-auto mb-3rem">
+        <div class="socialMediaAppAnimation"></div>
+    </div>
     <main id="user_social_media_app">
         <?php if(count($socialMediaApps) > 0) : ?>
             <section class="flex justify-center items-center flex-wrap gap-2rem px-100px flex-1-1-auto">

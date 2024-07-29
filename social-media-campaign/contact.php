@@ -25,6 +25,9 @@ endif;
     <header>
       <h1>Online Safety Campaign</h1>
     </header>
+    <div class="w-fit mx-auto mb-3rem bg-gray-2">
+      <div class="contactAnimation"></div>
+    </div>
 
     <main>
       <section id="contact">

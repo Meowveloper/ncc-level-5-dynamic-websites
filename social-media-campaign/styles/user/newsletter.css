@@ -22,34 +22,65 @@
 }
 
 @media screen and (max-width: 703px) {
-    
     nav > ul {
         flex-direction: column;
         gap: 10px;
     }
 }
 
-
 .newsletterAnimation {
     height: 30px;
     aspect-ratio: 2;
     display: grid;
-    background:
-      radial-gradient(farthest-side,#000 15%,#0000 18%)0 0/50% 100%,
-      radial-gradient(50% 100% at 50% 160%,#fff 95%,#0000) 0 0   /50% 50%,
-      radial-gradient(50% 100% at 50% -60%,#fff 95%,#0000) 0 100%/50% 50%;
+    background: radial-gradient(farthest-side, #000 15%, #0000 18%) 0 0/50% 100%, radial-gradient(50% 100% at 50% 160%, #fff 95%, #0000) 0 0 /50% 50%,
+        radial-gradient(50% 100% at 50% -60%, #fff 95%, #0000) 0 100%/50% 50%;
     background-repeat: repeat-x;
     animation: l2 1.5s infinite linear;
-  }
-  @keyframes l2 {
+}
+@keyframes l2 {
     0%,
-    15% {background-position:0   0,0 0,0 100%}
+    15% {
+        background-position: 0 0, 0 0, 0 100%;
+    }
     20%,
-    40% {background-position:5px 0,0 0,0 100%}
+    40% {
+        background-position: 5px 0, 0 0, 0 100%;
+    }
     45%,
-    55% {background-position:0   0,0 0,0 100%}
+    55% {
+        background-position: 0 0, 0 0, 0 100%;
+    }
     60%,
-    80%{background-position:-5px 0,0 0,0 100%}
+    80% {
+        background-position: -5px 0, 0 0, 0 100%;
+    }
     85%,
-    100% {background-position:0   0,0 0,0 100%}
-  }
+    100% {
+        background-position: 0 0, 0 0, 0 100%;
+    }
+}
+
+.socialMediaAppAnimation {
+    width: 80px;
+    aspect-ratio: 1;
+    position: relative;
+}
+.socialMediaAppAnimation:before,
+.socialMediaAppAnimation:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffb940;
+    box-shadow: 0 0 0 50px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.socialMediaAppAnimation:after {
+    animation: l5 1s infinite;
+    transform: perspective(300px) translateZ(0px);
+}
+@keyframes l5 {
+    to {
+        transform: perspective(300px) translateZ(150px);
+        opacity: 0;
+    }
+}

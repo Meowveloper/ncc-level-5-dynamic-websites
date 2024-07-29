@@ -27,5 +27,9 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.bg-gray-2 {
+    background-color: var(--gray-2);
+}
+
 
 
