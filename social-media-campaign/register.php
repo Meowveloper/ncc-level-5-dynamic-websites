@@ -71,7 +71,7 @@ $pageType = 0;
   </main>
 
   <footer>
-    <p>You are here: Home</p>
+    <p>You are here: Register</p>
     <div class="footer-content">
       <p>&copy; 2024 Online Safety Campaign</p>
       <!-- Add social media buttons with relevant links -->

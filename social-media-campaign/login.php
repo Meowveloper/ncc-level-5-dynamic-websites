@@ -41,7 +41,7 @@ $currentPage = "login";
           <span style="color: var(--primary-red)">Login Error!!!<br><?= $_GET['errorMessage'] ?></span>
         <?php endif; ?>
         <?php if (!$memberController->checkLogInAttemptTimes()) : ?>
-          <span style="color: var(--primary-red)">You can try again in 5 mins...</span>
+          <span style="color: var(--primary-red)">You can try again in 10 mins...</span>
         <?php endif; ?>
 
         <button class="bgBlueButton cursor-pointer" <?php if (!$memberController->checkLogInAttemptTimes()) echo "disabled"; ?>  type="submit" name="btnLogin">Login</button>

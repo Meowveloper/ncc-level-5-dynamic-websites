@@ -99,13 +99,13 @@ class MemberController extends Member
                 $message = "Wrong Password";
                 header("location:login.php?error=1&errorMessage=$message");
                 $_SESSION['login_attempt_time'] = $loginAttemptTime + 1;
-                $_SESSION['login_attempt_time_expires'] = time() + (60 * 1);
+                $_SESSION['login_attempt_time_expires'] = time() + (60 * 10);
             }
         } catch (PDOException $err) {
             $message = $err->getMessage();
             header("location:login.php?error=1&errorMessage=$message");
             $_SESSION['login_attempt_time'] = $loginAttemptTime + 1;
-            $_SESSION['login_attempt_time_expires'] = time() + (60 * 1);
+            $_SESSION['login_attempt_time_expires'] = time() + (60 * 10);
         }
     }
 
