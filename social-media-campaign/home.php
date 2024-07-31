@@ -42,7 +42,7 @@ $memberController = new MemberController();
       <div class="w-500px">
         <h2>Welcome to Our Social Media Campaign</h2>
         <p class="text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas tempora a libero hic veritatis incidunt, ipsa eveniet consequatur iste harum nihil dicta, delectus error excepturi deleniti, voluptatibus esse placeat aperiam odit eaque! Saepe laborum accusantium, beatae ipsum consequatur excepturi quod at officia, amet expedita suscipit voluptatum, illo minima? Ut unde asperiores fugiat cupiditate harum qui hic, aspernatur quis nisi non dolorem repellat maxime quia delectus, beatae blanditiis ad, magni eum obcaecati suscipit modi laudantium pariatur sed. Consequuntur quia ex ipsam tempora odit cupiditate tenetur repellat natus omnis nihil laudantium, ullam aliquam dolor. A enim pariatur, blanditiis impedit vel dolorem delectus.
+          Welcome to Social Media Campaign, your ultimate guide to navigating the digital world with confidence and security! Whether you're a tech-savvy teen or a concerned parent, we're here to equip you with the tools and knowledge needed to stay safe and savvy online. Dive into our rich resources, interactive guides, and expert tips designed to protect your privacy, combat cyberbullying, and foster responsible digital citizenship. Join our community and embark on a journey towards a safer, smarter online experience!
         </p>
         <div>
           <button class="bgBlueButton w-151px h-44px cursor-pointer">
