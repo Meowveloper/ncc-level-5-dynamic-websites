@@ -15,6 +15,14 @@ if (isset($_POST['btnSearch'])) :
 else :
   $contacts = $contactController->searchOrGetAllContacts();
 endif;
+
+usort($contacts, function ($a, $b) {
+  return strtotime($b->created_at) - strtotime($a->created_at);
+});
+
+if (isset($_GET['delete'])) : 
+  $contactController->deleteFromContactList($_GET['delete']);
+endif;
 ?>
 <html lang="en">
 
@@ -43,27 +51,30 @@ endif;
   </header>
 
   <main id="admin_social_media_apps" class="px-70px">
-    <section class="cardContainer">
+    <section class="flex flex-wrap justify-center items-stretch gap-2rem">
       <?php if (count($contacts) < 1) : ?>
         <h2>
-          <?= (isset($_POST['btnSearch']) and $_POST['search'] != '') ? "Cannot find anything on " . $_POST['search'] . "." : "Members has sent no message" ?>
+          <?= (isset($_POST['btnSearch']) and $_POST['search'] != '') ? "Cannot find anything on " . $_POST['search'] . "." : "Members have sent no message..." ?>
         </h2>
         <?php
       else :
         foreach ($contacts as $item) : ?>
-          <div class="card shadow">
+          <div class="w-400px shadow relative p-20px rounded-10px bg-primary-light-blue-25-opa30">
             <div class="links">
-  
+
               <p><span>Email: </span><?= $item->email ?></p>
               <div>
                 <h2 class="text-primary-color">
                   Message
                 </h2>
-                <p>
+                <p class="text-justify">
                   <?= $item->message ?>
                 </p>
+                <div class="mb-65px">Sent at : <?= $item->created_at ?> </div>
               </div>
-              
+              <button class="bgBlueButton w-151px h-44px absolute bottom-10px left-20px cursor-pointer">
+                <a href="contact-list.php?delete=<?= $item->id ?>" class="cursor-pointer text-decoration-none">Delete</a>
+              </button>
             </div>
           </div>
       <?php endforeach;

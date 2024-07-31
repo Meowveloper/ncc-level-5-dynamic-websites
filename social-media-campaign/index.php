@@ -111,12 +111,21 @@ $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
 			</section>
 		</section>
 
-		<section>
-			<div>
-				<img src="assets/teen_brain_and_social_media_1.jpg" alt="">
-				<div>
+		<section class="p-20px">
+			<div class="w-full fs-20px fw-bold mb-50px text-center">
+				How Social Media Affects the Teens' Brains
+			</div>
+			<div class="w-full flex flex-wrap px-100px justify-center items-center gap-5rem mb-50px">
+				<img src="assets/teen_brain_and_social_media_1.jpg" class="w-500px h-450px shadow rounded-10px" alt="">
+				<div class="w-500px text-justify">
 					Social media can significantly impact the teenage brain by triggering the release of dopamine, a neurotransmitter associated with pleasure and reward. The instant gratification from likes, comments, and shares can create a sense of validation and boost self-esteem. However, this can also lead to addictive behaviors, as teens may seek constant engagement to maintain that pleasurable feeling. The brain's reward system becomes highly active, reinforcing the desire for social media interactions and making it difficult for teens to disengage from their devices.
 				</div>
+			</div>
+			<div class="w-full flex flex-wrap px-100px justify-center items-center gap-5rem">
+				<div class="w-500px text-justify">
+					Excessive social media use can affect mental health by increasing feelings of anxiety, depression, and loneliness. The constant comparison to peers and exposure to idealized images can create unrealistic expectations and body image issues. Teens may also experience cyberbullying, which can lead to significant emotional distress. The prefrontal cortex, responsible for decision-making and impulse control, is still developing in teenagers, making them more susceptible to these negative effects and less able to regulate their social media usage effectively.
+				</div>
+				<img src="assets/teen-brain-and-social-media_2.jpg" class="w-500px h-450px shadow rounded-10px" alt="">
 			</div>
 		</section>
 	</main>

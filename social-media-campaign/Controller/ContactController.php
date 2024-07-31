@@ -24,4 +24,11 @@ class ContactController extends Contact
         header("location:home.php");
         exit();
     }
+
+    public function deleteFromContactList (int $id) : void 
+    {   
+        $this->destroy($id);
+        header("location:contact-list.php");
+        exit();
+    }
 }
