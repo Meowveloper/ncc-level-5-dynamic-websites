@@ -110,6 +110,15 @@ $socialMediaApps = $socialMediaAppController->getAllSocialMediaApps();
 				</div>
 			</section>
 		</section>
+
+		<section>
+			<div>
+				<img src="assets/teen_brain_and_social_media_1.jpg" alt="">
+				<div>
+					Social media can significantly impact the teenage brain by triggering the release of dopamine, a neurotransmitter associated with pleasure and reward. The instant gratification from likes, comments, and shares can create a sense of validation and boost self-esteem. However, this can also lead to addictive behaviors, as teens may seek constant engagement to maintain that pleasurable feeling. The brain's reward system becomes highly active, reinforcing the desire for social media interactions and making it difficult for teens to disengage from their devices.
+				</div>
+			</div>
+		</section>
 	</main>
 
 	<?php include_once("layouts/footer.php"); ?>
