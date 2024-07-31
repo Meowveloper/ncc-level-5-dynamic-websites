@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2024 at 06:13 PM
+-- Generation Time: Jul 31, 2024 at 08:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,9 +39,11 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `message`, `email`, `created_at`) VALUES
-(5, 'ljhlklkjlkjljljlkjlkjlkjljlklkjljljlkljlkjlklkjlkj', 'user2@gmail.com', '2024-07-07 17:16:22'),
-(6, 'Yooooooooooooo oooooooooooooooooooo! ', 'user1@gmail.com', '2024-07-12 13:49:32'),
-(7, 'sadfsdafasdfsadfs asdfsadf adfa asf asdf asdf s ', 'user1@gmail.com', '2024-07-12 14:19:55');
+(12, 'I’ve been trying to access the resources section on your website, but it keeps giving me an error message. I’ve tried multiple browsers and even cleared my cache, but nothing seems to work. Can you please look into this issue?\r\nThanks,', 'aungaung@gmail.com', '2024-07-31 17:06:48'),
+(13, 'I found your website extremely helpful for teaching my teenagers about online safety. However, I think it would be beneficial to have more detailed information on how to adjust privacy settings on various social media platforms. Is there any chance you could add that?', 'susu@gmail.com', '2024-07-31 17:07:18'),
+(14, 'I was reading the article on cyberbullying, and I noticed that the link to the external support resource is broken. It’s important information for us, and I’d appreciate it if you could fix it as soon as possible.\r\nThank you,', 'zawzaw@gmail.com', '2024-07-31 17:08:06'),
+(15, 'I wanted to say thank you for the family agreement template provided on your site. It really helped our family set clear guidelines for internet use. It’s a fantastic resource!', 'khantsithu@gmail.com', '2024-07-31 17:09:02'),
+(16, 'I love the content on your website, but I’ve been experiencing very slow loading times, especially on the ‘Tips for Parents’ page. This makes it difficult to navigate and read the information. Could you please address this issue?', 'yati@gmail.com', '2024-07-31 17:09:42');
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,11 @@ CREATE TABLE `members` (
 
 INSERT INTO `members` (`id`, `name`, `profile`, `email`, `password`, `city`, `subscription`, `role`, `owner`, `created_at`) VALUES
 ('smc00001', 'meow ', 'profile_66a289269183c5.86975815_User_icon_2.svg.png', 'admin@gmail.com', '$2y$10$kU8EMjWdFd9mW4ATf6PDJuQGLfEvhjkeIHl7soBB9kYWxpvKzB0ii', 'Yangon', 1, 1, 1, '2024-07-25 16:11:00'),
-('smc00002', 'user1 ', 'profile_66a7be0a3f6317.12062993_OIG4.jpg', 'user1@gmail.com', '$2y$10$4dKNh08Y4tr9DucCMMfR8.1VQ20rN9W82WB5T4P9n3wdJ/X9CN4XO', 'Yangon', 1, 0, 0, '2024-07-25 16:49:25');
+('smc00002', 'Aung Aung', '', 'aungaung@gmail.com', '$2y$10$1tDAaFXCaUrQuTD2qHbG3eSrXIgIDtValAeH0/W1GxeiOjKhxL0eC', 'Yangon', 0, 0, 0, '2024-07-31 17:06:42'),
+('smc00005', 'Khant Si Thu', '', 'khantsithu@gmail.com', '$2y$10$Q4Xiwloqq7NMr.MRs2eGVulDHw.WVofLCXtoSUIvMb3FPmF7URAg.', 'Yangon', 0, 0, 0, '2024-07-31 17:08:49'),
+('smc00003', 'Su Su', '', 'susu@gmail.com', '$2y$10$egJds6l3jzR/nmm3chCeAuFo16r.npWl3m1krCj4CnZKda7SmiSju', 'Yangon', 0, 0, 0, '2024-07-31 17:07:07'),
+('smc00006', 'Yati', '', 'yati@gmail.com', '$2y$10$NWcZ7sReii.BnZiIXLF5xujOovAdUxixHKKH3z4Vbukq90w0M.YLG', 'Yangon', 0, 0, 0, '2024-07-31 17:09:31'),
+('smc00004', 'Zaw Zaw', '', 'zawzaw@gmail.com', '$2y$10$jIFnQDIY5kdU/2t28wJz3.9r1fO1WUc4LICjyEeP/rP8Te88VLDTO', 'Yangon', 0, 0, 0, '2024-07-31 17:07:57');
 
 -- --------------------------------------------------------
 
@@ -218,7 +224,7 @@ ALTER TABLE `social_media_apps`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `how_parent_helps`
