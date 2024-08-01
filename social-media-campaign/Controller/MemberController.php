@@ -50,7 +50,6 @@ class MemberController extends Member
         $oldData = $this->show($id);
         $_POST['password'] = $oldData->password;
         $member = $this->update($id, $isSubscriber, !!$oldData->role, !!$oldData->owner);
-        $member->password = "********";
         $_SESSION['user'] = $member;
         header("location:admin-profile.php");
         exit();

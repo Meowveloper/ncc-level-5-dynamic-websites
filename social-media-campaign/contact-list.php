@@ -87,35 +87,6 @@ endif;
 </body>
 
 <script>
-  window.onload = () => {
-    const banUserButtons = document.querySelectorAll(".btnBanUser");
-    const promoteToAdminButtons = document.querySelectorAll(".btnPromoteToAdmin");
-    const removeFromAdminButtons = document.querySelectorAll(".btnRemoveFromAdmin");
-
-    banUserButtons.forEach(item => {
-      item.addEventListener("click", () => {
-        if (window.confirm(`Are you sure you want to delete the user ${item.dataset.name} with the ID of ${item.dataset.id}??`)) {
-          window.location.href = `member-list.php?isDelete=1&deleteId=${item.dataset.id}`;
-        }
-      })
-    });
-
-    promoteToAdminButtons.forEach(item => {
-      item.addEventListener("click", () => {
-        if (window.confirm(`Are you sure you want to promote the user ${item.dataset.name} with the ID of ${item.dataset.id} to an admin??`)) {
-          window.location.href = `member-list.php?changeRole=1&changeRoleId=${item.dataset.id}&roleToChange=1`;
-        }
-      });
-    });
-
-    removeFromAdminButtons.forEach(item => {
-      item.addEventListener("click", () => {
-        if (window.confirm(`Are you sure you want to change the role of the user ${item.dataset.name} with the ID of ${item.dataset.id} to a user??`)) {
-          window.location.href = `member-list.php?changeRole=1&changeRoleId=${item.dataset.id}&roleToChange=0`;
-        }
-      });
-    });
-  }
 </script>
 
 </html>
