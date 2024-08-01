@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2024 at 08:20 PM
+-- Generation Time: Aug 01, 2024 at 12:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,7 @@ INSERT INTO `contacts` (`id`, `message`, `email`, `created_at`) VALUES
 (13, 'I found your website extremely helpful for teaching my teenagers about online safety. However, I think it would be beneficial to have more detailed information on how to adjust privacy settings on various social media platforms. Is there any chance you could add that?', 'susu@gmail.com', '2024-07-31 17:07:18'),
 (14, 'I was reading the article on cyberbullying, and I noticed that the link to the external support resource is broken. It’s important information for us, and I’d appreciate it if you could fix it as soon as possible.\r\nThank you,', 'zawzaw@gmail.com', '2024-07-31 17:08:06'),
 (15, 'I wanted to say thank you for the family agreement template provided on your site. It really helped our family set clear guidelines for internet use. It’s a fantastic resource!', 'khantsithu@gmail.com', '2024-07-31 17:09:02'),
-(16, 'I love the content on your website, but I’ve been experiencing very slow loading times, especially on the ‘Tips for Parents’ page. This makes it difficult to navigate and read the information. Could you please address this issue?', 'yati@gmail.com', '2024-07-31 17:09:42');
+(17, 'I love the content on your website, but I’ve been experiencing very slow loading times, especially on the ‘Tips for Parents’ page. This makes it difficult to navigate and read the information. Could you please address this issue?', 'yati@gmail.com', '2024-08-01 09:52:23');
 
 -- --------------------------------------------------------
 
@@ -94,8 +94,9 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `name`, `profile`, `email`, `password`, `city`, `subscription`, `role`, `owner`, `created_at`) VALUES
-('smc00001', 'meow ', 'profile_66a289269183c5.86975815_User_icon_2.svg.png', 'admin@gmail.com', '$2y$10$kU8EMjWdFd9mW4ATf6PDJuQGLfEvhjkeIHl7soBB9kYWxpvKzB0ii', 'Yangon', 1, 1, 1, '2024-07-25 16:11:00'),
-('smc00002', 'Aung Aung', '', 'aungaung@gmail.com', '$2y$10$1tDAaFXCaUrQuTD2qHbG3eSrXIgIDtValAeH0/W1GxeiOjKhxL0eC', 'Yangon', 0, 0, 0, '2024-07-31 17:06:42'),
+('smc00001', 'meow ', 'profile_66ab6519c12047.91427018_admin-home.jpg', 'admin@gmail.com', '$2y$10$kU8EMjWdFd9mW4ATf6PDJuQGLfEvhjkeIHl7soBB9kYWxpvKzB0ii', 'Yangon', 1, 1, 1, '2024-07-25 16:11:00'),
+('smc00007', 'Aye Chan Moe', '', 'audrey@gmail.com', '$2y$10$7EcEttDDAHmJQ38efOOgg.ZjHILvTYi8OtVrCmYTAf1K6Xyhp4Ptm', 'Yangon', 0, 0, 0, '2024-07-31 18:22:19'),
+('smc00008', 'Aung Aung', '', 'aungaung@gmail.com', '$2y$10$EZ7KZXItF5qJ4eBxG0cXsu.ijG.JmgtEGig0eSZvHKgKCnAHkG1hW', 'Yangon', 0, 0, 0, '2024-08-01 10:37:38'),
 ('smc00005', 'Khant Si Thu', '', 'khantsithu@gmail.com', '$2y$10$Q4Xiwloqq7NMr.MRs2eGVulDHw.WVofLCXtoSUIvMb3FPmF7URAg.', 'Yangon', 0, 0, 0, '2024-07-31 17:08:49'),
 ('smc00003', 'Su Su', '', 'susu@gmail.com', '$2y$10$egJds6l3jzR/nmm3chCeAuFo16r.npWl3m1krCj4CnZKda7SmiSju', 'Yangon', 0, 0, 0, '2024-07-31 17:07:07'),
 ('smc00006', 'Yati', '', 'yati@gmail.com', '$2y$10$NWcZ7sReii.BnZiIXLF5xujOovAdUxixHKKH3z4Vbukq90w0M.YLG', 'Yangon', 0, 0, 0, '2024-07-31 17:09:31'),
@@ -224,7 +225,7 @@ ALTER TABLE `social_media_apps`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `how_parent_helps`
@@ -248,7 +249,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `social_media_apps`
 --
 ALTER TABLE `social_media_apps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
