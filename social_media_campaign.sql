@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2024 at 12:46 PM
+-- Generation Time: Aug 01, 2024 at 07:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -98,7 +98,7 @@ INSERT INTO `members` (`id`, `name`, `profile`, `email`, `password`, `city`, `su
 ('smc00007', 'Aye Chan Moe', '', 'audrey@gmail.com', '$2y$10$7EcEttDDAHmJQ38efOOgg.ZjHILvTYi8OtVrCmYTAf1K6Xyhp4Ptm', 'Yangon', 0, 0, 0, '2024-07-31 18:22:19'),
 ('smc00008', 'Aung Aung', '', 'aungaung@gmail.com', '$2y$10$EZ7KZXItF5qJ4eBxG0cXsu.ijG.JmgtEGig0eSZvHKgKCnAHkG1hW', 'Yangon', 0, 0, 0, '2024-08-01 10:37:38'),
 ('smc00005', 'Khant Si Thu', '', 'khantsithu@gmail.com', '$2y$10$Q4Xiwloqq7NMr.MRs2eGVulDHw.WVofLCXtoSUIvMb3FPmF7URAg.', 'Yangon', 0, 0, 0, '2024-07-31 17:08:49'),
-('smc00003', 'Su Su', '', 'susu@gmail.com', '$2y$10$egJds6l3jzR/nmm3chCeAuFo16r.npWl3m1krCj4CnZKda7SmiSju', 'Yangon', 0, 0, 0, '2024-07-31 17:07:07'),
+('smc00003', 'Su Su', '', 'susu@gmail.com', '$2y$10$egJds6l3jzR/nmm3chCeAuFo16r.npWl3m1krCj4CnZKda7SmiSju', 'Yangon', 1, 0, 0, '2024-07-31 17:07:07'),
 ('smc00006', 'Yati', '', 'yati@gmail.com', '$2y$10$NWcZ7sReii.BnZiIXLF5xujOovAdUxixHKKH3z4Vbukq90w0M.YLG', 'Yangon', 0, 0, 0, '2024-07-31 17:09:31'),
 ('smc00004', 'Zaw Zaw', '', 'zawzaw@gmail.com', '$2y$10$jIFnQDIY5kdU/2t28wJz3.9r1fO1WUc4LICjyEeP/rP8Te88VLDTO', 'Yangon', 0, 0, 0, '2024-07-31 17:07:57');
 
@@ -225,7 +225,7 @@ ALTER TABLE `social_media_apps`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `how_parent_helps`

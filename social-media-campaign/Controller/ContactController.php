@@ -19,7 +19,6 @@ class ContactController extends Contact
 
     public function createContact () : void 
     {
-        echo $_POST['email'];
         $this->store();
         header("location:home.php");
         exit();
